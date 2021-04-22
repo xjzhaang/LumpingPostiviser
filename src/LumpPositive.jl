@@ -163,7 +163,7 @@ end
 #Utility functions#
 #################################################################################################################################################
 function new_matrix_printer(intersect_matrix, txt, dir)
-    open(dir * "new_macrovariables.txt", "w") do io
+    open(dir * "macrovariables.txt", "w") do io
         for row_index in 1:size(intersect_matrix)[1]
             for col_index in 1:size(intersect_matrix)[2]
                 print(io, intersect_matrix[row_index, col_index])
@@ -175,7 +175,7 @@ function new_matrix_printer(intersect_matrix, txt, dir)
 end
 
 function new_poly_printer(new_poly, txt, dir)
-    open(dir * "new_ODE.txt", "w") do io
+    open(dir * "new_ode.txt", "w") do io
         for row_index in 1:size(new_poly)[1]
             print(io, new_poly[row_index])
             print(io, "\n")
@@ -199,30 +199,32 @@ function get_new_poly(matrix_txt, poly_txt, dir)
     new_poly_printer(new_poly, poly_txt, dir)
 end
 
-function run_all_PP(n)
-    for i in 2:n
-        get_new_matrix("ProteinPhosphorylation/m$i/original_macrovariables.txt", "ProteinPhosphorylation/m$i/")
-        get_new_poly("ProteinPhosphorylation/m$i/original_macrovariables.txt", "ProteinPhosphorylation/m$i/original_ODE.txt", "ProteinPhosphorylation/m$i/")
-    end
+function run_PP(i)
+    get_new_matrix("../examples/ProteinPhosphorylation/m$i/CLUE_files/CLUE_matrix.txt", "../examples/ProteinPhosphorylation/m$i/Output/")
+    get_new_poly("../examples/ProteinPhosphorylation/m$i/CLUE_files/CLUE_matrix.txt", "../examples/ProteinPhosphorylation/m$i/CLUE_files/CLUE_ode.txt", "../examples/ProteinPhosphorylation/m$i/Output/")
 end
 
-function run_all_fceri(n)
-    for i in 1:n
-        get_new_matrix("fceri_ji/obs$i/original_macrovariables.txt", "fceri_ji/obs$i/")
-        get_new_poly("fceri_ji/obs$i/original_macrovariables.txt", "fceri_ji/obs$i/original_ODE.txt", "fceri_ji/obs$i/")
-    end
+function run_fceri()
+    get_new_matrix("../examples/fceri_ji/CLUE_files/CLUE_matrix.txt", "../examples/fceri_ji/Output/")
+    get_new_poly("../examples/fceri_ji/CLUE_files/CLUE_matrix.txt", "../examples/fceri_ji/CLUE_files/CLUE_ode.txt", "../examples/fceri_ji/Output/")
 end
 
-function run_all_Jak(n)
-    for i in 1:n
-        get_new_matrix("Jak-family/obs$i/original_macrovariables.txt", "Jak-family/obs$i/")
-        get_new_poly("Jak-family/obs$i/original_macrovariables.txt", "Jak-family/obs$i/original_ODE.txt", "Jak-family/obs$i/")
-    end
+function run_Jak()
+    get_new_matrix("../examples/Jak-family/CLUE_files/CLUE_matrix.txt", "../examples/Jak-family/Output/")
+    get_new_poly("../examples/Jak-family/CLUE_files/CLUE_matrix.txt", "../examples/Jak-family/CLUE_files/", "../examples/Jak-family/Output/")
 end
 
 #To run the script in terminal with commandline >julia intersect.jl arg1
 function main()
-    run_all(ARGS[1])
+    if ARGS[1] == "fceri_ji"
+        run_fceri()
+    elseif ARGS[1] == "Jak"
+        run_Jak()
+    elseif ARGS[1] == "PP"
+        run_PP(ARGS[2])
+    else
+        println("Wrong parameter")
+    end
 end
 
 

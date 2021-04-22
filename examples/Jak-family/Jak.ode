@@ -1,0 +1,5548 @@
+begin model Jak
+ begin parameters
+  kf1 = 0.1
+  kr1 = 0.15
+  kx2 = 0.002415
+  kx2intra = 0.00001455
+  kminusx2 = 0.016
+  kminusx1 = 0.0015
+  kfast = 100000
+  ksynth_R = 10
+  kt = 0.005
+  ke = 0.1
+  kon_dimer = 0.00019023
+  koff_dimer = 6.0
+  kon_j = 0.00019023
+  koff_j = 6.0
+  kon_SH2 = 0.00019023
+  koff_SH2 = 6.0
+  kphos_slow = 6.0
+  kphos_fast = 60
+  kcat_ptp = 6.0
+  chi_m = 166.66
+  chi_r = 31540000
+  Ltot = 10
+  Rtot = 2000
+  Jtot = 31540
+  Stot = 31540
+  Itot = 1
+  rateLaw1 = chi_r*kx2intra
+  rateLaw2 = kfast*Ltot
+  rateLaw3 = chi_m*kon_SH2
+  rateLaw4 = chi_r*kon_SH2
+  rateLaw5 = chi_m*kon_dimer
+  rateLaw6 = chi_r*kon_dimer
+  rateLaw7 = chi_m*kon_j
+  rateLaw8 = chi_r*kon_j
+ end parameters
+ begin init
+  S0 = 10.0
+  S1 = 2000.0
+  S2 = 31540.0
+  S3 = 31540.0
+  S4 = 1.0
+  S5
+  S6
+  S7
+  S8
+  S9
+  S10
+  S11
+  S12
+  S13
+  S14
+  S15
+  S16
+  S17
+  S18
+  S19
+  S20
+  S21
+  S22
+  S23
+  S24
+  S25
+  S26
+  S27
+  S28
+  S29
+  S30
+  S31
+  S32
+  S33
+  S34
+  S35
+  S36
+  S37
+  S38
+  S39
+  S40
+  S41
+  S42
+  S43
+  S44
+  S45
+  S46
+  S47
+  S48
+  S49
+  S50
+  S51
+  S52
+  S53
+  S54
+  S55
+  S56
+  S57
+  S58
+  S59
+  S60
+  S61
+  S62
+  S63
+  S64
+  S65
+  S66
+  S67
+  S68
+  S69
+  S70
+  S71
+  S72
+  S73
+  S74
+  S75
+  S76
+  S77
+  S78
+  S79
+  S80
+  S81
+  S82
+  S83
+  S84
+  S85
+  S86
+  S87
+  S88
+  S89
+  S90
+  S91
+  S92
+  S93
+  S94
+  S95
+  S96
+  S97
+  S98
+  S99
+  S100
+  S101
+  S102
+  S103
+  S104
+  S105
+  S106
+  S107
+  S108
+  S109
+  S110
+  S111
+  S112
+  S113
+  S114
+  S115
+  S116
+  S117
+  S118
+  S119
+  S120
+  S121
+  S122
+  S123
+  S124
+  S125
+  S126
+  S127
+  S128
+  S129
+  S130
+  S131
+  S132
+  S133
+  S134
+  S135
+  S136
+  S137
+  S138
+  S139
+  S140
+  S141
+  S142
+  S143
+  S144
+  S145
+  S146
+  S147
+  S148
+  S149
+  S150
+  S151
+  S152
+  S153
+  S154
+  S155
+  S156
+  S157
+  S158
+  S159
+  S160
+  S161
+  S162
+  S163
+  S164
+  S165
+  S166
+  S167
+  S168
+  S169
+  S170
+  S171
+  S172
+  S173
+  S174
+  S175
+  S176
+  S177
+  S178
+  S179
+  S180
+  S181
+  S182
+  S183
+  S184
+  S185
+  S186
+  S187
+  S188
+  S189
+  S190
+  S191
+  S192
+  S193
+  S194
+  S195
+  S196
+  S197
+  S198
+  S199
+  S200
+  S201
+  S202
+  S203
+  S204
+  S205
+  S206
+  S207
+  S208
+  S209
+  S210
+  S211
+  S212
+  S213
+  S214
+  S215
+  S216
+  S217
+  S218
+  S219
+  S220
+  S221
+  S222
+  S223
+  S224
+  S225
+  S226
+  S227
+  S228
+  S229
+  S230
+  S231
+  S232
+  S233
+  S234
+  S235
+  S236
+  S237
+  S238
+  S239
+  S240
+  S241
+  S242
+  S243
+  S244
+  S245
+  S246
+  S247
+  S248
+  S249
+  S250
+  S251
+  S252
+  S253
+  S254
+  S255
+  S256
+  S257
+  S258
+  S259
+  S260
+  S261
+  S262
+  S263
+  S264
+  S265
+  S266
+  S267
+  S268
+  S269
+  S270
+  S271
+  S272
+  S273
+  S274
+  S275
+  S276
+  S277
+  S278
+  S279
+  S280
+  S281
+  S282
+  S283
+  S284
+  S285
+  S286
+  S287
+  S288
+  S289
+  S290
+  S291
+  S292
+  S293
+  S294
+  S295
+  S296
+  S297
+  S298
+  S299
+  S300
+  S301
+  S302
+  S303
+  S304
+  S305
+  S306
+  S307
+  S308
+  S309
+  S310
+  S311
+  S312
+  S313
+  S314
+  S315
+  S316
+  S317
+  S318
+  S319
+  S320
+  S321
+  S322
+  S323
+  S324
+  S325
+  S326
+  S327
+  S328
+  S329
+  S330
+  S331
+  S332
+  S333
+  S334
+  S335
+  S336
+  S337
+  S338
+  S339
+  S340
+  S341
+  S342
+  S343
+  S344
+  S345
+  S346
+  S347
+  S348
+  S349
+  S350
+  S351
+  S352
+  S353
+  S354
+  S355
+  S356
+  S357
+  S358
+  S359
+  S360
+  S361
+  S362
+  S363
+  S364
+  S365
+  S366
+  S367
+  S368
+  S369
+  S370
+  S371
+  S372
+  S373
+  S374
+  S375
+  S376
+  S377
+  S378
+  S379
+  S380
+  S381
+  S382
+  S383
+  S384
+  S385
+  S386
+  S387
+  S388
+  S389
+  S390
+  S391
+  S392
+  S393
+  S394
+  S395
+  S396
+  S397
+  S398
+  S399
+  S400
+  S401
+  S402
+  S403
+  S404
+  S405
+  S406
+  S407
+  S408
+  S409
+  S410
+  S411
+  S412
+  S413
+  S414
+  S415
+  S416
+  S417
+  S418
+  S419
+  S420
+  S421
+  S422
+  S423
+  S424
+  S425
+  S426
+  S427
+  S428
+  S429
+  S430
+  S431
+  S432
+  S433
+  S434
+  S435
+  S436
+  S437
+  S438
+  S439
+  S440
+  S441
+  S442
+  S443
+  S444
+  S445
+  S446
+  S447
+  S448
+  S449
+  S450
+  S451
+  S452
+  S453
+  S454
+  S455
+  S456
+  S457
+  S458
+  S459
+  S460
+  S461
+  S462
+  S463
+  S464
+  S465
+  S466
+  S467
+  S468
+  S469
+  S470
+ end init
+ begin reactions
+  S0 + S1 -> S5 , kf1
+  S4 -> S1 + S4 , ksynth_R
+  S4 -> S0 + S4 , rateLaw2
+  S0 + S4 -> S4 , kfast
+  2*S2 -> S6 , 0.5*kon_dimer
+  S1 + S3 -> S7 , kon_j
+  S1 -> S8 , kt
+  S0 + S7 -> S9 , kf1
+  S5 -> S0 + S1 , kr1
+  S1 + S5 -> S10 , kx2
+  S5 + S7 -> S11 , kx2
+  S6 -> 2*S2 , koff_dimer
+  S3 + S5 -> S9 , kon_j
+  S7 -> S1 + S3 , koff_j
+  S5 -> S12 , kt
+  S7 -> S13 , kt
+  S9 -> S0 + S7 , kr1
+  S1 + S9 -> S14 , kx2
+  S7 + S9 -> S15 , kx2
+  S10 -> S1 + S5 , kminusx2
+  S11 -> S5 + S7 , kminusx2
+  S10 -> S1 + S16 , kminusx1
+  S11 -> S1 + S17 , kminusx1
+  S3 + S10 -> S11 , kon_j
+  S3 + S10 -> S14 , kon_j
+  S3 + S11 -> S15 , kon_j
+  S9 -> S3 + S5 , koff_j
+  S11 -> S3 + S10 , koff_j
+  S13 -> S3 + S8 , koff_j
+  S9 -> S18 , kt
+  S10 -> S19 , ke
+  S11 -> S20 , ke
+  S14 -> S1 + S9 , kminusx2
+  S15 -> S7 + S9 , kminusx2
+  S14 -> S7 + S16 , kminusx1
+  S15 -> S7 + S17 , kminusx1
+  S16 -> S0 + S1 , kfast
+  S17 -> S0 + S7 , kfast
+  S3 + S14 -> S15 , kon_j
+  S3 + S16 -> S17 , kon_j
+  S14 -> S3 + S10 , koff_j
+  S15 -> S3 + S14 , koff_j
+  S15 -> S3 + S11 , koff_j
+  S17 -> S3 + S16 , koff_j
+  S18 -> S3 + S12 , koff_j
+  S20 -> S3 + S19 , koff_j
+  S15 -> S21 , kphos_slow
+  S15 -> S22 , kphos_slow
+  S15 -> S23 , kphos_slow
+  S15 -> S24 , kphos_slow
+  S16 -> S25 , kt
+  S17 -> S26 , kt
+  S14 -> S27 , ke
+  S15 -> S28 , ke
+  S21 -> S9 + S29 , kminusx2
+  S22 -> S7 + S30 , kminusx2
+  S23 -> S9 + S31 , kminusx2
+  S24 -> S7 + S32 , kminusx2
+  S21 -> S7 + S33 , kminusx1
+  S22 -> S17 + S29 , kminusx1
+  S23 -> S7 + S34 , kminusx1
+  S24 -> S17 + S31 , kminusx1
+  S2 + S21 -> S35 , kon_SH2
+  S2 + S22 -> S36 , kon_SH2
+  S6 + S21 -> S37 , 2*kon_SH2
+  S6 + S22 -> S38 , 2*kon_SH2
+  S21 -> S14 + S39 , koff_j
+  S21 -> S3 + S40 , koff_j
+  S22 -> S3 + S41 , koff_j
+  S22 -> S11 + S39 , koff_j
+  S23 -> S14 + S42 , koff_j
+  S23 -> S3 + S43 , koff_j
+  S24 -> S3 + S44 , koff_j
+  S24 -> S11 + S42 , koff_j
+  S26 -> S3 + S25 , koff_j
+  S27 -> S3 + S19 , koff_j
+  S28 -> S3 + S27 , koff_j
+  S28 -> S3 + S20 , koff_j
+  S21 -> S45 , kphos_slow
+  S22 -> S45 , kphos_slow
+  S23 -> S46 , kphos_slow
+  S24 -> S47 , kphos_slow
+  S23 -> S48 , kphos_fast
+  S24 -> S49 , kphos_fast
+  S21 -> S46 , kphos_slow
+  S21 -> S49 , kphos_slow
+  S22 -> S47 , kphos_slow
+  S22 -> S48 , kphos_slow
+  S28 -> S50 , kphos_slow
+  S28 -> S51 , kphos_slow
+  S23 -> S52 , kphos_fast
+  S24 -> S52 , kphos_fast
+  S21 -> S15 , kcat_ptp
+  S22 -> S15 , kcat_ptp
+  S23 -> S15 , kcat_ptp
+  S24 -> S15 , kcat_ptp
+  S21 -> S53 , ke
+  S22 -> S54 , ke
+  S23 -> S50 , ke
+  S24 -> S51 , ke
+  S0 + S29 -> S30 , kf1
+  S0 + S31 -> S32 , kf1
+  S30 -> S0 + S29 , kr1
+  S32 -> S0 + S31 , kr1
+  S1 + S30 -> S41 , kx2
+  S1 + S32 -> S44 , kx2
+  S7 + S30 -> S22 , kx2
+  S7 + S32 -> S24 , kx2
+  S5 + S29 -> S40 , kx2
+  S9 + S29 -> S21 , kx2
+  S29 + S30 -> S45 , kx2
+  S29 + S32 -> S49 , kx2
+  S5 + S31 -> S43 , kx2
+  S9 + S31 -> S23 , kx2
+  S30 + S31 -> S48 , kx2
+  S31 + S32 -> S52 , kx2
+  S35 -> S9 + S55 , kminusx2
+  S36 -> S7 + S56 , kminusx2
+  S37 -> S9 + S57 , kminusx2
+  S38 -> S7 + S58 , kminusx2
+  S40 -> S5 + S29 , kminusx2
+  S41 -> S1 + S30 , kminusx2
+  S43 -> S5 + S31 , kminusx2
+  S44 -> S1 + S32 , kminusx2
+  S45 -> S29 + S30 , kminusx2
+  S46 -> S9 + S59 , kminusx2
+  S47 -> S7 + S60 , kminusx2
+  S48 -> S30 + S31 , kminusx2
+  S49 -> S29 + S32 , kminusx2
+  S52 -> S31 + S32 , kminusx2
+  S35 -> S7 + S61 , kminusx1
+  S36 -> S17 + S55 , kminusx1
+  S37 -> S7 + S62 , kminusx1
+  S38 -> S17 + S57 , kminusx1
+  S40 -> S1 + S33 , kminusx1
+  S41 -> S16 + S29 , kminusx1
+  S43 -> S1 + S34 , kminusx1
+  S44 -> S16 + S31 , kminusx1
+  S45 -> S29 + S33 , kminusx1
+  S46 -> S7 + S63 , kminusx1
+  S47 -> S17 + S59 , kminusx1
+  S48 -> S29 + S34 , kminusx1
+  S49 -> S31 + S33 , kminusx1
+  S52 -> S31 + S34 , kminusx1
+  S33 -> S0 + S29 , kfast
+  S34 -> S0 + S31 , kfast
+  S2 + S39 -> S64 , kon_SH2
+  S6 + S39 -> S65 , 2*kon_SH2
+  S37 + S39 -> S66 , kon_SH2
+  S38 + S39 -> S67 , kon_SH2
+  S2 + S29 -> S55 , kon_SH2
+  S2 + S30 -> S56 , kon_SH2
+  S2 + S33 -> S61 , kon_SH2
+  S2 + S40 -> S68 , kon_SH2
+  S2 + S41 -> S69 , kon_SH2
+  S2 + S45 -> S70 , kon_SH2
+  S2 + S45 -> S71 , kon_SH2
+  S2 + S46 -> S72 , kon_SH2
+  S2 + S47 -> S73 , kon_SH2
+  S2 + S48 -> S74 , kon_SH2
+  S2 + S49 -> S75 , kon_SH2
+  S6 + S29 -> S57 , 2*kon_SH2
+  S6 + S30 -> S58 , 2*kon_SH2
+  S6 + S33 -> S62 , 2*kon_SH2
+  S6 + S40 -> S76 , 2*kon_SH2
+  S6 + S41 -> S77 , 2*kon_SH2
+  S6 + S45 -> S78 , 2*kon_SH2
+  S6 + S45 -> S79 , 2*kon_SH2
+  S6 + S46 -> S80 , 2*kon_SH2
+  S6 + S47 -> S81 , 2*kon_SH2
+  S6 + S48 -> S82 , 2*kon_SH2
+  S6 + S49 -> S83 , 2*kon_SH2
+  S35 -> S2 + S21 , koff_SH2
+  S36 -> S2 + S22 , koff_SH2
+  S37 -> S6 + S21 , koff_SH2
+  S38 -> S6 + S22 , koff_SH2
+  S2 + S35 -> S37 , kon_dimer
+  S2 + S36 -> S38 , kon_dimer
+  S37 -> S2 + S35 , koff_dimer
+  S38 -> S2 + S36 , koff_dimer
+  S1 + S42 -> S31 , kon_j
+  S5 + S42 -> S32 , kon_j
+  S10 + S42 -> S43 , kon_j
+  S10 + S42 -> S44 , kon_j
+  S11 + S42 -> S24 , kon_j
+  S14 + S42 -> S23 , kon_j
+  S16 + S42 -> S34 , kon_j
+  S3 + S40 -> S21 , kon_j
+  S40 + S42 -> S49 , kon_j
+  S3 + S41 -> S22 , kon_j
+  S41 + S42 -> S48 , kon_j
+  S3 + S43 -> S23 , kon_j
+  S42 + S43 -> S52 , kon_j
+  S3 + S44 -> S24 , kon_j
+  S42 + S44 -> S52 , kon_j
+  S1 + S39 -> S29 , kon_j
+  S5 + S39 -> S30 , kon_j
+  S10 + S39 -> S40 , kon_j
+  S10 + S39 -> S41 , kon_j
+  S11 + S39 -> S22 , kon_j
+  S14 + S39 -> S21 , kon_j
+  S16 + S39 -> S33 , kon_j
+  S39 + S40 -> S45 , kon_j
+  S39 + S41 -> S45 , kon_j
+  S39 + S43 -> S48 , kon_j
+  S39 + S44 -> S49 , kon_j
+  S29 -> S1 + S39 , koff_j
+  S30 -> S5 + S39 , koff_j
+  S31 -> S1 + S42 , koff_j
+  S32 -> S5 + S42 , koff_j
+  S33 -> S16 + S39 , koff_j
+  S34 -> S16 + S42 , koff_j
+  S35 -> S14 + S64 , koff_j
+  S35 -> S3 + S68 , koff_j
+  S36 -> S3 + S69 , koff_j
+  S36 -> S11 + S64 , koff_j
+  S37 -> S14 + S65 , koff_j
+  S37 -> S3 + S76 , koff_j
+  S38 -> S3 + S77 , koff_j
+  S38 -> S11 + S65 , koff_j
+  S40 -> S10 + S39 , koff_j
+  S41 -> S10 + S39 , koff_j
+  S43 -> S10 + S42 , koff_j
+  S44 -> S10 + S42 , koff_j
+  S45 -> S39 + S41 , koff_j
+  S45 -> S39 + S40 , koff_j
+  S46 -> S14 + S84 , koff_j
+  S46 -> S3 + S85 , koff_j
+  S47 -> S3 + S86 , koff_j
+  S47 -> S11 + S84 , koff_j
+  S48 -> S41 + S42 , koff_j
+  S48 -> S39 + S43 , koff_j
+  S49 -> S39 + S44 , koff_j
+  S49 -> S40 + S42 , koff_j
+  S50 -> S27 + S42 , koff_j
+  S50 -> S3 + S87 , koff_j
+  S51 -> S3 + S88 , koff_j
+  S51 -> S20 + S42 , koff_j
+  S52 -> S42 + S44 , koff_j
+  S52 -> S42 + S43 , koff_j
+  S53 -> S27 + S39 , koff_j
+  S53 -> S3 + S89 , koff_j
+  S54 -> S3 + S90 , koff_j
+  S54 -> S20 + S39 , koff_j
+  S35 -> S70 , kphos_slow
+  S36 -> S71 , kphos_slow
+  S37 -> S78 , kphos_slow
+  S38 -> S79 , kphos_slow
+  S48 -> S91 , kphos_slow
+  S49 -> S92 , kphos_slow
+  S46 -> S91 , kphos_fast
+  S47 -> S92 , kphos_fast
+  S52 -> S93 , kphos_fast
+  S52 -> S94 , kphos_fast
+  S35 -> S72 , kphos_slow
+  S35 -> S75 , kphos_slow
+  S36 -> S73 , kphos_slow
+  S36 -> S74 , kphos_slow
+  S37 -> S80 , kphos_slow
+  S37 -> S83 , kphos_slow
+  S38 -> S81 , kphos_slow
+  S38 -> S82 , kphos_slow
+  S45 -> S91 , kphos_slow
+  S45 -> S92 , kphos_slow
+  S53 -> S95 , kphos_slow
+  S53 -> S96 , kphos_slow
+  S54 -> S97 , kphos_slow
+  S54 -> S98 , kphos_slow
+  S46 -> S93 , kphos_fast
+  S47 -> S94 , kphos_fast
+  S48 -> S94 , kphos_fast
+  S49 -> S93 , kphos_fast
+  S50 -> S99 , kphos_fast
+  S51 -> S99 , kphos_fast
+  S29 -> S7 , kcat_ptp
+  S30 -> S9 , kcat_ptp
+  S33 -> S17 , kcat_ptp
+  S39 -> S3 , kcat_ptp
+  S40 -> S11 , kcat_ptp
+  S41 -> S14 , kcat_ptp
+  S45 -> S22 , kcat_ptp
+  S45 -> S21 , kcat_ptp
+  S46 -> S23 , kcat_ptp
+  S47 -> S24 , kcat_ptp
+  S48 -> S23 , kcat_ptp
+  S49 -> S24 , kcat_ptp
+  S53 -> S28 , kcat_ptp
+  S54 -> S28 , kcat_ptp
+  S31 -> S7 , kcat_ptp
+  S32 -> S9 , kcat_ptp
+  S34 -> S17 , kcat_ptp
+  S42 -> S3 , kcat_ptp
+  S43 -> S11 , kcat_ptp
+  S44 -> S14 , kcat_ptp
+  S46 -> S21 , kcat_ptp
+  S47 -> S22 , kcat_ptp
+  S48 -> S22 , kcat_ptp
+  S49 -> S21 , kcat_ptp
+  S50 -> S28 , kcat_ptp
+  S51 -> S28 , kcat_ptp
+  S52 -> S24 , kcat_ptp
+  S52 -> S23 , kcat_ptp
+  S31 -> S100 , kt
+  S29 -> S101 , kt
+  S32 -> S102 , kt
+  S34 -> S103 , kt
+  S30 -> S104 , kt
+  S33 -> S105 , kt
+  S35 -> S106 , ke
+  S36 -> S107 , ke
+  S37 -> S108 , ke
+  S38 -> S109 , ke
+  S40 -> S89 , ke
+  S41 -> S90 , ke
+  S43 -> S87 , ke
+  S44 -> S88 , ke
+  S45 -> S110 , ke
+  S46 -> S95 , ke
+  S47 -> S97 , ke
+  S48 -> S98 , ke
+  S49 -> S96 , ke
+  S52 -> S99 , ke
+  S0 + S55 -> S56 , kf1
+  S0 + S57 -> S58 , kf1
+  S0 + S59 -> S60 , kf1
+  S56 -> S0 + S55 , kr1
+  S58 -> S0 + S57 , kr1
+  S60 -> S0 + S59 , kr1
+  S1 + S56 -> S69 , kx2
+  S1 + S58 -> S77 , kx2
+  S1 + S60 -> S86 , kx2
+  S7 + S56 -> S36 , kx2
+  S7 + S58 -> S38 , kx2
+  S7 + S60 -> S47 , kx2
+  S29 + S56 -> S71 , kx2
+  S29 + S58 -> S79 , kx2
+  S29 + S60 -> S92 , kx2
+  S31 + S56 -> S74 , kx2
+  S31 + S58 -> S82 , kx2
+  S31 + S60 -> S94 , kx2
+  S5 + S55 -> S68 , kx2
+  S9 + S55 -> S35 , kx2
+  S30 + S55 -> S70 , kx2
+  S32 + S55 -> S75 , kx2
+  S55 + S56 -> S111 , kx2
+  S55 + S58 -> S112 , kx2
+  S55 + S60 -> S113 , kx2
+  S5 + S57 -> S76 , kx2
+  S9 + S57 -> S37 , kx2
+  S30 + S57 -> S78 , kx2
+  S32 + S57 -> S83 , kx2
+  S56 + S57 -> S114 , kx2
+  S57 + S58 -> S115 , kx2
+  S57 + S60 -> S116 , kx2
+  S5 + S59 -> S85 , kx2
+  S9 + S59 -> S46 , kx2
+  S30 + S59 -> S91 , kx2
+  S32 + S59 -> S93 , kx2
+  S56 + S59 -> S117 , kx2
+  S58 + S59 -> S118 , kx2
+  S59 + S60 -> S119 , kx2
+  S66 -> S9 + S120 , kminusx2
+  S67 -> S7 + S121 , kminusx2
+  S68 -> S5 + S55 , kminusx2
+  S69 -> S1 + S56 , kminusx2
+  S70 -> S30 + S55 , kminusx2
+  S71 -> S29 + S56 , kminusx2
+  S72 -> S9 + S122 , kminusx2
+  S73 -> S7 + S123 , kminusx2
+  S74 -> S31 + S56 , kminusx2
+  S75 -> S32 + S55 , kminusx2
+  S76 -> S5 + S57 , kminusx2
+  S77 -> S1 + S58 , kminusx2
+  S78 -> S30 + S57 , kminusx2
+  S79 -> S29 + S58 , kminusx2
+  S80 -> S9 + S124 , kminusx2
+  S81 -> S7 + S125 , kminusx2
+  S82 -> S31 + S58 , kminusx2
+  S83 -> S32 + S57 , kminusx2
+  S85 -> S5 + S59 , kminusx2
+  S86 -> S1 + S60 , kminusx2
+  S91 -> S30 + S59 , kminusx2
+  S92 -> S29 + S60 , kminusx2
+  S93 -> S32 + S59 , kminusx2
+  S94 -> S31 + S60 , kminusx2
+  S66 -> S7 + S126 , kminusx1
+  S67 -> S17 + S120 , kminusx1
+  S68 -> S1 + S61 , kminusx1
+  S69 -> S16 + S55 , kminusx1
+  S70 -> S29 + S61 , kminusx1
+  S71 -> S33 + S55 , kminusx1
+  S72 -> S7 + S127 , kminusx1
+  S73 -> S17 + S122 , kminusx1
+  S74 -> S34 + S55 , kminusx1
+  S75 -> S31 + S61 , kminusx1
+  S76 -> S1 + S62 , kminusx1
+  S77 -> S16 + S57 , kminusx1
+  S78 -> S29 + S62 , kminusx1
+  S79 -> S33 + S57 , kminusx1
+  S80 -> S7 + S128 , kminusx1
+  S81 -> S17 + S124 , kminusx1
+  S82 -> S34 + S57 , kminusx1
+  S83 -> S31 + S62 , kminusx1
+  S85 -> S1 + S63 , kminusx1
+  S86 -> S16 + S59 , kminusx1
+  S91 -> S29 + S63 , kminusx1
+  S92 -> S33 + S59 , kminusx1
+  S93 -> S31 + S63 , kminusx1
+  S94 -> S34 + S59 , kminusx1
+  S61 -> S0 + S55 , kfast
+  S62 -> S0 + S57 , kfast
+  S63 -> S0 + S59 , kfast
+  S39 + S65 -> S129 , kon_SH2
+  S2 + S84 -> S130 , kon_SH2
+  S6 + S84 -> S131 , 2*kon_SH2
+  S65 + S84 -> S132 , kon_SH2
+  S39 + S57 -> S120 , kon_SH2
+  S39 + S58 -> S121 , kon_SH2
+  S39 + S62 -> S126 , kon_SH2
+  S39 + S76 -> S133 , kon_SH2
+  S39 + S77 -> S134 , kon_SH2
+  S39 + S78 -> S135 , kon_SH2
+  S39 + S79 -> S136 , kon_SH2
+  S39 + S80 -> S137 , kon_SH2
+  S39 + S81 -> S138 , kon_SH2
+  S39 + S82 -> S139 , kon_SH2
+  S39 + S83 -> S140 , kon_SH2
+  S37 + S84 -> S141 , kon_SH2
+  S38 + S84 -> S142 , kon_SH2
+  S57 + S84 -> S143 , kon_SH2
+  S58 + S84 -> S144 , kon_SH2
+  S62 + S84 -> S145 , kon_SH2
+  S76 + S84 -> S146 , kon_SH2
+  S77 + S84 -> S147 , kon_SH2
+  S78 + S84 -> S148 , kon_SH2
+  S79 + S84 -> S149 , kon_SH2
+  S80 + S84 -> S150 , kon_SH2
+  S81 + S84 -> S151 , kon_SH2
+  S82 + S84 -> S152 , kon_SH2
+  S83 + S84 -> S153 , kon_SH2
+  S2 + S59 -> S122 , kon_SH2
+  S2 + S60 -> S123 , kon_SH2
+  S2 + S63 -> S127 , kon_SH2
+  S2 + S70 -> S111 , kon_SH2
+  S2 + S71 -> S111 , kon_SH2
+  S2 + S78 -> S114 , kon_SH2
+  S2 + S79 -> S112 , kon_SH2
+  S2 + S85 -> S154 , kon_SH2
+  S2 + S86 -> S155 , kon_SH2
+  S2 + S91 -> S156 , kon_SH2
+  S2 + S91 -> S117 , kon_SH2
+  S2 + S92 -> S157 , kon_SH2
+  S2 + S92 -> S113 , kon_SH2
+  S2 + S93 -> S158 , kon_SH2
+  S2 + S94 -> S159 , kon_SH2
+  S6 + S59 -> S124 , 2*kon_SH2
+  S6 + S60 -> S125 , 2*kon_SH2
+  S6 + S63 -> S128 , 2*kon_SH2
+  S6 + S70 -> S112 , 2*kon_SH2
+  S6 + S71 -> S114 , 2*kon_SH2
+  S6 + S78 -> S115 , 2*kon_SH2
+  S6 + S79 -> S115 , 2*kon_SH2
+  S6 + S85 -> S160 , 2*kon_SH2
+  S6 + S86 -> S161 , 2*kon_SH2
+  S6 + S91 -> S162 , 2*kon_SH2
+  S6 + S91 -> S118 , 2*kon_SH2
+  S6 + S92 -> S163 , 2*kon_SH2
+  S6 + S92 -> S116 , 2*kon_SH2
+  S6 + S93 -> S164 , 2*kon_SH2
+  S6 + S94 -> S165 , 2*kon_SH2
+  S21 + S65 -> S66 , kon_SH2
+  S22 + S65 -> S67 , kon_SH2
+  S29 + S65 -> S120 , kon_SH2
+  S30 + S65 -> S121 , kon_SH2
+  S33 + S65 -> S126 , kon_SH2
+  S40 + S65 -> S133 , kon_SH2
+  S41 + S65 -> S134 , kon_SH2
+  S45 + S65 -> S135 , kon_SH2
+  S45 + S65 -> S136 , kon_SH2
+  S46 + S65 -> S137 , kon_SH2
+  S47 + S65 -> S138 , kon_SH2
+  S48 + S65 -> S139 , kon_SH2
+  S49 + S65 -> S140 , kon_SH2
+  S59 + S65 -> S166 , kon_SH2
+  S60 + S65 -> S167 , kon_SH2
+  S63 + S65 -> S168 , kon_SH2
+  S65 + S70 -> S169 , kon_SH2
+  S65 + S71 -> S170 , kon_SH2
+  S65 + S78 -> S171 , kon_SH2
+  S65 + S79 -> S172 , kon_SH2
+  S65 + S85 -> S173 , kon_SH2
+  S65 + S86 -> S174 , kon_SH2
+  S65 + S91 -> S175 , kon_SH2
+  S65 + S91 -> S176 , kon_SH2
+  S65 + S92 -> S177 , kon_SH2
+  S65 + S92 -> S178 , kon_SH2
+  S65 + S93 -> S179 , kon_SH2
+  S65 + S94 -> S180 , kon_SH2
+  S29 + S57 -> S181 , rateLaw3
+  S29 + S58 -> S182 , rateLaw3
+  S29 + S62 -> S183 , rateLaw3
+  S30 + S57 -> S182 , rateLaw3
+  S30 + S58 -> S184 , rateLaw3
+  S30 + S62 -> S185 , rateLaw3
+  S33 + S57 -> S183 , rateLaw3
+  S33 + S58 -> S185 , rateLaw3
+  S33 + S62 -> S186 , rateLaw3
+  S57 + S59 -> S187 , rateLaw3
+  S58 + S59 -> S188 , rateLaw3
+  S59 + S62 -> S189 , rateLaw3
+  S57 + S60 -> S190 , rateLaw3
+  S58 + S60 -> S191 , rateLaw3
+  S60 + S62 -> S192 , rateLaw3
+  S57 + S63 -> S193 , rateLaw3
+  S58 + S63 -> S194 , rateLaw3
+  S62 + S63 -> S195 , rateLaw3
+  S78 -> S196 , rateLaw4
+  S79 -> S196 , rateLaw4
+  S55 -> S2 + S29 , koff_SH2
+  S56 -> S2 + S30 , koff_SH2
+  S57 -> S6 + S29 , koff_SH2
+  S58 -> S6 + S30 , koff_SH2
+  S61 -> S2 + S33 , koff_SH2
+  S62 -> S6 + S33 , koff_SH2
+  S64 -> S2 + S39 , koff_SH2
+  S65 -> S6 + S39 , koff_SH2
+  S66 -> S21 + S65 , koff_SH2
+  S66 -> S37 + S39 , koff_SH2
+  S67 -> S22 + S65 , koff_SH2
+  S67 -> S38 + S39 , koff_SH2
+  S68 -> S2 + S40 , koff_SH2
+  S69 -> S2 + S41 , koff_SH2
+  S70 -> S2 + S45 , koff_SH2
+  S71 -> S2 + S45 , koff_SH2
+  S72 -> S2 + S46 , koff_SH2
+  S73 -> S2 + S47 , koff_SH2
+  S74 -> S2 + S48 , koff_SH2
+  S75 -> S2 + S49 , koff_SH2
+  S76 -> S6 + S40 , koff_SH2
+  S77 -> S6 + S41 , koff_SH2
+  S78 -> S6 + S45 , koff_SH2
+  S79 -> S6 + S45 , koff_SH2
+  S80 -> S6 + S46 , koff_SH2
+  S81 -> S6 + S47 , koff_SH2
+  S82 -> S6 + S48 , koff_SH2
+  S83 -> S6 + S49 , koff_SH2
+  S106 -> S2 + S53 , koff_SH2
+  S107 -> S2 + S54 , koff_SH2
+  S108 -> S6 + S53 , koff_SH2
+  S109 -> S6 + S54 , koff_SH2
+  S2 + S64 -> S65 , kon_dimer
+  2*S64 -> S129 , 0.5*kon_dimer
+  S2 + S55 -> S57 , kon_dimer
+  S2 + S56 -> S58 , kon_dimer
+  S2 + S61 -> S62 , kon_dimer
+  S2 + S68 -> S76 , kon_dimer
+  S2 + S69 -> S77 , kon_dimer
+  S2 + S70 -> S78 , kon_dimer
+  S2 + S71 -> S79 , kon_dimer
+  S2 + S72 -> S80 , kon_dimer
+  S2 + S73 -> S81 , kon_dimer
+  S2 + S74 -> S82 , kon_dimer
+  S2 + S75 -> S83 , kon_dimer
+  S35 + S64 -> S66 , kon_dimer
+  S36 + S64 -> S67 , kon_dimer
+  S55 + S64 -> S120 , kon_dimer
+  S56 + S64 -> S121 , kon_dimer
+  S61 + S64 -> S126 , kon_dimer
+  S64 + S68 -> S133 , kon_dimer
+  S64 + S69 -> S134 , kon_dimer
+  S64 + S70 -> S135 , kon_dimer
+  S64 + S71 -> S136 , kon_dimer
+  S64 + S72 -> S137 , kon_dimer
+  S64 + S73 -> S138 , kon_dimer
+  S64 + S74 -> S139 , kon_dimer
+  S64 + S75 -> S140 , kon_dimer
+  2*S55 -> S181 , 0.5*rateLaw5
+  S55 + S56 -> S182 , rateLaw5
+  S55 + S61 -> S183 , rateLaw5
+  2*S56 -> S184 , 0.5*rateLaw5
+  S56 + S61 -> S185 , rateLaw5
+  2*S61 -> S186 , 0.5*rateLaw5
+  S57 -> S2 + S55 , koff_dimer
+  S58 -> S2 + S56 , koff_dimer
+  S62 -> S2 + S61 , koff_dimer
+  S65 -> S2 + S64 , koff_dimer
+  S66 -> S35 + S64 , koff_dimer
+  S67 -> S36 + S64 , koff_dimer
+  S76 -> S2 + S68 , koff_dimer
+  S77 -> S2 + S69 , koff_dimer
+  S78 -> S2 + S70 , koff_dimer
+  S79 -> S2 + S71 , koff_dimer
+  S80 -> S2 + S72 , koff_dimer
+  S81 -> S2 + S73 , koff_dimer
+  S82 -> S2 + S74 , koff_dimer
+  S83 -> S2 + S75 , koff_dimer
+  S108 -> S2 + S106 , koff_dimer
+  S109 -> S2 + S107 , koff_dimer
+  S3 + S68 -> S35 , kon_j
+  S42 + S68 -> S75 , kon_j
+  S3 + S69 -> S36 , kon_j
+  S42 + S69 -> S74 , kon_j
+  S3 + S76 -> S37 , kon_j
+  S42 + S76 -> S83 , kon_j
+  S3 + S77 -> S38 , kon_j
+  S42 + S77 -> S82 , kon_j
+  S3 + S85 -> S46 , kon_j
+  S42 + S85 -> S93 , kon_j
+  S3 + S86 -> S47 , kon_j
+  S42 + S86 -> S94 , kon_j
+  S1 + S84 -> S59 , kon_j
+  S5 + S84 -> S60 , kon_j
+  S10 + S84 -> S85 , kon_j
+  S10 + S84 -> S86 , kon_j
+  S11 + S84 -> S47 , kon_j
+  S14 + S84 -> S46 , kon_j
+  S16 + S84 -> S63 , kon_j
+  S40 + S84 -> S92 , kon_j
+  S41 + S84 -> S91 , kon_j
+  S43 + S84 -> S94 , kon_j
+  S44 + S84 -> S93 , kon_j
+  S39 + S68 -> S70 , kon_j
+  S68 + S84 -> S113 , kon_j
+  S39 + S69 -> S71 , kon_j
+  S69 + S84 -> S117 , kon_j
+  S39 + S76 -> S78 , kon_j
+  S76 + S84 -> S116 , kon_j
+  S39 + S77 -> S79 , kon_j
+  S77 + S84 -> S118 , kon_j
+  S39 + S85 -> S91 , kon_j
+  S84 + S85 -> S119 , kon_j
+  S39 + S86 -> S92 , kon_j
+  S84 + S86 -> S119 , kon_j
+  S1 + S64 -> S55 , kon_j
+  S5 + S64 -> S56 , kon_j
+  S10 + S64 -> S68 , kon_j
+  S10 + S64 -> S69 , kon_j
+  S11 + S64 -> S36 , kon_j
+  S14 + S64 -> S35 , kon_j
+  S16 + S64 -> S61 , kon_j
+  S40 + S64 -> S71 , kon_j
+  S41 + S64 -> S70 , kon_j
+  S43 + S64 -> S74 , kon_j
+  S44 + S64 -> S75 , kon_j
+  S64 + S68 -> S111 , kon_j
+  S64 + S69 -> S111 , kon_j
+  S64 + S76 -> S114 , kon_j
+  S64 + S77 -> S112 , kon_j
+  S64 + S85 -> S117 , kon_j
+  S64 + S86 -> S113 , kon_j
+  S1 + S65 -> S57 , kon_j
+  S5 + S65 -> S58 , kon_j
+  S10 + S65 -> S76 , kon_j
+  S10 + S65 -> S77 , kon_j
+  S11 + S65 -> S38 , kon_j
+  S14 + S65 -> S37 , kon_j
+  S16 + S65 -> S62 , kon_j
+  S40 + S65 -> S79 , kon_j
+  S41 + S65 -> S78 , kon_j
+  S43 + S65 -> S82 , kon_j
+  S44 + S65 -> S83 , kon_j
+  S65 + S68 -> S112 , kon_j
+  S65 + S69 -> S114 , kon_j
+  S65 + S76 -> S115 , kon_j
+  S65 + S77 -> S115 , kon_j
+  S65 + S85 -> S118 , kon_j
+  S65 + S86 -> S116 , kon_j
+  S55 -> S1 + S64 , koff_j
+  S56 -> S5 + S64 , koff_j
+  S57 -> S1 + S65 , koff_j
+  S58 -> S5 + S65 , koff_j
+  S59 -> S1 + S84 , koff_j
+  S60 -> S5 + S84 , koff_j
+  S61 -> S16 + S64 , koff_j
+  S62 -> S16 + S65 , koff_j
+  S63 -> S16 + S84 , koff_j
+  S66 -> S14 + S129 , koff_j
+  S66 -> S3 + S133 , koff_j
+  S67 -> S3 + S134 , koff_j
+  S67 -> S11 + S129 , koff_j
+  S68 -> S10 + S64 , koff_j
+  S69 -> S10 + S64 , koff_j
+  S70 -> S41 + S64 , koff_j
+  S70 -> S39 + S68 , koff_j
+  S71 -> S39 + S69 , koff_j
+  S71 -> S40 + S64 , koff_j
+  S72 -> S14 + S130 , koff_j
+  S72 -> S3 + S154 , koff_j
+  S73 -> S3 + S155 , koff_j
+  S73 -> S11 + S130 , koff_j
+  S74 -> S42 + S69 , koff_j
+  S74 -> S43 + S64 , koff_j
+  S75 -> S44 + S64 , koff_j
+  S75 -> S42 + S68 , koff_j
+  S76 -> S10 + S65 , koff_j
+  S77 -> S10 + S65 , koff_j
+  S78 -> S41 + S65 , koff_j
+  S78 -> S39 + S76 , koff_j
+  S79 -> S39 + S77 , koff_j
+  S79 -> S40 + S65 , koff_j
+  S80 -> S14 + S131 , koff_j
+  S80 -> S3 + S160 , koff_j
+  S81 -> S3 + S161 , koff_j
+  S81 -> S11 + S131 , koff_j
+  S82 -> S42 + S77 , koff_j
+  S82 -> S43 + S65 , koff_j
+  S83 -> S44 + S65 , koff_j
+  S83 -> S42 + S76 , koff_j
+  S85 -> S10 + S84 , koff_j
+  S86 -> S10 + S84 , koff_j
+  S87 -> S19 + S42 , koff_j
+  S88 -> S19 + S42 , koff_j
+  S89 -> S19 + S39 , koff_j
+  S90 -> S19 + S39 , koff_j
+  S91 -> S41 + S84 , koff_j
+  S91 -> S39 + S85 , koff_j
+  S92 -> S39 + S86 , koff_j
+  S92 -> S40 + S84 , koff_j
+  S93 -> S44 + S84 , koff_j
+  S93 -> S42 + S85 , koff_j
+  S94 -> S42 + S86 , koff_j
+  S94 -> S43 + S84 , koff_j
+  S95 -> S27 + S84 , koff_j
+  S95 -> S3 + S197 , koff_j
+  S96 -> S39 + S88 , koff_j
+  S96 -> S42 + S89 , koff_j
+  S97 -> S3 + S198 , koff_j
+  S97 -> S20 + S84 , koff_j
+  S98 -> S42 + S90 , koff_j
+  S98 -> S39 + S87 , koff_j
+  S99 -> S42 + S88 , koff_j
+  S99 -> S42 + S87 , koff_j
+  S100 -> S8 + S42 , koff_j
+  S101 -> S8 + S39 , koff_j
+  S102 -> S12 + S42 , koff_j
+  S103 -> S25 + S42 , koff_j
+  S104 -> S12 + S39 , koff_j
+  S105 -> S25 + S39 , koff_j
+  S106 -> S27 + S64 , koff_j
+  S106 -> S3 + S199 , koff_j
+  S107 -> S3 + S200 , koff_j
+  S107 -> S20 + S64 , koff_j
+  S108 -> S27 + S65 , koff_j
+  S108 -> S3 + S201 , koff_j
+  S109 -> S3 + S202 , koff_j
+  S109 -> S20 + S65 , koff_j
+  S110 -> S39 + S90 , koff_j
+  S110 -> S39 + S89 , koff_j
+  S66 -> S135 , kphos_slow
+  S67 -> S136 , kphos_slow
+  S74 -> S117 , kphos_slow
+  S75 -> S113 , kphos_slow
+  S82 -> S118 , kphos_slow
+  S83 -> S116 , kphos_slow
+  S72 -> S156 , kphos_fast
+  S73 -> S157 , kphos_fast
+  S80 -> S162 , kphos_fast
+  S81 -> S163 , kphos_fast
+  S93 -> S119 , kphos_fast
+  S94 -> S119 , kphos_fast
+  S66 -> S137 , kphos_slow
+  S66 -> S140 , kphos_slow
+  S66 -> S141 , kphos_slow
+  S67 -> S138 , kphos_slow
+  S67 -> S139 , kphos_slow
+  S67 -> S142 , kphos_slow
+  S70 -> S156 , kphos_slow
+  S70 -> S113 , kphos_slow
+  S71 -> S157 , kphos_slow
+  S71 -> S117 , kphos_slow
+  S78 -> S162 , kphos_slow
+  S78 -> S116 , kphos_slow
+  S79 -> S163 , kphos_slow
+  S79 -> S118 , kphos_slow
+  S106 -> S203 , kphos_slow
+  S106 -> S204 , kphos_slow
+  S107 -> S205 , kphos_slow
+  S107 -> S206 , kphos_slow
+  S108 -> S207 , kphos_slow
+  S108 -> S208 , kphos_slow
+  S109 -> S209 , kphos_slow
+  S109 -> S210 , kphos_slow
+  S110 -> S211 , kphos_slow
+  S110 -> S212 , kphos_slow
+  S72 -> S158 , kphos_fast
+  S73 -> S159 , kphos_fast
+  S74 -> S159 , kphos_fast
+  S75 -> S158 , kphos_fast
+  S80 -> S164 , kphos_fast
+  S81 -> S165 , kphos_fast
+  S82 -> S165 , kphos_fast
+  S83 -> S164 , kphos_fast
+  S91 -> S119 , kphos_fast
+  S92 -> S119 , kphos_fast
+  S95 -> S213 , kphos_fast
+  S96 -> S213 , kphos_fast
+  S97 -> S214 , kphos_fast
+  S98 -> S214 , kphos_fast
+  S59 -> S31 , kcat_ptp
+  S60 -> S32 , kcat_ptp
+  S63 -> S34 , kcat_ptp
+  S70 -> S35 , kcat_ptp
+  S71 -> S36 , kcat_ptp
+  S78 -> S37 , kcat_ptp
+  S79 -> S38 , kcat_ptp
+  S84 -> S42 , kcat_ptp
+  S85 -> S43 , kcat_ptp
+  S86 -> S44 , kcat_ptp
+  S89 -> S20 , kcat_ptp
+  S90 -> S27 , kcat_ptp
+  S91 -> S48 , kcat_ptp
+  S91 -> S46 , kcat_ptp
+  S92 -> S49 , kcat_ptp
+  S92 -> S47 , kcat_ptp
+  S93 -> S52 , kcat_ptp
+  S94 -> S52 , kcat_ptp
+  S95 -> S50 , kcat_ptp
+  S96 -> S51 , kcat_ptp
+  S97 -> S51 , kcat_ptp
+  S98 -> S50 , kcat_ptp
+  S101 -> S13 , kcat_ptp
+  S104 -> S18 , kcat_ptp
+  S105 -> S26 , kcat_ptp
+  S110 -> S54 , kcat_ptp
+  S110 -> S53 , kcat_ptp
+  S59 -> S29 , kcat_ptp
+  S60 -> S30 , kcat_ptp
+  S63 -> S33 , kcat_ptp
+  S72 -> S35 , kcat_ptp
+  S73 -> S36 , kcat_ptp
+  S74 -> S36 , kcat_ptp
+  S75 -> S35 , kcat_ptp
+  S80 -> S37 , kcat_ptp
+  S81 -> S38 , kcat_ptp
+  S82 -> S38 , kcat_ptp
+  S83 -> S37 , kcat_ptp
+  S84 -> S39 , kcat_ptp
+  S85 -> S40 , kcat_ptp
+  S86 -> S41 , kcat_ptp
+  S87 -> S20 , kcat_ptp
+  S88 -> S27 , kcat_ptp
+  S91 -> S45 , kcat_ptp
+  S92 -> S45 , kcat_ptp
+  S93 -> S49 , kcat_ptp
+  S93 -> S46 , kcat_ptp
+  S94 -> S48 , kcat_ptp
+  S94 -> S47 , kcat_ptp
+  S95 -> S53 , kcat_ptp
+  S96 -> S53 , kcat_ptp
+  S97 -> S54 , kcat_ptp
+  S98 -> S54 , kcat_ptp
+  S99 -> S51 , kcat_ptp
+  S99 -> S50 , kcat_ptp
+  S100 -> S13 , kcat_ptp
+  S102 -> S18 , kcat_ptp
+  S103 -> S26 , kcat_ptp
+  S59 -> S215 , kt
+  S60 -> S216 , kt
+  S63 -> S217 , kt
+  S55 -> S218 , kt
+  S56 -> S219 , kt
+  S61 -> S220 , kt
+  S57 -> S221 , kt
+  S58 -> S222 , kt
+  S62 -> S223 , kt
+  S66 -> S224 , ke
+  S67 -> S225 , ke
+  S68 -> S199 , ke
+  S69 -> S200 , ke
+  S70 -> S226 , ke
+  S71 -> S227 , ke
+  S72 -> S203 , ke
+  S73 -> S205 , ke
+  S74 -> S206 , ke
+  S75 -> S204 , ke
+  S76 -> S201 , ke
+  S77 -> S202 , ke
+  S78 -> S228 , ke
+  S79 -> S229 , ke
+  S80 -> S207 , ke
+  S81 -> S209 , ke
+  S82 -> S210 , ke
+  S83 -> S208 , ke
+  S85 -> S197 , ke
+  S86 -> S198 , ke
+  S91 -> S211 , ke
+  S92 -> S212 , ke
+  S93 -> S213 , ke
+  S94 -> S214 , ke
+  S0 + S120 -> S121 , kf1
+  S0 + S122 -> S123 , kf1
+  S0 + S124 -> S125 , kf1
+  S0 + S143 -> S144 , kf1
+  S0 + S166 -> S167 , kf1
+  S0 + S181 -> S182 , 2*kf1
+  S0 + S182 -> S184 , kf1
+  S0 + S183 -> S185 , kf1
+  S0 + S187 -> S190 , kf1
+  S0 + S187 -> S188 , kf1
+  S0 + S188 -> S191 , kf1
+  S0 + S189 -> S192 , kf1
+  S0 + S190 -> S191 , kf1
+  S0 + S193 -> S194 , kf1
+  S121 -> S0 + S120 , kr1
+  S123 -> S0 + S122 , kr1
+  S125 -> S0 + S124 , kr1
+  S144 -> S0 + S143 , kr1
+  S167 -> S0 + S166 , kr1
+  S182 -> S0 + S181 , kr1
+  S184 -> S0 + S182 , 2*kr1
+  S185 -> S0 + S183 , kr1
+  S188 -> S0 + S187 , kr1
+  S190 -> S0 + S187 , kr1
+  S191 -> S0 + S188 , kr1
+  S191 -> S0 + S190 , kr1
+  S192 -> S0 + S189 , kr1
+  S194 -> S0 + S193 , kr1
+  S1 + S121 -> S134 , kx2
+  S1 + S123 -> S155 , kx2
+  S1 + S125 -> S161 , kx2
+  S1 + S144 -> S147 , kx2
+  S1 + S167 -> S174 , kx2
+  S7 + S121 -> S67 , kx2
+  S7 + S123 -> S73 , kx2
+  S7 + S125 -> S81 , kx2
+  S7 + S144 -> S142 , kx2
+  S7 + S167 -> S138 , kx2
+  S29 + S121 -> S136 , kx2
+  S29 + S123 -> S157 , kx2
+  S29 + S125 -> S163 , kx2
+  S29 + S144 -> S149 , kx2
+  S29 + S167 -> S177 , kx2
+  S31 + S121 -> S139 , kx2
+  S31 + S123 -> S159 , kx2
+  S31 + S125 -> S165 , kx2
+  S31 + S144 -> S152 , kx2
+  S31 + S167 -> S180 , kx2
+  S55 + S121 -> S169 , kx2
+  S55 + S123 -> S230 , kx2
+  S55 + S125 -> S231 , kx2
+  S55 + S144 -> S232 , kx2
+  S55 + S167 -> S233 , kx2
+  S57 + S121 -> S171 , kx2
+  S57 + S123 -> S234 , kx2
+  S57 + S125 -> S235 , kx2
+  S57 + S144 -> S236 , kx2
+  S57 + S167 -> S237 , kx2
+  S59 + S121 -> S176 , kx2
+  S59 + S123 -> S238 , kx2
+  S59 + S125 -> S239 , kx2
+  S59 + S144 -> S240 , kx2
+  S59 + S167 -> S241 , kx2
+  S5 + S120 -> S133 , kx2
+  S9 + S120 -> S66 , kx2
+  S30 + S120 -> S135 , kx2
+  S32 + S120 -> S140 , kx2
+  S56 + S120 -> S170 , kx2
+  S58 + S120 -> S172 , kx2
+  S60 + S120 -> S178 , kx2
+  S120 + S121 -> S242 , kx2
+  S120 + S123 -> S243 , kx2
+  S120 + S125 -> S244 , kx2
+  S120 + S144 -> S245 , kx2
+  S120 + S167 -> S246 , kx2
+  S5 + S122 -> S154 , kx2
+  S9 + S122 -> S72 , kx2
+  S30 + S122 -> S156 , kx2
+  S32 + S122 -> S158 , kx2
+  S56 + S122 -> S247 , kx2
+  S58 + S122 -> S248 , kx2
+  S60 + S122 -> S249 , kx2
+  S121 + S122 -> S250 , kx2
+  S122 + S123 -> S251 , kx2
+  S122 + S125 -> S252 , kx2
+  S122 + S144 -> S253 , kx2
+  S122 + S167 -> S254 , kx2
+  S5 + S124 -> S160 , kx2
+  S9 + S124 -> S80 , kx2
+  S30 + S124 -> S162 , kx2
+  S32 + S124 -> S164 , kx2
+  S56 + S124 -> S255 , kx2
+  S58 + S124 -> S256 , kx2
+  S60 + S124 -> S257 , kx2
+  S121 + S124 -> S258 , kx2
+  S123 + S124 -> S259 , kx2
+  S124 + S125 -> S260 , kx2
+  S124 + S144 -> S261 , kx2
+  S124 + S167 -> S262 , kx2
+  S5 + S143 -> S146 , kx2
+  S9 + S143 -> S141 , kx2
+  S30 + S143 -> S148 , kx2
+  S32 + S143 -> S153 , kx2
+  S56 + S143 -> S263 , kx2
+  S58 + S143 -> S264 , kx2
+  S60 + S143 -> S265 , kx2
+  S121 + S143 -> S266 , kx2
+  S123 + S143 -> S267 , kx2
+  S125 + S143 -> S268 , kx2
+  S143 + S144 -> S269 , kx2
+  S143 + S167 -> S270 , kx2
+  S5 + S166 -> S173 , kx2
+  S9 + S166 -> S137 , kx2
+  S30 + S166 -> S175 , kx2
+  S32 + S166 -> S179 , kx2
+  S56 + S166 -> S271 , kx2
+  S58 + S166 -> S272 , kx2
+  S60 + S166 -> S273 , kx2
+  S121 + S166 -> S274 , kx2
+  S123 + S166 -> S275 , kx2
+  S125 + S166 -> S276 , kx2
+  S144 + S166 -> S277 , kx2
+  S166 + S167 -> S278 , kx2
+  S111 -> S55 + S56 , kminusx2
+  S112 -> S55 + S58 , kminusx2
+  S113 -> S55 + S60 , kminusx2
+  S114 -> S56 + S57 , kminusx2
+  S115 -> S57 + S58 , kminusx2
+  S116 -> S57 + S60 , kminusx2
+  S117 -> S56 + S59 , kminusx2
+  S118 -> S58 + S59 , kminusx2
+  S119 -> S59 + S60 , kminusx2
+  S133 -> S5 + S120 , kminusx2
+  S134 -> S1 + S121 , kminusx2
+  S135 -> S30 + S120 , kminusx2
+  S136 -> S29 + S121 , kminusx2
+  S137 -> S9 + S166 , kminusx2
+  S138 -> S7 + S167 , kminusx2
+  S139 -> S31 + S121 , kminusx2
+  S140 -> S32 + S120 , kminusx2
+  S141 -> S9 + S143 , kminusx2
+  S142 -> S7 + S144 , kminusx2
+  S146 -> S5 + S143 , kminusx2
+  S147 -> S1 + S144 , kminusx2
+  S148 -> S30 + S143 , kminusx2
+  S149 -> S29 + S144 , kminusx2
+  S150 -> S9 + S279 , kminusx2
+  S151 -> S7 + S280 , kminusx2
+  S152 -> S31 + S144 , kminusx2
+  S153 -> S32 + S143 , kminusx2
+  S154 -> S5 + S122 , kminusx2
+  S155 -> S1 + S123 , kminusx2
+  S156 -> S30 + S122 , kminusx2
+  S157 -> S29 + S123 , kminusx2
+  S158 -> S32 + S122 , kminusx2
+  S159 -> S31 + S123 , kminusx2
+  S160 -> S5 + S124 , kminusx2
+  S161 -> S1 + S125 , kminusx2
+  S162 -> S30 + S124 , kminusx2
+  S163 -> S29 + S125 , kminusx2
+  S164 -> S32 + S124 , kminusx2
+  S165 -> S31 + S125 , kminusx2
+  S169 -> S55 + S121 , kminusx2
+  S170 -> S56 + S120 , kminusx2
+  S171 -> S57 + S121 , kminusx2
+  S172 -> S58 + S120 , kminusx2
+  S173 -> S5 + S166 , kminusx2
+  S174 -> S1 + S167 , kminusx2
+  S175 -> S30 + S166 , kminusx2
+  S176 -> S59 + S121 , kminusx2
+  S177 -> S29 + S167 , kminusx2
+  S178 -> S60 + S120 , kminusx2
+  S179 -> S32 + S166 , kminusx2
+  S180 -> S31 + S167 , kminusx2
+  S182 -> S196 , rateLaw1
+  S188 -> S281 , rateLaw1
+  S190 -> S282 , rateLaw1
+  S196 -> S182 , kminusx2
+  S111 -> S55 + S61 , kminusx1
+  S112 -> S57 + S61 , kminusx1
+  S113 -> S59 + S61 , kminusx1
+  S114 -> S55 + S62 , kminusx1
+  S115 -> S57 + S62 , kminusx1
+  S116 -> S59 + S62 , kminusx1
+  S117 -> S55 + S63 , kminusx1
+  S118 -> S57 + S63 , kminusx1
+  S119 -> S59 + S63 , kminusx1
+  S133 -> S1 + S126 , kminusx1
+  S134 -> S16 + S120 , kminusx1
+  S135 -> S29 + S126 , kminusx1
+  S136 -> S33 + S120 , kminusx1
+  S137 -> S7 + S168 , kminusx1
+  S138 -> S17 + S166 , kminusx1
+  S139 -> S34 + S120 , kminusx1
+  S140 -> S31 + S126 , kminusx1
+  S141 -> S7 + S145 , kminusx1
+  S142 -> S17 + S143 , kminusx1
+  S146 -> S1 + S145 , kminusx1
+  S147 -> S16 + S143 , kminusx1
+  S148 -> S29 + S145 , kminusx1
+  S149 -> S33 + S143 , kminusx1
+  S150 -> S7 + S283 , kminusx1
+  S151 -> S17 + S279 , kminusx1
+  S152 -> S34 + S143 , kminusx1
+  S153 -> S31 + S145 , kminusx1
+  S154 -> S1 + S127 , kminusx1
+  S155 -> S16 + S122 , kminusx1
+  S156 -> S29 + S127 , kminusx1
+  S157 -> S33 + S122 , kminusx1
+  S158 -> S31 + S127 , kminusx1
+  S159 -> S34 + S122 , kminusx1
+  S160 -> S1 + S128 , kminusx1
+  S161 -> S16 + S124 , kminusx1
+  S162 -> S29 + S128 , kminusx1
+  S163 -> S33 + S124 , kminusx1
+  S164 -> S31 + S128 , kminusx1
+  S165 -> S34 + S124 , kminusx1
+  S169 -> S61 + S120 , kminusx1
+  S170 -> S55 + S126 , kminusx1
+  S171 -> S62 + S120 , kminusx1
+  S172 -> S57 + S126 , kminusx1
+  S173 -> S1 + S168 , kminusx1
+  S174 -> S16 + S166 , kminusx1
+  S175 -> S29 + S168 , kminusx1
+  S176 -> S63 + S120 , kminusx1
+  S177 -> S33 + S166 , kminusx1
+  S178 -> S59 + S126 , kminusx1
+  S179 -> S31 + S168 , kminusx1
+  S180 -> S34 + S166 , kminusx1
+  S196 -> S183 , kminusx1
+  S126 -> S0 + S120 , kfast
+  S127 -> S0 + S122 , kfast
+  S128 -> S0 + S124 , kfast
+  S145 -> S0 + S143 , kfast
+  S168 -> S0 + S166 , kfast
+  S183 -> S0 + S181 , kfast
+  S185 -> S0 + S182 , kfast
+  S186 -> S0 + S183 , 2*kfast
+  S189 -> S0 + S187 , kfast
+  S192 -> S0 + S190 , kfast
+  S193 -> S0 + S187 , kfast
+  S194 -> S0 + S188 , kfast
+  S195 -> S0 + S189 , kfast
+  S195 -> S0 + S193 , kfast
+  S39 + S131 -> S132 , kon_SH2
+  S84 + S131 -> S284 , kon_SH2
+  S39 + S112 -> S169 , kon_SH2
+  S39 + S114 -> S170 , kon_SH2
+  S39 + S115 -> S172 , kon_SH2
+  S39 + S115 -> S171 , kon_SH2
+  S39 + S116 -> S178 , kon_SH2
+  S39 + S118 -> S176 , kon_SH2
+  S39 + S124 -> S166 , kon_SH2
+  S39 + S125 -> S167 , kon_SH2
+  S39 + S128 -> S168 , kon_SH2
+  S39 + S160 -> S173 , kon_SH2
+  S39 + S161 -> S174 , kon_SH2
+  S39 + S162 -> S175 , kon_SH2
+  S39 + S163 -> S177 , kon_SH2
+  S39 + S164 -> S179 , kon_SH2
+  S39 + S165 -> S180 , kon_SH2
+  S39 + S171 -> S242 , kon_SH2
+  S39 + S172 -> S242 , kon_SH2
+  S84 + S112 -> S232 , kon_SH2
+  S84 + S114 -> S263 , kon_SH2
+  S84 + S115 -> S264 , kon_SH2
+  S84 + S115 -> S236 , kon_SH2
+  S84 + S116 -> S265 , kon_SH2
+  S84 + S118 -> S240 , kon_SH2
+  S84 + S124 -> S279 , kon_SH2
+  S84 + S125 -> S280 , kon_SH2
+  S84 + S128 -> S283 , kon_SH2
+  S84 + S160 -> S285 , kon_SH2
+  S84 + S161 -> S286 , kon_SH2
+  S84 + S162 -> S287 , kon_SH2
+  S84 + S163 -> S288 , kon_SH2
+  S84 + S164 -> S289 , kon_SH2
+  S84 + S165 -> S290 , kon_SH2
+  S84 + S171 -> S266 , kon_SH2
+  S84 + S172 -> S245 , kon_SH2
+  S2 + S113 -> S230 , kon_SH2
+  S2 + S116 -> S234 , kon_SH2
+  S2 + S117 -> S247 , kon_SH2
+  S2 + S118 -> S248 , kon_SH2
+  S2 + S119 -> S249 , kon_SH2
+  S2 + S119 -> S238 , kon_SH2
+  S2 + S135 -> S170 , kon_SH2
+  S2 + S136 -> S169 , kon_SH2
+  S2 + S148 -> S263 , kon_SH2
+  S2 + S149 -> S232 , kon_SH2
+  S2 + S156 -> S247 , kon_SH2
+  S2 + S157 -> S230 , kon_SH2
+  S2 + S162 -> S255 , kon_SH2
+  S2 + S163 -> S231 , kon_SH2
+  S2 + S175 -> S271 , kon_SH2
+  S2 + S176 -> S250 , kon_SH2
+  S2 + S177 -> S233 , kon_SH2
+  S2 + S178 -> S243 , kon_SH2
+  S6 + S113 -> S231 , 2*kon_SH2
+  S6 + S116 -> S235 , 2*kon_SH2
+  S6 + S117 -> S255 , 2*kon_SH2
+  S6 + S118 -> S256 , 2*kon_SH2
+  S6 + S119 -> S257 , 2*kon_SH2
+  S6 + S119 -> S239 , 2*kon_SH2
+  S6 + S135 -> S172 , 2*kon_SH2
+  S6 + S136 -> S171 , 2*kon_SH2
+  S6 + S148 -> S264 , 2*kon_SH2
+  S6 + S149 -> S236 , 2*kon_SH2
+  S6 + S156 -> S248 , 2*kon_SH2
+  S6 + S157 -> S234 , 2*kon_SH2
+  S6 + S162 -> S256 , 2*kon_SH2
+  S6 + S163 -> S235 , 2*kon_SH2
+  S6 + S175 -> S272 , 2*kon_SH2
+  S6 + S176 -> S258 , 2*kon_SH2
+  S6 + S177 -> S237 , 2*kon_SH2
+  S6 + S178 -> S244 , 2*kon_SH2
+  S21 + S131 -> S141 , kon_SH2
+  S22 + S131 -> S142 , kon_SH2
+  S29 + S131 -> S143 , kon_SH2
+  S30 + S131 -> S144 , kon_SH2
+  S33 + S131 -> S145 , kon_SH2
+  S40 + S131 -> S146 , kon_SH2
+  S41 + S131 -> S147 , kon_SH2
+  S45 + S131 -> S148 , kon_SH2
+  S45 + S131 -> S149 , kon_SH2
+  S46 + S131 -> S150 , kon_SH2
+  S47 + S131 -> S151 , kon_SH2
+  S48 + S131 -> S152 , kon_SH2
+  S49 + S131 -> S153 , kon_SH2
+  S59 + S131 -> S279 , kon_SH2
+  S60 + S131 -> S280 , kon_SH2
+  S63 + S131 -> S283 , kon_SH2
+  S70 + S131 -> S232 , kon_SH2
+  S71 + S131 -> S263 , kon_SH2
+  S78 + S131 -> S236 , kon_SH2
+  S79 + S131 -> S264 , kon_SH2
+  S85 + S131 -> S285 , kon_SH2
+  S86 + S131 -> S286 , kon_SH2
+  S91 + S131 -> S287 , kon_SH2
+  S91 + S131 -> S240 , kon_SH2
+  S92 + S131 -> S288 , kon_SH2
+  S92 + S131 -> S265 , kon_SH2
+  S93 + S131 -> S289 , kon_SH2
+  S94 + S131 -> S290 , kon_SH2
+  S65 + S113 -> S233 , kon_SH2
+  S113 + S131 -> S291 , kon_SH2
+  S65 + S116 -> S237 , kon_SH2
+  S116 + S131 -> S292 , kon_SH2
+  S65 + S117 -> S271 , kon_SH2
+  S117 + S131 -> S293 , kon_SH2
+  S65 + S118 -> S272 , kon_SH2
+  S118 + S131 -> S294 , kon_SH2
+  S65 + S119 -> S273 , kon_SH2
+  S119 + S131 -> S295 , kon_SH2
+  S65 + S119 -> S241 , kon_SH2
+  S119 + S131 -> S296 , kon_SH2
+  S65 + S135 -> S242 , kon_SH2
+  S131 + S135 -> S245 , kon_SH2
+  S65 + S136 -> S242 , kon_SH2
+  S131 + S136 -> S266 , kon_SH2
+  S65 + S148 -> S266 , kon_SH2
+  S131 + S148 -> S269 , kon_SH2
+  S65 + S149 -> S245 , kon_SH2
+  S131 + S149 -> S269 , kon_SH2
+  S65 + S156 -> S250 , kon_SH2
+  S131 + S156 -> S253 , kon_SH2
+  S65 + S157 -> S243 , kon_SH2
+  S131 + S157 -> S267 , kon_SH2
+  S65 + S162 -> S258 , kon_SH2
+  S131 + S162 -> S261 , kon_SH2
+  S65 + S163 -> S244 , kon_SH2
+  S131 + S163 -> S268 , kon_SH2
+  S65 + S175 -> S274 , kon_SH2
+  S131 + S175 -> S277 , kon_SH2
+  S65 + S176 -> S274 , kon_SH2
+  S131 + S176 -> S297 , kon_SH2
+  S65 + S177 -> S246 , kon_SH2
+  S131 + S177 -> S270 , kon_SH2
+  S65 + S178 -> S246 , kon_SH2
+  S131 + S178 -> S298 , kon_SH2
+  S29 + S124 -> S187 , rateLaw3
+  S29 + S125 -> S190 , rateLaw3
+  S29 + S128 -> S193 , rateLaw3
+  S30 + S124 -> S188 , rateLaw3
+  S30 + S125 -> S191 , rateLaw3
+  S30 + S128 -> S194 , rateLaw3
+  S33 + S124 -> S189 , rateLaw3
+  S33 + S125 -> S192 , rateLaw3
+  S33 + S128 -> S195 , rateLaw3
+  S59 + S124 -> S299 , rateLaw3
+  S59 + S125 -> S300 , rateLaw3
+  S59 + S128 -> S301 , rateLaw3
+  S60 + S124 -> S300 , rateLaw3
+  S60 + S125 -> S302 , rateLaw3
+  S60 + S128 -> S303 , rateLaw3
+  S63 + S124 -> S301 , rateLaw3
+  S63 + S125 -> S303 , rateLaw3
+  S63 + S128 -> S304 , rateLaw3
+  S116 -> S282 , rateLaw4
+  S118 -> S281 , rateLaw4
+  S162 -> S281 , rateLaw4
+  S163 -> S282 , rateLaw4
+  S111 -> S2 + S71 , koff_SH2
+  S111 -> S2 + S70 , koff_SH2
+  S112 -> S2 + S79 , koff_SH2
+  S112 -> S6 + S70 , koff_SH2
+  S113 -> S2 + S92 , koff_SH2
+  S114 -> S6 + S71 , koff_SH2
+  S114 -> S2 + S78 , koff_SH2
+  S115 -> S6 + S79 , koff_SH2
+  S115 -> S6 + S78 , koff_SH2
+  S116 -> S6 + S92 , koff_SH2
+  S117 -> S2 + S91 , koff_SH2
+  S118 -> S6 + S91 , koff_SH2
+  S120 -> S29 + S65 , koff_SH2
+  S120 -> S39 + S57 , koff_SH2
+  S121 -> S30 + S65 , koff_SH2
+  S121 -> S39 + S58 , koff_SH2
+  S122 -> S2 + S59 , koff_SH2
+  S123 -> S2 + S60 , koff_SH2
+  S124 -> S6 + S59 , koff_SH2
+  S125 -> S6 + S60 , koff_SH2
+  S126 -> S33 + S65 , koff_SH2
+  S126 -> S39 + S62 , koff_SH2
+  S127 -> S2 + S63 , koff_SH2
+  S128 -> S6 + S63 , koff_SH2
+  S129 -> S39 + S65 , 2*koff_SH2
+  S130 -> S2 + S84 , koff_SH2
+  S131 -> S6 + S84 , koff_SH2
+  S132 -> S65 + S84 , koff_SH2
+  S132 -> S39 + S131 , koff_SH2
+  S133 -> S40 + S65 , koff_SH2
+  S133 -> S39 + S76 , koff_SH2
+  S134 -> S41 + S65 , koff_SH2
+  S134 -> S39 + S77 , koff_SH2
+  S135 -> S45 + S65 , koff_SH2
+  S135 -> S39 + S78 , koff_SH2
+  S136 -> S45 + S65 , koff_SH2
+  S136 -> S39 + S79 , koff_SH2
+  S137 -> S46 + S65 , koff_SH2
+  S137 -> S39 + S80 , koff_SH2
+  S138 -> S47 + S65 , koff_SH2
+  S138 -> S39 + S81 , koff_SH2
+  S139 -> S48 + S65 , koff_SH2
+  S139 -> S39 + S82 , koff_SH2
+  S140 -> S49 + S65 , koff_SH2
+  S140 -> S39 + S83 , koff_SH2
+  S141 -> S21 + S131 , koff_SH2
+  S141 -> S37 + S84 , koff_SH2
+  S142 -> S22 + S131 , koff_SH2
+  S142 -> S38 + S84 , koff_SH2
+  S143 -> S29 + S131 , koff_SH2
+  S143 -> S57 + S84 , koff_SH2
+  S144 -> S30 + S131 , koff_SH2
+  S144 -> S58 + S84 , koff_SH2
+  S145 -> S33 + S131 , koff_SH2
+  S145 -> S62 + S84 , koff_SH2
+  S146 -> S40 + S131 , koff_SH2
+  S146 -> S76 + S84 , koff_SH2
+  S147 -> S41 + S131 , koff_SH2
+  S147 -> S77 + S84 , koff_SH2
+  S148 -> S45 + S131 , koff_SH2
+  S148 -> S78 + S84 , koff_SH2
+  S149 -> S45 + S131 , koff_SH2
+  S149 -> S79 + S84 , koff_SH2
+  S150 -> S46 + S131 , koff_SH2
+  S150 -> S80 + S84 , koff_SH2
+  S151 -> S47 + S131 , koff_SH2
+  S151 -> S81 + S84 , koff_SH2
+  S152 -> S48 + S131 , koff_SH2
+  S152 -> S82 + S84 , koff_SH2
+  S153 -> S49 + S131 , koff_SH2
+  S153 -> S83 + S84 , koff_SH2
+  S154 -> S2 + S85 , koff_SH2
+  S155 -> S2 + S86 , koff_SH2
+  S156 -> S2 + S91 , koff_SH2
+  S157 -> S2 + S92 , koff_SH2
+  S158 -> S2 + S93 , koff_SH2
+  S159 -> S2 + S94 , koff_SH2
+  S160 -> S6 + S85 , koff_SH2
+  S161 -> S6 + S86 , koff_SH2
+  S162 -> S6 + S91 , koff_SH2
+  S163 -> S6 + S92 , koff_SH2
+  S164 -> S6 + S93 , koff_SH2
+  S165 -> S6 + S94 , koff_SH2
+  S166 -> S59 + S65 , koff_SH2
+  S166 -> S39 + S124 , koff_SH2
+  S167 -> S60 + S65 , koff_SH2
+  S167 -> S39 + S125 , koff_SH2
+  S168 -> S63 + S65 , koff_SH2
+  S168 -> S39 + S128 , koff_SH2
+  S169 -> S2 + S136 , koff_SH2
+  S169 -> S65 + S70 , koff_SH2
+  S169 -> S39 + S112 , koff_SH2
+  S170 -> S2 + S135 , koff_SH2
+  S170 -> S65 + S71 , koff_SH2
+  S170 -> S39 + S114 , koff_SH2
+  S171 -> S6 + S136 , koff_SH2
+  S171 -> S65 + S78 , koff_SH2
+  S171 -> S39 + S115 , koff_SH2
+  S172 -> S6 + S135 , koff_SH2
+  S172 -> S65 + S79 , koff_SH2
+  S172 -> S39 + S115 , koff_SH2
+  S173 -> S65 + S85 , koff_SH2
+  S173 -> S39 + S160 , koff_SH2
+  S174 -> S65 + S86 , koff_SH2
+  S174 -> S39 + S161 , koff_SH2
+  S175 -> S65 + S91 , koff_SH2
+  S175 -> S39 + S162 , koff_SH2
+  S176 -> S65 + S91 , koff_SH2
+  S176 -> S39 + S118 , koff_SH2
+  S177 -> S65 + S92 , koff_SH2
+  S177 -> S39 + S163 , koff_SH2
+  S178 -> S65 + S92 , koff_SH2
+  S178 -> S39 + S116 , koff_SH2
+  S179 -> S65 + S93 , koff_SH2
+  S179 -> S39 + S164 , koff_SH2
+  S180 -> S65 + S94 , koff_SH2
+  S180 -> S39 + S165 , koff_SH2
+  S181 -> S29 + S57 , 2*koff_SH2
+  S182 -> S29 + S58 , koff_SH2
+  S182 -> S30 + S57 , koff_SH2
+  S183 -> S29 + S62 , koff_SH2
+  S183 -> S33 + S57 , koff_SH2
+  S184 -> S30 + S58 , 2*koff_SH2
+  S185 -> S30 + S62 , koff_SH2
+  S185 -> S33 + S58 , koff_SH2
+  S186 -> S33 + S62 , 2*koff_SH2
+  S187 -> S57 + S59 , koff_SH2
+  S187 -> S29 + S124 , koff_SH2
+  S188 -> S58 + S59 , koff_SH2
+  S188 -> S30 + S124 , koff_SH2
+  S189 -> S59 + S62 , koff_SH2
+  S189 -> S33 + S124 , koff_SH2
+  S190 -> S57 + S60 , koff_SH2
+  S190 -> S29 + S125 , koff_SH2
+  S191 -> S58 + S60 , koff_SH2
+  S191 -> S30 + S125 , koff_SH2
+  S192 -> S60 + S62 , koff_SH2
+  S192 -> S33 + S125 , koff_SH2
+  S193 -> S57 + S63 , koff_SH2
+  S193 -> S29 + S128 , koff_SH2
+  S194 -> S58 + S63 , koff_SH2
+  S194 -> S30 + S128 , koff_SH2
+  S195 -> S62 + S63 , koff_SH2
+  S195 -> S33 + S128 , koff_SH2
+  S199 -> S2 + S89 , koff_SH2
+  S200 -> S2 + S90 , koff_SH2
+  S201 -> S6 + S89 , koff_SH2
+  S202 -> S6 + S90 , koff_SH2
+  S203 -> S2 + S95 , koff_SH2
+  S204 -> S2 + S96 , koff_SH2
+  S205 -> S2 + S97 , koff_SH2
+  S206 -> S2 + S98 , koff_SH2
+  S207 -> S6 + S95 , koff_SH2
+  S208 -> S6 + S96 , koff_SH2
+  S209 -> S6 + S97 , koff_SH2
+  S210 -> S6 + S98 , koff_SH2
+  S218 -> S2 + S101 , koff_SH2
+  S219 -> S2 + S104 , koff_SH2
+  S220 -> S2 + S105 , koff_SH2
+  S221 -> S6 + S101 , koff_SH2
+  S222 -> S6 + S104 , koff_SH2
+  S223 -> S6 + S105 , koff_SH2
+  S224 -> S53 + S65 , koff_SH2
+  S224 -> S39 + S108 , koff_SH2
+  S225 -> S54 + S65 , koff_SH2
+  S225 -> S39 + S109 , koff_SH2
+  S226 -> S2 + S110 , koff_SH2
+  S227 -> S2 + S110 , koff_SH2
+  S228 -> S6 + S110 , koff_SH2
+  S229 -> S6 + S110 , koff_SH2
+  S196 -> S79 , koff_SH2
+  S196 -> S78 , koff_SH2
+  S2 + S130 -> S131 , kon_dimer
+  S64 + S130 -> S132 , kon_dimer
+  2*S130 -> S284 , 0.5*kon_dimer
+  S2 + S111 -> S114 , kon_dimer
+  S2 + S111 -> S112 , kon_dimer
+  S2 + S112 -> S115 , kon_dimer
+  S2 + S113 -> S116 , kon_dimer
+  S2 + S114 -> S115 , kon_dimer
+  S2 + S117 -> S118 , kon_dimer
+  S2 + S122 -> S124 , kon_dimer
+  S2 + S123 -> S125 , kon_dimer
+  S2 + S127 -> S128 , kon_dimer
+  S2 + S154 -> S160 , kon_dimer
+  S2 + S155 -> S161 , kon_dimer
+  S2 + S156 -> S162 , kon_dimer
+  S2 + S157 -> S163 , kon_dimer
+  S2 + S158 -> S164 , kon_dimer
+  S2 + S159 -> S165 , kon_dimer
+  S2 + S169 -> S171 , kon_dimer
+  S2 + S170 -> S172 , kon_dimer
+  S64 + S111 -> S170 , kon_dimer
+  S64 + S111 -> S169 , kon_dimer
+  S64 + S112 -> S172 , kon_dimer
+  S64 + S113 -> S178 , kon_dimer
+  S64 + S114 -> S171 , kon_dimer
+  S64 + S117 -> S176 , kon_dimer
+  S64 + S122 -> S166 , kon_dimer
+  S64 + S123 -> S167 , kon_dimer
+  S64 + S127 -> S168 , kon_dimer
+  S64 + S154 -> S173 , kon_dimer
+  S64 + S155 -> S174 , kon_dimer
+  S64 + S156 -> S175 , kon_dimer
+  S64 + S157 -> S177 , kon_dimer
+  S64 + S158 -> S179 , kon_dimer
+  S64 + S159 -> S180 , kon_dimer
+  S64 + S169 -> S242 , kon_dimer
+  S64 + S170 -> S242 , kon_dimer
+  S35 + S130 -> S141 , kon_dimer
+  S36 + S130 -> S142 , kon_dimer
+  S55 + S130 -> S143 , kon_dimer
+  S56 + S130 -> S144 , kon_dimer
+  S61 + S130 -> S145 , kon_dimer
+  S68 + S130 -> S146 , kon_dimer
+  S69 + S130 -> S147 , kon_dimer
+  S70 + S130 -> S148 , kon_dimer
+  S71 + S130 -> S149 , kon_dimer
+  S72 + S130 -> S150 , kon_dimer
+  S73 + S130 -> S151 , kon_dimer
+  S74 + S130 -> S152 , kon_dimer
+  S75 + S130 -> S153 , kon_dimer
+  S111 + S130 -> S263 , kon_dimer
+  S111 + S130 -> S232 , kon_dimer
+  S112 + S130 -> S264 , kon_dimer
+  S113 + S130 -> S265 , kon_dimer
+  S114 + S130 -> S236 , kon_dimer
+  S117 + S130 -> S240 , kon_dimer
+  S122 + S130 -> S279 , kon_dimer
+  S123 + S130 -> S280 , kon_dimer
+  S127 + S130 -> S283 , kon_dimer
+  S130 + S154 -> S285 , kon_dimer
+  S130 + S155 -> S286 , kon_dimer
+  S130 + S156 -> S287 , kon_dimer
+  S130 + S157 -> S288 , kon_dimer
+  S130 + S158 -> S289 , kon_dimer
+  S130 + S159 -> S290 , kon_dimer
+  S130 + S169 -> S266 , kon_dimer
+  S130 + S170 -> S245 , kon_dimer
+  S55 + S122 -> S187 , rateLaw5
+  S55 + S123 -> S190 , rateLaw5
+  S55 + S127 -> S193 , rateLaw5
+  S56 + S122 -> S188 , rateLaw5
+  S56 + S123 -> S191 , rateLaw5
+  S56 + S127 -> S194 , rateLaw5
+  S61 + S122 -> S189 , rateLaw5
+  S61 + S123 -> S192 , rateLaw5
+  S61 + S127 -> S195 , rateLaw5
+  2*S122 -> S299 , 0.5*rateLaw5
+  S122 + S123 -> S300 , rateLaw5
+  S122 + S127 -> S301 , rateLaw5
+  2*S123 -> S302 , 0.5*rateLaw5
+  S123 + S127 -> S303 , rateLaw5
+  2*S127 -> S304 , 0.5*rateLaw5
+  S111 -> S196 , rateLaw6
+  S112 -> S2 + S111 , koff_dimer
+  S114 -> S2 + S111 , koff_dimer
+  S115 -> S2 + S112 , koff_dimer
+  S115 -> S2 + S114 , koff_dimer
+  S116 -> S2 + S113 , koff_dimer
+  S118 -> S2 + S117 , koff_dimer
+  S120 -> S55 + S64 , koff_dimer
+  S121 -> S56 + S64 , koff_dimer
+  S124 -> S2 + S122 , koff_dimer
+  S125 -> S2 + S123 , koff_dimer
+  S126 -> S61 + S64 , koff_dimer
+  S128 -> S2 + S127 , koff_dimer
+  S129 -> 2*S64 , koff_dimer
+  S131 -> S2 + S130 , koff_dimer
+  S132 -> S64 + S130 , koff_dimer
+  S133 -> S64 + S68 , koff_dimer
+  S134 -> S64 + S69 , koff_dimer
+  S135 -> S64 + S70 , koff_dimer
+  S136 -> S64 + S71 , koff_dimer
+  S137 -> S64 + S72 , koff_dimer
+  S138 -> S64 + S73 , koff_dimer
+  S139 -> S64 + S74 , koff_dimer
+  S140 -> S64 + S75 , koff_dimer
+  S141 -> S35 + S130 , koff_dimer
+  S142 -> S36 + S130 , koff_dimer
+  S143 -> S55 + S130 , koff_dimer
+  S144 -> S56 + S130 , koff_dimer
+  S145 -> S61 + S130 , koff_dimer
+  S146 -> S68 + S130 , koff_dimer
+  S147 -> S69 + S130 , koff_dimer
+  S148 -> S70 + S130 , koff_dimer
+  S149 -> S71 + S130 , koff_dimer
+  S150 -> S72 + S130 , koff_dimer
+  S151 -> S73 + S130 , koff_dimer
+  S152 -> S74 + S130 , koff_dimer
+  S153 -> S75 + S130 , koff_dimer
+  S160 -> S2 + S154 , koff_dimer
+  S161 -> S2 + S155 , koff_dimer
+  S162 -> S2 + S156 , koff_dimer
+  S163 -> S2 + S157 , koff_dimer
+  S164 -> S2 + S158 , koff_dimer
+  S165 -> S2 + S159 , koff_dimer
+  S166 -> S64 + S122 , koff_dimer
+  S167 -> S64 + S123 , koff_dimer
+  S168 -> S64 + S127 , koff_dimer
+  S169 -> S64 + S111 , koff_dimer
+  S170 -> S64 + S111 , koff_dimer
+  S171 -> S2 + S169 , koff_dimer
+  S171 -> S64 + S114 , koff_dimer
+  S172 -> S2 + S170 , koff_dimer
+  S172 -> S64 + S112 , koff_dimer
+  S173 -> S64 + S154 , koff_dimer
+  S174 -> S64 + S155 , koff_dimer
+  S175 -> S64 + S156 , koff_dimer
+  S176 -> S64 + S117 , koff_dimer
+  S177 -> S64 + S157 , koff_dimer
+  S178 -> S64 + S113 , koff_dimer
+  S179 -> S64 + S158 , koff_dimer
+  S180 -> S64 + S159 , koff_dimer
+  S181 -> 2*S55 , koff_dimer
+  S182 -> S55 + S56 , koff_dimer
+  S183 -> S55 + S61 , koff_dimer
+  S184 -> 2*S56 , koff_dimer
+  S185 -> S56 + S61 , koff_dimer
+  S186 -> 2*S61 , koff_dimer
+  S187 -> S55 + S122 , koff_dimer
+  S188 -> S56 + S122 , koff_dimer
+  S189 -> S61 + S122 , koff_dimer
+  S190 -> S55 + S123 , koff_dimer
+  S191 -> S56 + S123 , koff_dimer
+  S192 -> S61 + S123 , koff_dimer
+  S193 -> S55 + S127 , koff_dimer
+  S194 -> S56 + S127 , koff_dimer
+  S195 -> S61 + S127 , koff_dimer
+  S201 -> S2 + S199 , koff_dimer
+  S202 -> S2 + S200 , koff_dimer
+  S207 -> S2 + S203 , koff_dimer
+  S208 -> S2 + S204 , koff_dimer
+  S209 -> S2 + S205 , koff_dimer
+  S210 -> S2 + S206 , koff_dimer
+  S221 -> S2 + S218 , koff_dimer
+  S222 -> S2 + S219 , koff_dimer
+  S223 -> S2 + S220 , koff_dimer
+  S224 -> S64 + S106 , koff_dimer
+  S225 -> S64 + S107 , koff_dimer
+  S228 -> S2 + S226 , koff_dimer
+  S229 -> S2 + S227 , koff_dimer
+  S196 -> S111 , koff_dimer
+  S3 + S133 -> S66 , kon_j
+  S42 + S133 -> S140 , kon_j
+  S3 + S134 -> S67 , kon_j
+  S42 + S134 -> S139 , kon_j
+  S3 + S146 -> S141 , kon_j
+  S42 + S146 -> S153 , kon_j
+  S3 + S147 -> S142 , kon_j
+  S42 + S147 -> S152 , kon_j
+  S3 + S154 -> S72 , kon_j
+  S42 + S154 -> S158 , kon_j
+  S3 + S155 -> S73 , kon_j
+  S42 + S155 -> S159 , kon_j
+  S3 + S160 -> S80 , kon_j
+  S42 + S160 -> S164 , kon_j
+  S3 + S161 -> S81 , kon_j
+  S42 + S161 -> S165 , kon_j
+  S3 + S173 -> S137 , kon_j
+  S42 + S173 -> S179 , kon_j
+  S3 + S174 -> S138 , kon_j
+  S42 + S174 -> S180 , kon_j
+  S39 + S133 -> S135 , kon_j
+  S84 + S133 -> S178 , kon_j
+  S39 + S134 -> S136 , kon_j
+  S84 + S134 -> S176 , kon_j
+  S39 + S146 -> S148 , kon_j
+  S84 + S146 -> S265 , kon_j
+  S39 + S147 -> S149 , kon_j
+  S84 + S147 -> S240 , kon_j
+  S39 + S154 -> S156 , kon_j
+  S84 + S154 -> S249 , kon_j
+  S39 + S155 -> S157 , kon_j
+  S84 + S155 -> S238 , kon_j
+  S39 + S160 -> S162 , kon_j
+  S84 + S160 -> S257 , kon_j
+  S39 + S161 -> S163 , kon_j
+  S84 + S161 -> S239 , kon_j
+  S39 + S173 -> S175 , kon_j
+  S84 + S173 -> S273 , kon_j
+  S39 + S174 -> S177 , kon_j
+  S84 + S174 -> S241 , kon_j
+  S1 + S130 -> S122 , kon_j
+  S5 + S130 -> S123 , kon_j
+  S10 + S130 -> S154 , kon_j
+  S10 + S130 -> S155 , kon_j
+  S11 + S130 -> S73 , kon_j
+  S14 + S130 -> S72 , kon_j
+  S16 + S130 -> S127 , kon_j
+  S40 + S130 -> S157 , kon_j
+  S41 + S130 -> S156 , kon_j
+  S43 + S130 -> S159 , kon_j
+  S44 + S130 -> S158 , kon_j
+  S68 + S130 -> S230 , kon_j
+  S69 + S130 -> S247 , kon_j
+  S76 + S130 -> S234 , kon_j
+  S77 + S130 -> S248 , kon_j
+  S85 + S130 -> S238 , kon_j
+  S86 + S130 -> S249 , kon_j
+  S64 + S133 -> S170 , kon_j
+  S130 + S133 -> S243 , kon_j
+  S64 + S134 -> S169 , kon_j
+  S130 + S134 -> S250 , kon_j
+  S64 + S146 -> S263 , kon_j
+  S130 + S146 -> S267 , kon_j
+  S64 + S147 -> S232 , kon_j
+  S130 + S147 -> S253 , kon_j
+  S64 + S154 -> S247 , kon_j
+  S130 + S154 -> S251 , kon_j
+  S64 + S155 -> S230 , kon_j
+  S130 + S155 -> S251 , kon_j
+  S64 + S160 -> S255 , kon_j
+  S130 + S160 -> S259 , kon_j
+  S64 + S161 -> S231 , kon_j
+  S130 + S161 -> S252 , kon_j
+  S64 + S173 -> S271 , kon_j
+  S130 + S173 -> S275 , kon_j
+  S64 + S174 -> S233 , kon_j
+  S130 + S174 -> S254 , kon_j
+  S1 + S131 -> S124 , kon_j
+  S5 + S131 -> S125 , kon_j
+  S10 + S131 -> S160 , kon_j
+  S10 + S131 -> S161 , kon_j
+  S11 + S131 -> S81 , kon_j
+  S14 + S131 -> S80 , kon_j
+  S16 + S131 -> S128 , kon_j
+  S40 + S131 -> S163 , kon_j
+  S41 + S131 -> S162 , kon_j
+  S43 + S131 -> S165 , kon_j
+  S44 + S131 -> S164 , kon_j
+  S68 + S131 -> S231 , kon_j
+  S69 + S131 -> S255 , kon_j
+  S76 + S131 -> S235 , kon_j
+  S77 + S131 -> S256 , kon_j
+  S85 + S131 -> S239 , kon_j
+  S86 + S131 -> S257 , kon_j
+  S65 + S133 -> S172 , kon_j
+  S131 + S133 -> S244 , kon_j
+  S65 + S134 -> S171 , kon_j
+  S131 + S134 -> S258 , kon_j
+  S65 + S146 -> S264 , kon_j
+  S131 + S146 -> S268 , kon_j
+  S65 + S147 -> S236 , kon_j
+  S131 + S147 -> S261 , kon_j
+  S65 + S154 -> S248 , kon_j
+  S131 + S154 -> S252 , kon_j
+  S65 + S155 -> S234 , kon_j
+  S131 + S155 -> S259 , kon_j
+  S65 + S160 -> S256 , kon_j
+  S131 + S160 -> S260 , kon_j
+  S65 + S161 -> S235 , kon_j
+  S131 + S161 -> S260 , kon_j
+  S65 + S173 -> S272 , kon_j
+  S131 + S173 -> S276 , kon_j
+  S65 + S174 -> S237 , kon_j
+  S131 + S174 -> S262 , kon_j
+  S1 + S129 -> S120 , 2*kon_j
+  S1 + S132 -> S166 , kon_j
+  S1 + S132 -> S143 , kon_j
+  S5 + S129 -> S121 , 2*kon_j
+  S5 + S132 -> S167 , kon_j
+  S5 + S132 -> S144 , kon_j
+  S10 + S129 -> S133 , 2*kon_j
+  S10 + S132 -> S173 , kon_j
+  S10 + S132 -> S146 , kon_j
+  S10 + S129 -> S134 , 2*kon_j
+  S10 + S132 -> S174 , kon_j
+  S10 + S132 -> S147 , kon_j
+  S11 + S129 -> S67 , 2*kon_j
+  S11 + S132 -> S138 , kon_j
+  S11 + S132 -> S142 , kon_j
+  S14 + S129 -> S66 , 2*kon_j
+  S14 + S132 -> S137 , kon_j
+  S14 + S132 -> S141 , kon_j
+  S16 + S129 -> S126 , 2*kon_j
+  S16 + S132 -> S168 , kon_j
+  S16 + S132 -> S145 , kon_j
+  S40 + S129 -> S136 , 2*kon_j
+  S40 + S132 -> S177 , kon_j
+  S40 + S132 -> S149 , kon_j
+  S41 + S129 -> S135 , 2*kon_j
+  S41 + S132 -> S175 , kon_j
+  S41 + S132 -> S148 , kon_j
+  S43 + S129 -> S139 , 2*kon_j
+  S43 + S132 -> S180 , kon_j
+  S43 + S132 -> S152 , kon_j
+  S44 + S129 -> S140 , 2*kon_j
+  S44 + S132 -> S179 , kon_j
+  S44 + S132 -> S153 , kon_j
+  S68 + S129 -> S169 , 2*kon_j
+  S68 + S132 -> S233 , kon_j
+  S68 + S132 -> S232 , kon_j
+  S69 + S129 -> S170 , 2*kon_j
+  S69 + S132 -> S271 , kon_j
+  S69 + S132 -> S263 , kon_j
+  S76 + S129 -> S171 , 2*kon_j
+  S76 + S132 -> S237 , kon_j
+  S76 + S132 -> S236 , kon_j
+  S77 + S129 -> S172 , 2*kon_j
+  S77 + S132 -> S272 , kon_j
+  S77 + S132 -> S264 , kon_j
+  S85 + S129 -> S176 , 2*kon_j
+  S85 + S132 -> S241 , kon_j
+  S85 + S132 -> S240 , kon_j
+  S86 + S129 -> S178 , 2*kon_j
+  S86 + S132 -> S273 , kon_j
+  S86 + S132 -> S265 , kon_j
+  S129 + S133 -> S242 , 2*kon_j
+  S132 + S133 -> S246 , kon_j
+  S132 + S133 -> S245 , kon_j
+  S129 + S134 -> S242 , 2*kon_j
+  S132 + S134 -> S274 , kon_j
+  S132 + S134 -> S266 , kon_j
+  S129 + S146 -> S266 , 2*kon_j
+  S132 + S146 -> S270 , kon_j
+  S132 + S146 -> S269 , kon_j
+  S129 + S147 -> S245 , 2*kon_j
+  S132 + S147 -> S277 , kon_j
+  S132 + S147 -> S269 , kon_j
+  S129 + S154 -> S250 , 2*kon_j
+  S132 + S154 -> S254 , kon_j
+  S132 + S154 -> S253 , kon_j
+  S129 + S155 -> S243 , 2*kon_j
+  S132 + S155 -> S275 , kon_j
+  S132 + S155 -> S267 , kon_j
+  S129 + S160 -> S258 , 2*kon_j
+  S132 + S160 -> S262 , kon_j
+  S132 + S160 -> S261 , kon_j
+  S129 + S161 -> S244 , 2*kon_j
+  S132 + S161 -> S276 , kon_j
+  S132 + S161 -> S268 , kon_j
+  S129 + S173 -> S274 , 2*kon_j
+  S132 + S173 -> S278 , kon_j
+  S132 + S173 -> S277 , kon_j
+  S129 + S174 -> S246 , 2*kon_j
+  S132 + S174 -> S278 , kon_j
+  S132 + S174 -> S270 , kon_j
+  S1 + S120 -> S181 , rateLaw7
+  S1 + S121 -> S182 , rateLaw7
+  S1 + S126 -> S183 , rateLaw7
+  S1 + S143 -> S187 , rateLaw7
+  S1 + S144 -> S188 , rateLaw7
+  S1 + S145 -> S189 , rateLaw7
+  S1 + S166 -> S187 , rateLaw7
+  S1 + S167 -> S190 , rateLaw7
+  S1 + S168 -> S193 , rateLaw7
+  S5 + S120 -> S182 , rateLaw7
+  S5 + S121 -> S184 , rateLaw7
+  S5 + S126 -> S185 , rateLaw7
+  S5 + S143 -> S190 , rateLaw7
+  S5 + S144 -> S191 , rateLaw7
+  S5 + S145 -> S192 , rateLaw7
+  S5 + S166 -> S188 , rateLaw7
+  S5 + S167 -> S191 , rateLaw7
+  S5 + S168 -> S194 , rateLaw7
+  S16 + S120 -> S183 , rateLaw7
+  S16 + S121 -> S185 , rateLaw7
+  S16 + S126 -> S186 , rateLaw7
+  S16 + S143 -> S193 , rateLaw7
+  S16 + S144 -> S194 , rateLaw7
+  S16 + S145 -> S195 , rateLaw7
+  S16 + S166 -> S189 , rateLaw7
+  S16 + S167 -> S192 , rateLaw7
+  S16 + S168 -> S195 , rateLaw7
+  S133 -> S196 , rateLaw8
+  S134 -> S196 , rateLaw8
+  S146 -> S282 , rateLaw8
+  S147 -> S281 , rateLaw8
+  S173 -> S281 , rateLaw8
+  S174 -> S282 , rateLaw8
+  S111 -> S64 + S69 , koff_j
+  S111 -> S64 + S68 , koff_j
+  S112 -> S64 + S77 , koff_j
+  S112 -> S65 + S68 , koff_j
+  S113 -> S64 + S86 , koff_j
+  S113 -> S68 + S84 , koff_j
+  S114 -> S65 + S69 , koff_j
+  S114 -> S64 + S76 , koff_j
+  S115 -> S65 + S77 , koff_j
+  S115 -> S65 + S76 , koff_j
+  S116 -> S65 + S86 , koff_j
+  S116 -> S76 + S84 , koff_j
+  S117 -> S69 + S84 , koff_j
+  S117 -> S64 + S85 , koff_j
+  S118 -> S77 + S84 , koff_j
+  S118 -> S65 + S85 , koff_j
+  S119 -> S84 + S86 , koff_j
+  S119 -> S84 + S85 , koff_j
+  S120 -> S1 + S129 , koff_j
+  S121 -> S5 + S129 , koff_j
+  S122 -> S1 + S130 , koff_j
+  S123 -> S5 + S130 , koff_j
+  S124 -> S1 + S131 , koff_j
+  S125 -> S5 + S131 , koff_j
+  S126 -> S16 + S129 , koff_j
+  S127 -> S16 + S130 , koff_j
+  S128 -> S16 + S131 , koff_j
+  S133 -> S10 + S129 , koff_j
+  S134 -> S10 + S129 , koff_j
+  S135 -> S41 + S129 , koff_j
+  S135 -> S39 + S133 , koff_j
+  S136 -> S39 + S134 , koff_j
+  S136 -> S40 + S129 , koff_j
+  S137 -> S14 + S132 , koff_j
+  S137 -> S3 + S173 , koff_j
+  S138 -> S3 + S174 , koff_j
+  S138 -> S11 + S132 , koff_j
+  S139 -> S42 + S134 , koff_j
+  S139 -> S43 + S129 , koff_j
+  S140 -> S44 + S129 , koff_j
+  S140 -> S42 + S133 , koff_j
+  S141 -> S14 + S132 , koff_j
+  S141 -> S3 + S146 , koff_j
+  S142 -> S3 + S147 , koff_j
+  S142 -> S11 + S132 , koff_j
+  S143 -> S1 + S132 , koff_j
+  S144 -> S5 + S132 , koff_j
+  S145 -> S16 + S132 , koff_j
+  S146 -> S10 + S132 , koff_j
+  S147 -> S10 + S132 , koff_j
+  S148 -> S41 + S132 , koff_j
+  S148 -> S39 + S146 , koff_j
+  S149 -> S39 + S147 , koff_j
+  S149 -> S40 + S132 , koff_j
+  S150 -> S14 + S284 , koff_j
+  S150 -> S3 + S285 , koff_j
+  S151 -> S3 + S286 , koff_j
+  S151 -> S11 + S284 , koff_j
+  S152 -> S42 + S147 , koff_j
+  S152 -> S43 + S132 , koff_j
+  S153 -> S44 + S132 , koff_j
+  S153 -> S42 + S146 , koff_j
+  S154 -> S10 + S130 , koff_j
+  S155 -> S10 + S130 , koff_j
+  S156 -> S41 + S130 , koff_j
+  S156 -> S39 + S154 , koff_j
+  S157 -> S39 + S155 , koff_j
+  S157 -> S40 + S130 , koff_j
+  S158 -> S44 + S130 , koff_j
+  S158 -> S42 + S154 , koff_j
+  S159 -> S42 + S155 , koff_j
+  S159 -> S43 + S130 , koff_j
+  S160 -> S10 + S131 , koff_j
+  S161 -> S10 + S131 , koff_j
+  S162 -> S41 + S131 , koff_j
+  S162 -> S39 + S160 , koff_j
+  S163 -> S39 + S161 , koff_j
+  S163 -> S40 + S131 , koff_j
+  S164 -> S44 + S131 , koff_j
+  S164 -> S42 + S160 , koff_j
+  S165 -> S42 + S161 , koff_j
+  S165 -> S43 + S131 , koff_j
+  S166 -> S1 + S132 , koff_j
+  S167 -> S5 + S132 , koff_j
+  S168 -> S16 + S132 , koff_j
+  S169 -> S64 + S134 , koff_j
+  S169 -> S68 + S129 , koff_j
+  S170 -> S69 + S129 , koff_j
+  S170 -> S64 + S133 , koff_j
+  S171 -> S65 + S134 , koff_j
+  S171 -> S76 + S129 , koff_j
+  S172 -> S77 + S129 , koff_j
+  S172 -> S65 + S133 , koff_j
+  S173 -> S10 + S132 , koff_j
+  S174 -> S10 + S132 , koff_j
+  S175 -> S41 + S132 , koff_j
+  S175 -> S39 + S173 , koff_j
+  S176 -> S84 + S134 , koff_j
+  S176 -> S85 + S129 , koff_j
+  S177 -> S39 + S174 , koff_j
+  S177 -> S40 + S132 , koff_j
+  S178 -> S86 + S129 , koff_j
+  S178 -> S84 + S133 , koff_j
+  S179 -> S44 + S132 , koff_j
+  S179 -> S42 + S173 , koff_j
+  S180 -> S42 + S174 , koff_j
+  S180 -> S43 + S132 , koff_j
+  S181 -> S1 + S120 , 2*koff_j
+  S182 -> S5 + S120 , koff_j
+  S182 -> S1 + S121 , koff_j
+  S183 -> S16 + S120 , koff_j
+  S183 -> S1 + S126 , koff_j
+  S184 -> S5 + S121 , 2*koff_j
+  S185 -> S5 + S126 , koff_j
+  S185 -> S16 + S121 , koff_j
+  S186 -> S16 + S126 , 2*koff_j
+  S187 -> S1 + S143 , koff_j
+  S187 -> S1 + S166 , koff_j
+  S188 -> S5 + S166 , koff_j
+  S188 -> S1 + S144 , koff_j
+  S189 -> S16 + S166 , koff_j
+  S189 -> S1 + S145 , koff_j
+  S190 -> S5 + S143 , koff_j
+  S190 -> S1 + S167 , koff_j
+  S191 -> S5 + S144 , koff_j
+  S191 -> S5 + S167 , koff_j
+  S192 -> S5 + S145 , koff_j
+  S192 -> S16 + S167 , koff_j
+  S193 -> S16 + S143 , koff_j
+  S193 -> S1 + S168 , koff_j
+  S194 -> S16 + S144 , koff_j
+  S194 -> S5 + S168 , koff_j
+  S195 -> S16 + S145 , koff_j
+  S195 -> S16 + S168 , koff_j
+  S197 -> S19 + S84 , koff_j
+  S198 -> S19 + S84 , koff_j
+  S199 -> S19 + S64 , koff_j
+  S200 -> S19 + S64 , koff_j
+  S201 -> S19 + S65 , koff_j
+  S202 -> S19 + S65 , koff_j
+  S203 -> S27 + S130 , koff_j
+  S203 -> S3 + S305 , koff_j
+  S204 -> S64 + S88 , koff_j
+  S204 -> S42 + S199 , koff_j
+  S205 -> S3 + S306 , koff_j
+  S205 -> S20 + S130 , koff_j
+  S206 -> S42 + S200 , koff_j
+  S206 -> S64 + S87 , koff_j
+  S207 -> S27 + S131 , koff_j
+  S207 -> S3 + S307 , koff_j
+  S208 -> S65 + S88 , koff_j
+  S208 -> S42 + S201 , koff_j
+  S209 -> S3 + S308 , koff_j
+  S209 -> S20 + S131 , koff_j
+  S210 -> S42 + S202 , koff_j
+  S210 -> S65 + S87 , koff_j
+  S211 -> S84 + S90 , koff_j
+  S211 -> S39 + S197 , koff_j
+  S212 -> S39 + S198 , koff_j
+  S212 -> S84 + S89 , koff_j
+  S213 -> S84 + S88 , koff_j
+  S213 -> S42 + S197 , koff_j
+  S214 -> S42 + S198 , koff_j
+  S214 -> S84 + S87 , koff_j
+  S215 -> S8 + S84 , koff_j
+  S216 -> S12 + S84 , koff_j
+  S217 -> S25 + S84 , koff_j
+  S218 -> S8 + S64 , koff_j
+  S219 -> S12 + S64 , koff_j
+  S220 -> S25 + S64 , koff_j
+  S221 -> S8 + S65 , koff_j
+  S222 -> S12 + S65 , koff_j
+  S223 -> S25 + S65 , koff_j
+  S224 -> S27 + S129 , koff_j
+  S224 -> S3 + S309 , koff_j
+  S225 -> S3 + S310 , koff_j
+  S225 -> S20 + S129 , koff_j
+  S226 -> S64 + S90 , koff_j
+  S226 -> S39 + S199 , koff_j
+  S227 -> S39 + S200 , koff_j
+  S227 -> S64 + S89 , koff_j
+  S228 -> S65 + S90 , koff_j
+  S228 -> S39 + S201 , koff_j
+  S229 -> S39 + S202 , koff_j
+  S229 -> S65 + S89 , koff_j
+  S196 -> S134 , koff_j
+  S196 -> S133 , koff_j
+  S139 -> S176 , kphos_slow
+  S140 -> S178 , kphos_slow
+  S141 -> S148 , kphos_slow
+  S142 -> S149 , kphos_slow
+  S152 -> S240 , kphos_slow
+  S153 -> S265 , kphos_slow
+  S137 -> S175 , kphos_fast
+  S138 -> S177 , kphos_fast
+  S150 -> S287 , kphos_fast
+  S151 -> S288 , kphos_fast
+  S158 -> S249 , kphos_fast
+  S159 -> S238 , kphos_fast
+  S164 -> S257 , kphos_fast
+  S165 -> S239 , kphos_fast
+  S179 -> S273 , kphos_fast
+  S180 -> S241 , kphos_fast
+  S111 -> S247 , kphos_slow
+  S111 -> S230 , kphos_slow
+  S112 -> S248 , kphos_slow
+  S112 -> S231 , kphos_slow
+  S114 -> S255 , kphos_slow
+  S114 -> S234 , kphos_slow
+  S115 -> S256 , kphos_slow
+  S115 -> S235 , kphos_slow
+  S120 -> S166 , kphos_slow
+  S120 -> S143 , kphos_slow
+  S121 -> S167 , kphos_slow
+  S121 -> S144 , kphos_slow
+  S126 -> S168 , kphos_slow
+  S126 -> S145 , kphos_slow
+  S129 -> S132 , 2*kphos_slow
+  S133 -> S173 , kphos_slow
+  S133 -> S146 , kphos_slow
+  S134 -> S174 , kphos_slow
+  S134 -> S147 , kphos_slow
+  S135 -> S175 , kphos_slow
+  S135 -> S178 , kphos_slow
+  S135 -> S148 , kphos_slow
+  S136 -> S177 , kphos_slow
+  S136 -> S176 , kphos_slow
+  S136 -> S149 , kphos_slow
+  S137 -> S179 , kphos_slow
+  S137 -> S150 , kphos_slow
+  S138 -> S180 , kphos_slow
+  S138 -> S151 , kphos_slow
+  S139 -> S180 , kphos_slow
+  S139 -> S152 , kphos_slow
+  S140 -> S179 , kphos_slow
+  S140 -> S153 , kphos_slow
+  S141 -> S150 , kphos_slow
+  S141 -> S153 , kphos_slow
+  S142 -> S151 , kphos_slow
+  S142 -> S152 , kphos_slow
+  S148 -> S287 , kphos_slow
+  S148 -> S265 , kphos_slow
+  S149 -> S288 , kphos_slow
+  S149 -> S240 , kphos_slow
+  S169 -> S250 , kphos_slow
+  S169 -> S233 , kphos_slow
+  S169 -> S232 , kphos_slow
+  S170 -> S243 , kphos_slow
+  S170 -> S271 , kphos_slow
+  S170 -> S263 , kphos_slow
+  S171 -> S258 , kphos_slow
+  S171 -> S237 , kphos_slow
+  S171 -> S236 , kphos_slow
+  S172 -> S244 , kphos_slow
+  S172 -> S272 , kphos_slow
+  S172 -> S264 , kphos_slow
+  S175 -> S273 , kphos_slow
+  S175 -> S287 , kphos_slow
+  S176 -> S241 , kphos_slow
+  S176 -> S240 , kphos_slow
+  S177 -> S241 , kphos_slow
+  S177 -> S288 , kphos_slow
+  S178 -> S273 , kphos_slow
+  S178 -> S265 , kphos_slow
+  S181 -> S187 , 2*kphos_slow
+  S182 -> S188 , kphos_slow
+  S182 -> S190 , kphos_slow
+  S183 -> S189 , kphos_slow
+  S183 -> S193 , kphos_slow
+  S184 -> S191 , 2*kphos_slow
+  S185 -> S192 , kphos_slow
+  S185 -> S194 , kphos_slow
+  S186 -> S195 , 2*kphos_slow
+  S196 -> S281 , kphos_slow
+  S196 -> S282 , kphos_slow
+  S224 -> S311 , kphos_slow
+  S224 -> S312 , kphos_slow
+  S224 -> S313 , kphos_slow
+  S225 -> S314 , kphos_slow
+  S225 -> S315 , kphos_slow
+  S225 -> S316 , kphos_slow
+  S226 -> S317 , kphos_slow
+  S226 -> S318 , kphos_slow
+  S227 -> S319 , kphos_slow
+  S227 -> S320 , kphos_slow
+  S228 -> S321 , kphos_slow
+  S228 -> S322 , kphos_slow
+  S229 -> S323 , kphos_slow
+  S229 -> S324 , kphos_slow
+  S113 -> S249 , kphos_fast
+  S116 -> S257 , kphos_fast
+  S117 -> S238 , kphos_fast
+  S118 -> S239 , kphos_fast
+  S132 -> S284 , kphos_fast
+  S137 -> S179 , kphos_fast
+  S137 -> S150 , kphos_fast
+  S138 -> S180 , kphos_fast
+  S138 -> S151 , kphos_fast
+  S139 -> S180 , kphos_fast
+  S139 -> S152 , kphos_fast
+  S140 -> S179 , kphos_fast
+  S140 -> S153 , kphos_fast
+  S141 -> S150 , kphos_fast
+  S141 -> S153 , kphos_fast
+  S142 -> S151 , kphos_fast
+  S142 -> S152 , kphos_fast
+  S143 -> S279 , kphos_fast
+  S144 -> S280 , kphos_fast
+  S145 -> S283 , kphos_fast
+  S146 -> S285 , kphos_fast
+  S147 -> S286 , kphos_fast
+  S148 -> S287 , kphos_fast
+  S148 -> S265 , kphos_fast
+  S149 -> S288 , kphos_fast
+  S149 -> S240 , kphos_fast
+  S150 -> S289 , kphos_fast
+  S151 -> S290 , kphos_fast
+  S152 -> S290 , kphos_fast
+  S153 -> S289 , kphos_fast
+  S156 -> S249 , kphos_fast
+  S157 -> S238 , kphos_fast
+  S162 -> S257 , kphos_fast
+  S163 -> S239 , kphos_fast
+  S166 -> S279 , kphos_fast
+  S167 -> S280 , kphos_fast
+  S168 -> S283 , kphos_fast
+  S173 -> S285 , kphos_fast
+  S174 -> S286 , kphos_fast
+  S175 -> S273 , kphos_fast
+  S175 -> S287 , kphos_fast
+  S176 -> S241 , kphos_fast
+  S176 -> S240 , kphos_fast
+  S177 -> S241 , kphos_fast
+  S177 -> S288 , kphos_fast
+  S178 -> S273 , kphos_fast
+  S178 -> S265 , kphos_fast
+  S179 -> S289 , kphos_fast
+  S180 -> S290 , kphos_fast
+  S187 -> S299 , kphos_fast
+  S188 -> S300 , kphos_fast
+  S189 -> S301 , kphos_fast
+  S190 -> S300 , kphos_fast
+  S191 -> S302 , kphos_fast
+  S192 -> S303 , kphos_fast
+  S193 -> S301 , kphos_fast
+  S194 -> S303 , kphos_fast
+  S195 -> S304 , kphos_fast
+  S203 -> S325 , kphos_fast
+  S204 -> S325 , kphos_fast
+  S205 -> S326 , kphos_fast
+  S206 -> S326 , kphos_fast
+  S207 -> S327 , kphos_fast
+  S208 -> S327 , kphos_fast
+  S209 -> S328 , kphos_fast
+  S210 -> S328 , kphos_fast
+  S211 -> S329 , kphos_fast
+  S212 -> S329 , kphos_fast
+  S113 -> S75 , kcat_ptp
+  S116 -> S83 , kcat_ptp
+  S117 -> S74 , kcat_ptp
+  S118 -> S82 , kcat_ptp
+  S119 -> S94 , kcat_ptp
+  S119 -> S93 , kcat_ptp
+  S135 -> S66 , kcat_ptp
+  S136 -> S67 , kcat_ptp
+  S148 -> S141 , kcat_ptp
+  S149 -> S142 , kcat_ptp
+  S156 -> S72 , kcat_ptp
+  S157 -> S73 , kcat_ptp
+  S162 -> S80 , kcat_ptp
+  S163 -> S81 , kcat_ptp
+  S175 -> S137 , kcat_ptp
+  S176 -> S139 , kcat_ptp
+  S177 -> S138 , kcat_ptp
+  S178 -> S140 , kcat_ptp
+  S197 -> S87 , kcat_ptp
+  S198 -> S88 , kcat_ptp
+  S211 -> S98 , kcat_ptp
+  S211 -> S95 , kcat_ptp
+  S212 -> S96 , kcat_ptp
+  S212 -> S97 , kcat_ptp
+  S213 -> S99 , kcat_ptp
+  S214 -> S99 , kcat_ptp
+  S215 -> S100 , kcat_ptp
+  S216 -> S102 , kcat_ptp
+  S217 -> S103 , kcat_ptp
+  S226 -> S106 , kcat_ptp
+  S227 -> S107 , kcat_ptp
+  S228 -> S108 , kcat_ptp
+  S229 -> S109 , kcat_ptp
+  S113 -> S70 , kcat_ptp
+  S116 -> S78 , kcat_ptp
+  S117 -> S71 , kcat_ptp
+  S118 -> S79 , kcat_ptp
+  S119 -> S92 , kcat_ptp
+  S119 -> S91 , kcat_ptp
+  S122 -> S55 , kcat_ptp
+  S123 -> S56 , kcat_ptp
+  S124 -> S57 , kcat_ptp
+  S125 -> S58 , kcat_ptp
+  S127 -> S61 , kcat_ptp
+  S128 -> S62 , kcat_ptp
+  S130 -> S64 , kcat_ptp
+  S131 -> S65 , kcat_ptp
+  S132 -> S129 , kcat_ptp
+  S137 -> S66 , kcat_ptp
+  S138 -> S67 , kcat_ptp
+  S139 -> S67 , kcat_ptp
+  S140 -> S66 , kcat_ptp
+  S141 -> S66 , kcat_ptp
+  S142 -> S67 , kcat_ptp
+  S143 -> S120 , kcat_ptp
+  S144 -> S121 , kcat_ptp
+  S145 -> S126 , kcat_ptp
+  S146 -> S133 , kcat_ptp
+  S147 -> S134 , kcat_ptp
+  S148 -> S135 , kcat_ptp
+  S149 -> S136 , kcat_ptp
+  S150 -> S141 , kcat_ptp
+  S150 -> S137 , kcat_ptp
+  S151 -> S142 , kcat_ptp
+  S151 -> S138 , kcat_ptp
+  S152 -> S142 , kcat_ptp
+  S152 -> S139 , kcat_ptp
+  S153 -> S141 , kcat_ptp
+  S153 -> S140 , kcat_ptp
+  S154 -> S68 , kcat_ptp
+  S155 -> S69 , kcat_ptp
+  S156 -> S70 , kcat_ptp
+  S157 -> S71 , kcat_ptp
+  S158 -> S75 , kcat_ptp
+  S158 -> S72 , kcat_ptp
+  S159 -> S74 , kcat_ptp
+  S159 -> S73 , kcat_ptp
+  S160 -> S76 , kcat_ptp
+  S161 -> S77 , kcat_ptp
+  S162 -> S78 , kcat_ptp
+  S163 -> S79 , kcat_ptp
+  S164 -> S83 , kcat_ptp
+  S164 -> S80 , kcat_ptp
+  S165 -> S82 , kcat_ptp
+  S165 -> S81 , kcat_ptp
+  S166 -> S120 , kcat_ptp
+  S167 -> S121 , kcat_ptp
+  S168 -> S126 , kcat_ptp
+  S173 -> S133 , kcat_ptp
+  S174 -> S134 , kcat_ptp
+  S175 -> S135 , kcat_ptp
+  S176 -> S136 , kcat_ptp
+  S177 -> S136 , kcat_ptp
+  S178 -> S135 , kcat_ptp
+  S179 -> S140 , kcat_ptp
+  S179 -> S137 , kcat_ptp
+  S180 -> S139 , kcat_ptp
+  S180 -> S138 , kcat_ptp
+  S187 -> S181 , kcat_ptp
+  S188 -> S182 , kcat_ptp
+  S189 -> S183 , kcat_ptp
+  S190 -> S182 , kcat_ptp
+  S191 -> S184 , kcat_ptp
+  S192 -> S185 , kcat_ptp
+  S193 -> S183 , kcat_ptp
+  S194 -> S185 , kcat_ptp
+  S195 -> S186 , kcat_ptp
+  S197 -> S89 , kcat_ptp
+  S198 -> S90 , kcat_ptp
+  S203 -> S106 , kcat_ptp
+  S204 -> S106 , kcat_ptp
+  S205 -> S107 , kcat_ptp
+  S206 -> S107 , kcat_ptp
+  S207 -> S108 , kcat_ptp
+  S208 -> S108 , kcat_ptp
+  S209 -> S109 , kcat_ptp
+  S210 -> S109 , kcat_ptp
+  S211 -> S110 , kcat_ptp
+  S212 -> S110 , kcat_ptp
+  S213 -> S96 , kcat_ptp
+  S213 -> S95 , kcat_ptp
+  S214 -> S98 , kcat_ptp
+  S214 -> S97 , kcat_ptp
+  S215 -> S101 , kcat_ptp
+  S216 -> S104 , kcat_ptp
+  S217 -> S105 , kcat_ptp
+  S122 -> S330 , kt
+  S123 -> S331 , kt
+  S127 -> S332 , kt
+  S124 -> S333 , kt
+  S125 -> S334 , kt
+  S128 -> S335 , kt
+  S120 -> S336 , kt
+  S143 -> S337 , kt
+  S166 -> S338 , kt
+  S121 -> S339 , kt
+  S144 -> S340 , kt
+  S167 -> S341 , kt
+  S126 -> S342 , kt
+  S145 -> S343 , kt
+  S168 -> S344 , kt
+  S111 -> S345 , ke
+  S112 -> S346 , ke
+  S113 -> S318 , ke
+  S114 -> S347 , ke
+  S115 -> S348 , ke
+  S116 -> S322 , ke
+  S117 -> S320 , ke
+  S118 -> S324 , ke
+  S119 -> S329 , ke
+  S133 -> S309 , ke
+  S134 -> S310 , ke
+  S135 -> S349 , ke
+  S136 -> S350 , ke
+  S137 -> S311 , ke
+  S138 -> S314 , ke
+  S139 -> S315 , ke
+  S140 -> S312 , ke
+  S141 -> S313 , ke
+  S142 -> S316 , ke
+  S146 -> S351 , ke
+  S147 -> S352 , ke
+  S148 -> S353 , ke
+  S149 -> S354 , ke
+  S150 -> S355 , ke
+  S151 -> S356 , ke
+  S152 -> S357 , ke
+  S153 -> S358 , ke
+  S154 -> S305 , ke
+  S155 -> S306 , ke
+  S156 -> S317 , ke
+  S157 -> S319 , ke
+  S158 -> S325 , ke
+  S159 -> S326 , ke
+  S160 -> S307 , ke
+  S161 -> S308 , ke
+  S162 -> S321 , ke
+  S163 -> S323 , ke
+  S164 -> S327 , ke
+  S165 -> S328 , ke
+  S169 -> S359 , ke
+  S170 -> S360 , ke
+  S171 -> S361 , ke
+  S172 -> S362 , ke
+  S173 -> S363 , ke
+  S174 -> S364 , ke
+  S175 -> S365 , ke
+  S176 -> S366 , ke
+  S177 -> S367 , ke
+  S178 -> S368 , ke
+  S179 -> S369 , ke
+  S180 -> S370 , ke
+  S196 -> S371 , ke
+  S181 -> S372 , ke
+  S187 -> S373 , ke
+  S182 -> S374 , ke
+  S188 -> S375 , ke
+  S190 -> S376 , ke
+  S183 -> S377 , ke
+  S189 -> S378 , ke
+  S193 -> S379 , ke
+  S0 + S279 -> S280 , kf1
+  S0 + S299 -> S300 , 2*kf1
+  S0 + S300 -> S302 , kf1
+  S0 + S301 -> S303 , kf1
+  S280 -> S0 + S279 , kr1
+  S300 -> S0 + S299 , kr1
+  S302 -> S0 + S300 , 2*kr1
+  S303 -> S0 + S301 , kr1
+  S1 + S280 -> S286 , kx2
+  S7 + S280 -> S151 , kx2
+  S29 + S280 -> S288 , kx2
+  S31 + S280 -> S290 , kx2
+  S55 + S280 -> S291 , kx2
+  S57 + S280 -> S292 , kx2
+  S59 + S280 -> S296 , kx2
+  S120 + S280 -> S298 , kx2
+  S122 + S280 -> S380 , kx2
+  S124 + S280 -> S381 , kx2
+  S143 + S280 -> S382 , kx2
+  S166 + S280 -> S383 , kx2
+  S5 + S279 -> S285 , kx2
+  S9 + S279 -> S150 , kx2
+  S30 + S279 -> S287 , kx2
+  S32 + S279 -> S289 , kx2
+  S56 + S279 -> S293 , kx2
+  S58 + S279 -> S294 , kx2
+  S60 + S279 -> S295 , kx2
+  S121 + S279 -> S297 , kx2
+  S123 + S279 -> S384 , kx2
+  S125 + S279 -> S385 , kx2
+  S144 + S279 -> S386 , kx2
+  S167 + S279 -> S387 , kx2
+  S279 + S280 -> S388 , kx2
+  S230 -> S55 + S123 , kminusx2
+  S231 -> S55 + S125 , kminusx2
+  S232 -> S55 + S144 , kminusx2
+  S233 -> S55 + S167 , kminusx2
+  S234 -> S57 + S123 , kminusx2
+  S235 -> S57 + S125 , kminusx2
+  S236 -> S57 + S144 , kminusx2
+  S237 -> S57 + S167 , kminusx2
+  S238 -> S59 + S123 , kminusx2
+  S239 -> S59 + S125 , kminusx2
+  S240 -> S59 + S144 , kminusx2
+  S241 -> S59 + S167 , kminusx2
+  S242 -> S120 + S121 , kminusx2
+  S243 -> S120 + S123 , kminusx2
+  S244 -> S120 + S125 , kminusx2
+  S245 -> S120 + S144 , kminusx2
+  S246 -> S120 + S167 , kminusx2
+  S247 -> S56 + S122 , kminusx2
+  S248 -> S58 + S122 , kminusx2
+  S249 -> S60 + S122 , kminusx2
+  S250 -> S121 + S122 , kminusx2
+  S251 -> S122 + S123 , kminusx2
+  S252 -> S122 + S125 , kminusx2
+  S253 -> S122 + S144 , kminusx2
+  S254 -> S122 + S167 , kminusx2
+  S255 -> S56 + S124 , kminusx2
+  S256 -> S58 + S124 , kminusx2
+  S257 -> S60 + S124 , kminusx2
+  S258 -> S121 + S124 , kminusx2
+  S259 -> S123 + S124 , kminusx2
+  S260 -> S124 + S125 , kminusx2
+  S261 -> S124 + S144 , kminusx2
+  S262 -> S124 + S167 , kminusx2
+  S263 -> S56 + S143 , kminusx2
+  S264 -> S58 + S143 , kminusx2
+  S265 -> S60 + S143 , kminusx2
+  S266 -> S121 + S143 , kminusx2
+  S267 -> S123 + S143 , kminusx2
+  S268 -> S125 + S143 , kminusx2
+  S269 -> S143 + S144 , kminusx2
+  S270 -> S143 + S167 , kminusx2
+  S271 -> S56 + S166 , kminusx2
+  S272 -> S58 + S166 , kminusx2
+  S273 -> S60 + S166 , kminusx2
+  S274 -> S121 + S166 , kminusx2
+  S275 -> S123 + S166 , kminusx2
+  S276 -> S125 + S166 , kminusx2
+  S277 -> S144 + S166 , kminusx2
+  S278 -> S166 + S167 , kminusx2
+  S285 -> S5 + S279 , kminusx2
+  S286 -> S1 + S280 , kminusx2
+  S287 -> S30 + S279 , kminusx2
+  S288 -> S29 + S280 , kminusx2
+  S289 -> S32 + S279 , kminusx2
+  S290 -> S31 + S280 , kminusx2
+  S291 -> S55 + S280 , kminusx2
+  S292 -> S57 + S280 , kminusx2
+  S293 -> S56 + S279 , kminusx2
+  S294 -> S58 + S279 , kminusx2
+  S295 -> S60 + S279 , kminusx2
+  S296 -> S59 + S280 , kminusx2
+  S297 -> S121 + S279 , kminusx2
+  S298 -> S120 + S280 , kminusx2
+  S300 -> S389 , rateLaw1
+  S281 -> S188 , kminusx2
+  S282 -> S190 , kminusx2
+  S230 -> S61 + S122 , kminusx1
+  S231 -> S61 + S124 , kminusx1
+  S232 -> S61 + S143 , kminusx1
+  S233 -> S61 + S166 , kminusx1
+  S234 -> S62 + S122 , kminusx1
+  S235 -> S62 + S124 , kminusx1
+  S236 -> S62 + S143 , kminusx1
+  S237 -> S62 + S166 , kminusx1
+  S238 -> S63 + S122 , kminusx1
+  S239 -> S63 + S124 , kminusx1
+  S240 -> S63 + S143 , kminusx1
+  S241 -> S63 + S166 , kminusx1
+  S242 -> S120 + S126 , kminusx1
+  S243 -> S122 + S126 , kminusx1
+  S244 -> S124 + S126 , kminusx1
+  S245 -> S126 + S143 , kminusx1
+  S246 -> S126 + S166 , kminusx1
+  S247 -> S55 + S127 , kminusx1
+  S248 -> S57 + S127 , kminusx1
+  S249 -> S59 + S127 , kminusx1
+  S250 -> S120 + S127 , kminusx1
+  S251 -> S122 + S127 , kminusx1
+  S252 -> S124 + S127 , kminusx1
+  S253 -> S127 + S143 , kminusx1
+  S254 -> S127 + S166 , kminusx1
+  S255 -> S55 + S128 , kminusx1
+  S256 -> S57 + S128 , kminusx1
+  S257 -> S59 + S128 , kminusx1
+  S258 -> S120 + S128 , kminusx1
+  S259 -> S122 + S128 , kminusx1
+  S260 -> S124 + S128 , kminusx1
+  S261 -> S128 + S143 , kminusx1
+  S262 -> S128 + S166 , kminusx1
+  S263 -> S55 + S145 , kminusx1
+  S264 -> S57 + S145 , kminusx1
+  S265 -> S59 + S145 , kminusx1
+  S266 -> S120 + S145 , kminusx1
+  S267 -> S122 + S145 , kminusx1
+  S268 -> S124 + S145 , kminusx1
+  S269 -> S143 + S145 , kminusx1
+  S270 -> S145 + S166 , kminusx1
+  S271 -> S55 + S168 , kminusx1
+  S272 -> S57 + S168 , kminusx1
+  S273 -> S59 + S168 , kminusx1
+  S274 -> S120 + S168 , kminusx1
+  S275 -> S122 + S168 , kminusx1
+  S276 -> S124 + S168 , kminusx1
+  S277 -> S143 + S168 , kminusx1
+  S278 -> S166 + S168 , kminusx1
+  S285 -> S1 + S283 , kminusx1
+  S286 -> S16 + S279 , kminusx1
+  S287 -> S29 + S283 , kminusx1
+  S288 -> S33 + S279 , kminusx1
+  S289 -> S31 + S283 , kminusx1
+  S290 -> S34 + S279 , kminusx1
+  S291 -> S61 + S279 , kminusx1
+  S292 -> S62 + S279 , kminusx1
+  S293 -> S55 + S283 , kminusx1
+  S294 -> S57 + S283 , kminusx1
+  S295 -> S59 + S283 , kminusx1
+  S296 -> S63 + S279 , kminusx1
+  S297 -> S120 + S283 , kminusx1
+  S298 -> S126 + S279 , kminusx1
+  S281 -> S193 , kminusx1
+  S282 -> S189 , kminusx1
+  S283 -> S0 + S279 , kfast
+  S301 -> S0 + S299 , kfast
+  S303 -> S0 + S300 , kfast
+  S304 -> S0 + S301 , 2*kfast
+  S39 + S231 -> S233 , kon_SH2
+  S39 + S234 -> S243 , kon_SH2
+  S39 + S235 -> S244 , kon_SH2
+  S39 + S235 -> S237 , kon_SH2
+  S39 + S236 -> S245 , kon_SH2
+  S39 + S237 -> S246 , kon_SH2
+  S39 + S239 -> S241 , kon_SH2
+  S39 + S244 -> S246 , kon_SH2
+  S39 + S248 -> S250 , kon_SH2
+  S39 + S252 -> S254 , kon_SH2
+  S39 + S255 -> S271 , kon_SH2
+  S39 + S256 -> S272 , kon_SH2
+  S39 + S256 -> S258 , kon_SH2
+  S39 + S257 -> S273 , kon_SH2
+  S39 + S258 -> S274 , kon_SH2
+  S39 + S259 -> S275 , kon_SH2
+  S39 + S260 -> S276 , kon_SH2
+  S39 + S260 -> S262 , kon_SH2
+  S39 + S261 -> S277 , kon_SH2
+  S39 + S262 -> S278 , kon_SH2
+  S39 + S264 -> S266 , kon_SH2
+  S39 + S268 -> S270 , kon_SH2
+  S39 + S272 -> S274 , kon_SH2
+  S39 + S276 -> S278 , kon_SH2
+  S39 + S292 -> S298 , kon_SH2
+  S39 + S294 -> S297 , kon_SH2
+  S84 + S231 -> S291 , kon_SH2
+  S84 + S234 -> S267 , kon_SH2
+  S84 + S235 -> S268 , kon_SH2
+  S84 + S235 -> S292 , kon_SH2
+  S84 + S236 -> S269 , kon_SH2
+  S84 + S237 -> S270 , kon_SH2
+  S84 + S239 -> S296 , kon_SH2
+  S84 + S244 -> S298 , kon_SH2
+  S84 + S248 -> S253 , kon_SH2
+  S84 + S252 -> S380 , kon_SH2
+  S84 + S255 -> S293 , kon_SH2
+  S84 + S256 -> S294 , kon_SH2
+  S84 + S256 -> S261 , kon_SH2
+  S84 + S257 -> S295 , kon_SH2
+  S84 + S258 -> S297 , kon_SH2
+  S84 + S259 -> S384 , kon_SH2
+  S84 + S260 -> S385 , kon_SH2
+  S84 + S260 -> S381 , kon_SH2
+  S84 + S261 -> S386 , kon_SH2
+  S84 + S262 -> S387 , kon_SH2
+  S84 + S264 -> S269 , kon_SH2
+  S84 + S268 -> S382 , kon_SH2
+  S84 + S272 -> S277 , kon_SH2
+  S84 + S276 -> S383 , kon_SH2
+  S84 + S292 -> S382 , kon_SH2
+  S84 + S294 -> S386 , kon_SH2
+  S2 + S238 -> S251 , kon_SH2
+  S2 + S239 -> S252 , kon_SH2
+  S2 + S240 -> S253 , kon_SH2
+  S2 + S241 -> S254 , kon_SH2
+  S2 + S249 -> S251 , kon_SH2
+  S2 + S257 -> S259 , kon_SH2
+  S2 + S265 -> S267 , kon_SH2
+  S2 + S273 -> S275 , kon_SH2
+  S2 + S287 -> S293 , kon_SH2
+  S2 + S288 -> S291 , kon_SH2
+  S2 + S295 -> S384 , kon_SH2
+  S2 + S296 -> S380 , kon_SH2
+  S6 + S238 -> S259 , 2*kon_SH2
+  S6 + S239 -> S260 , 2*kon_SH2
+  S6 + S240 -> S261 , 2*kon_SH2
+  S6 + S241 -> S262 , 2*kon_SH2
+  S6 + S249 -> S252 , 2*kon_SH2
+  S6 + S257 -> S260 , 2*kon_SH2
+  S6 + S265 -> S268 , 2*kon_SH2
+  S6 + S273 -> S276 , 2*kon_SH2
+  S6 + S287 -> S294 , 2*kon_SH2
+  S6 + S288 -> S292 , 2*kon_SH2
+  S6 + S295 -> S385 , 2*kon_SH2
+  S6 + S296 -> S381 , 2*kon_SH2
+  S65 + S238 -> S275 , kon_SH2
+  S131 + S238 -> S384 , kon_SH2
+  S65 + S239 -> S276 , kon_SH2
+  S131 + S239 -> S385 , kon_SH2
+  S65 + S240 -> S277 , kon_SH2
+  S131 + S240 -> S386 , kon_SH2
+  S65 + S241 -> S278 , kon_SH2
+  S131 + S241 -> S387 , kon_SH2
+  S65 + S249 -> S254 , kon_SH2
+  S131 + S249 -> S380 , kon_SH2
+  S65 + S257 -> S262 , kon_SH2
+  S131 + S257 -> S381 , kon_SH2
+  S65 + S265 -> S270 , kon_SH2
+  S131 + S265 -> S382 , kon_SH2
+  S65 + S273 -> S278 , kon_SH2
+  S131 + S273 -> S383 , kon_SH2
+  S65 + S287 -> S297 , kon_SH2
+  S131 + S287 -> S386 , kon_SH2
+  S65 + S288 -> S298 , kon_SH2
+  S131 + S288 -> S382 , kon_SH2
+  S65 + S295 -> S387 , kon_SH2
+  S131 + S295 -> S388 , kon_SH2
+  S65 + S296 -> S383 , kon_SH2
+  S131 + S296 -> S388 , kon_SH2
+  S239 -> S389 , rateLaw4
+  S257 -> S389 , rateLaw4
+  S230 -> S2 + S113 , koff_SH2
+  S230 -> S2 + S157 , koff_SH2
+  S231 -> S6 + S113 , koff_SH2
+  S231 -> S2 + S163 , koff_SH2
+  S232 -> S2 + S149 , koff_SH2
+  S232 -> S70 + S131 , koff_SH2
+  S232 -> S84 + S112 , koff_SH2
+  S233 -> S65 + S113 , koff_SH2
+  S233 -> S2 + S177 , koff_SH2
+  S233 -> S39 + S231 , koff_SH2
+  S234 -> S2 + S116 , koff_SH2
+  S234 -> S6 + S157 , koff_SH2
+  S235 -> S6 + S116 , koff_SH2
+  S235 -> S6 + S163 , koff_SH2
+  S236 -> S6 + S149 , koff_SH2
+  S236 -> S78 + S131 , koff_SH2
+  S236 -> S84 + S115 , koff_SH2
+  S237 -> S65 + S116 , koff_SH2
+  S237 -> S6 + S177 , koff_SH2
+  S237 -> S39 + S235 , koff_SH2
+  S238 -> S2 + S119 , koff_SH2
+  S239 -> S6 + S119 , koff_SH2
+  S240 -> S91 + S131 , koff_SH2
+  S240 -> S84 + S118 , koff_SH2
+  S241 -> S65 + S119 , koff_SH2
+  S241 -> S39 + S239 , koff_SH2
+  S242 -> S65 + S136 , koff_SH2
+  S242 -> S65 + S135 , koff_SH2
+  S242 -> S39 + S171 , koff_SH2
+  S242 -> S39 + S172 , koff_SH2
+  S243 -> S2 + S178 , koff_SH2
+  S243 -> S65 + S157 , koff_SH2
+  S243 -> S39 + S234 , koff_SH2
+  S244 -> S6 + S178 , koff_SH2
+  S244 -> S65 + S163 , koff_SH2
+  S244 -> S39 + S235 , koff_SH2
+  S245 -> S65 + S149 , koff_SH2
+  S245 -> S131 + S135 , koff_SH2
+  S245 -> S84 + S172 , koff_SH2
+  S245 -> S39 + S236 , koff_SH2
+  S246 -> S65 + S178 , koff_SH2
+  S246 -> S65 + S177 , koff_SH2
+  S246 -> S39 + S237 , koff_SH2
+  S246 -> S39 + S244 , koff_SH2
+  S247 -> S2 + S117 , koff_SH2
+  S247 -> S2 + S156 , koff_SH2
+  S248 -> S2 + S118 , koff_SH2
+  S248 -> S6 + S156 , koff_SH2
+  S249 -> S2 + S119 , koff_SH2
+  S250 -> S2 + S176 , koff_SH2
+  S250 -> S65 + S156 , koff_SH2
+  S250 -> S39 + S248 , koff_SH2
+  S251 -> S2 + S238 , koff_SH2
+  S251 -> S2 + S249 , koff_SH2
+  S252 -> S2 + S239 , koff_SH2
+  S252 -> S6 + S249 , koff_SH2
+  S253 -> S2 + S240 , koff_SH2
+  S253 -> S131 + S156 , koff_SH2
+  S253 -> S84 + S248 , koff_SH2
+  S254 -> S2 + S241 , koff_SH2
+  S254 -> S65 + S249 , koff_SH2
+  S254 -> S39 + S252 , koff_SH2
+  S255 -> S6 + S117 , koff_SH2
+  S255 -> S2 + S162 , koff_SH2
+  S256 -> S6 + S118 , koff_SH2
+  S256 -> S6 + S162 , koff_SH2
+  S257 -> S6 + S119 , koff_SH2
+  S258 -> S6 + S176 , koff_SH2
+  S258 -> S65 + S162 , koff_SH2
+  S258 -> S39 + S256 , koff_SH2
+  S259 -> S6 + S238 , koff_SH2
+  S259 -> S2 + S257 , koff_SH2
+  S260 -> S6 + S239 , koff_SH2
+  S260 -> S6 + S257 , koff_SH2
+  S261 -> S6 + S240 , koff_SH2
+  S261 -> S131 + S162 , koff_SH2
+  S261 -> S84 + S256 , koff_SH2
+  S262 -> S6 + S241 , koff_SH2
+  S262 -> S65 + S257 , koff_SH2
+  S262 -> S39 + S260 , koff_SH2
+  S263 -> S71 + S131 , koff_SH2
+  S263 -> S2 + S148 , koff_SH2
+  S263 -> S84 + S114 , koff_SH2
+  S264 -> S79 + S131 , koff_SH2
+  S264 -> S6 + S148 , koff_SH2
+  S264 -> S84 + S115 , koff_SH2
+  S265 -> S92 + S131 , koff_SH2
+  S265 -> S84 + S116 , koff_SH2
+  S266 -> S131 + S136 , koff_SH2
+  S266 -> S65 + S148 , koff_SH2
+  S266 -> S84 + S171 , koff_SH2
+  S266 -> S39 + S264 , koff_SH2
+  S267 -> S2 + S265 , koff_SH2
+  S267 -> S131 + S157 , koff_SH2
+  S267 -> S84 + S234 , koff_SH2
+  S268 -> S6 + S265 , koff_SH2
+  S268 -> S131 + S163 , koff_SH2
+  S268 -> S84 + S235 , koff_SH2
+  S269 -> S131 + S149 , koff_SH2
+  S269 -> S131 + S148 , koff_SH2
+  S269 -> S84 + S236 , koff_SH2
+  S269 -> S84 + S264 , koff_SH2
+  S270 -> S65 + S265 , koff_SH2
+  S270 -> S131 + S177 , koff_SH2
+  S270 -> S84 + S237 , koff_SH2
+  S270 -> S39 + S268 , koff_SH2
+  S271 -> S65 + S117 , koff_SH2
+  S271 -> S2 + S175 , koff_SH2
+  S271 -> S39 + S255 , koff_SH2
+  S272 -> S65 + S118 , koff_SH2
+  S272 -> S6 + S175 , koff_SH2
+  S272 -> S39 + S256 , koff_SH2
+  S273 -> S65 + S119 , koff_SH2
+  S273 -> S39 + S257 , koff_SH2
+  S274 -> S65 + S176 , koff_SH2
+  S274 -> S65 + S175 , koff_SH2
+  S274 -> S39 + S258 , koff_SH2
+  S274 -> S39 + S272 , koff_SH2
+  S275 -> S65 + S238 , koff_SH2
+  S275 -> S2 + S273 , koff_SH2
+  S275 -> S39 + S259 , koff_SH2
+  S276 -> S65 + S239 , koff_SH2
+  S276 -> S6 + S273 , koff_SH2
+  S276 -> S39 + S260 , koff_SH2
+  S277 -> S65 + S240 , koff_SH2
+  S277 -> S131 + S175 , koff_SH2
+  S277 -> S84 + S272 , koff_SH2
+  S277 -> S39 + S261 , koff_SH2
+  S278 -> S65 + S241 , koff_SH2
+  S278 -> S65 + S273 , koff_SH2
+  S278 -> S39 + S262 , koff_SH2
+  S278 -> S39 + S276 , koff_SH2
+  S279 -> S59 + S131 , koff_SH2
+  S279 -> S84 + S124 , koff_SH2
+  S280 -> S60 + S131 , koff_SH2
+  S280 -> S84 + S125 , koff_SH2
+  S283 -> S63 + S131 , koff_SH2
+  S283 -> S84 + S128 , koff_SH2
+  S284 -> S84 + S131 , 2*koff_SH2
+  S285 -> S85 + S131 , koff_SH2
+  S285 -> S84 + S160 , koff_SH2
+  S286 -> S86 + S131 , koff_SH2
+  S286 -> S84 + S161 , koff_SH2
+  S287 -> S91 + S131 , koff_SH2
+  S287 -> S84 + S162 , koff_SH2
+  S288 -> S92 + S131 , koff_SH2
+  S288 -> S84 + S163 , koff_SH2
+  S289 -> S93 + S131 , koff_SH2
+  S289 -> S84 + S164 , koff_SH2
+  S290 -> S94 + S131 , koff_SH2
+  S290 -> S84 + S165 , koff_SH2
+  S291 -> S113 + S131 , koff_SH2
+  S291 -> S2 + S288 , koff_SH2
+  S291 -> S84 + S231 , koff_SH2
+  S292 -> S116 + S131 , koff_SH2
+  S292 -> S6 + S288 , koff_SH2
+  S292 -> S84 + S235 , koff_SH2
+  S293 -> S117 + S131 , koff_SH2
+  S293 -> S2 + S287 , koff_SH2
+  S293 -> S84 + S255 , koff_SH2
+  S294 -> S118 + S131 , koff_SH2
+  S294 -> S6 + S287 , koff_SH2
+  S294 -> S84 + S256 , koff_SH2
+  S295 -> S119 + S131 , koff_SH2
+  S295 -> S84 + S257 , koff_SH2
+  S296 -> S119 + S131 , koff_SH2
+  S296 -> S84 + S239 , koff_SH2
+  S297 -> S131 + S176 , koff_SH2
+  S297 -> S65 + S287 , koff_SH2
+  S297 -> S84 + S258 , koff_SH2
+  S297 -> S39 + S294 , koff_SH2
+  S298 -> S131 + S178 , koff_SH2
+  S298 -> S65 + S288 , koff_SH2
+  S298 -> S84 + S244 , koff_SH2
+  S298 -> S39 + S292 , koff_SH2
+  S299 -> S59 + S124 , 2*koff_SH2
+  S300 -> S59 + S125 , koff_SH2
+  S300 -> S60 + S124 , koff_SH2
+  S301 -> S59 + S128 , koff_SH2
+  S301 -> S63 + S124 , koff_SH2
+  S302 -> S60 + S125 , 2*koff_SH2
+  S303 -> S60 + S128 , koff_SH2
+  S303 -> S63 + S125 , koff_SH2
+  S304 -> S63 + S128 , 2*koff_SH2
+  S305 -> S2 + S197 , koff_SH2
+  S306 -> S2 + S198 , koff_SH2
+  S307 -> S6 + S197 , koff_SH2
+  S308 -> S6 + S198 , koff_SH2
+  S309 -> S65 + S89 , koff_SH2
+  S309 -> S39 + S201 , koff_SH2
+  S310 -> S65 + S90 , koff_SH2
+  S310 -> S39 + S202 , koff_SH2
+  S311 -> S65 + S95 , koff_SH2
+  S311 -> S39 + S207 , koff_SH2
+  S312 -> S65 + S96 , koff_SH2
+  S312 -> S39 + S208 , koff_SH2
+  S313 -> S53 + S131 , koff_SH2
+  S313 -> S84 + S108 , koff_SH2
+  S314 -> S65 + S97 , koff_SH2
+  S314 -> S39 + S209 , koff_SH2
+  S315 -> S65 + S98 , koff_SH2
+  S315 -> S39 + S210 , koff_SH2
+  S316 -> S54 + S131 , koff_SH2
+  S316 -> S84 + S109 , koff_SH2
+  S317 -> S2 + S211 , koff_SH2
+  S318 -> S2 + S212 , koff_SH2
+  S319 -> S2 + S212 , koff_SH2
+  S320 -> S2 + S211 , koff_SH2
+  S321 -> S6 + S211 , koff_SH2
+  S322 -> S6 + S212 , koff_SH2
+  S323 -> S6 + S212 , koff_SH2
+  S324 -> S6 + S211 , koff_SH2
+  S325 -> S2 + S213 , koff_SH2
+  S326 -> S2 + S214 , koff_SH2
+  S327 -> S6 + S213 , koff_SH2
+  S328 -> S6 + S214 , koff_SH2
+  S330 -> S2 + S215 , koff_SH2
+  S331 -> S2 + S216 , koff_SH2
+  S332 -> S2 + S217 , koff_SH2
+  S333 -> S6 + S215 , koff_SH2
+  S334 -> S6 + S216 , koff_SH2
+  S335 -> S6 + S217 , koff_SH2
+  S336 -> S65 + S101 , koff_SH2
+  S336 -> S39 + S221 , koff_SH2
+  S337 -> S101 + S131 , koff_SH2
+  S337 -> S84 + S221 , koff_SH2
+  S338 -> S65 + S215 , koff_SH2
+  S338 -> S39 + S333 , koff_SH2
+  S339 -> S65 + S104 , koff_SH2
+  S339 -> S39 + S222 , koff_SH2
+  S340 -> S104 + S131 , koff_SH2
+  S340 -> S84 + S222 , koff_SH2
+  S341 -> S65 + S216 , koff_SH2
+  S341 -> S39 + S334 , koff_SH2
+  S342 -> S65 + S105 , koff_SH2
+  S342 -> S39 + S223 , koff_SH2
+  S343 -> S105 + S131 , koff_SH2
+  S343 -> S84 + S223 , koff_SH2
+  S344 -> S65 + S217 , koff_SH2
+  S344 -> S39 + S335 , koff_SH2
+  S345 -> S2 + S227 , koff_SH2
+  S345 -> S2 + S226 , koff_SH2
+  S346 -> S2 + S229 , koff_SH2
+  S346 -> S6 + S226 , koff_SH2
+  S347 -> S6 + S227 , koff_SH2
+  S347 -> S2 + S228 , koff_SH2
+  S348 -> S6 + S229 , koff_SH2
+  S348 -> S6 + S228 , koff_SH2
+  S349 -> S65 + S110 , koff_SH2
+  S349 -> S39 + S228 , koff_SH2
+  S350 -> S65 + S110 , koff_SH2
+  S350 -> S39 + S229 , koff_SH2
+  S351 -> S89 + S131 , koff_SH2
+  S351 -> S84 + S201 , koff_SH2
+  S352 -> S90 + S131 , koff_SH2
+  S352 -> S84 + S202 , koff_SH2
+  S353 -> S110 + S131 , koff_SH2
+  S353 -> S84 + S228 , koff_SH2
+  S354 -> S110 + S131 , koff_SH2
+  S354 -> S84 + S229 , koff_SH2
+  S355 -> S95 + S131 , koff_SH2
+  S355 -> S84 + S207 , koff_SH2
+  S356 -> S97 + S131 , koff_SH2
+  S356 -> S84 + S209 , koff_SH2
+  S357 -> S98 + S131 , koff_SH2
+  S357 -> S84 + S210 , koff_SH2
+  S358 -> S96 + S131 , koff_SH2
+  S358 -> S84 + S208 , koff_SH2
+  S359 -> S2 + S350 , koff_SH2
+  S359 -> S65 + S226 , koff_SH2
+  S359 -> S39 + S346 , koff_SH2
+  S360 -> S2 + S349 , koff_SH2
+  S360 -> S65 + S227 , koff_SH2
+  S360 -> S39 + S347 , koff_SH2
+  S361 -> S6 + S350 , koff_SH2
+  S361 -> S65 + S228 , koff_SH2
+  S361 -> S39 + S348 , koff_SH2
+  S362 -> S6 + S349 , koff_SH2
+  S362 -> S65 + S229 , koff_SH2
+  S362 -> S39 + S348 , koff_SH2
+  S363 -> S65 + S197 , koff_SH2
+  S363 -> S39 + S307 , koff_SH2
+  S364 -> S65 + S198 , koff_SH2
+  S364 -> S39 + S308 , koff_SH2
+  S365 -> S65 + S211 , koff_SH2
+  S365 -> S39 + S321 , koff_SH2
+  S366 -> S65 + S211 , koff_SH2
+  S366 -> S39 + S324 , koff_SH2
+  S367 -> S65 + S212 , koff_SH2
+  S367 -> S39 + S323 , koff_SH2
+  S368 -> S65 + S212 , koff_SH2
+  S368 -> S39 + S322 , koff_SH2
+  S369 -> S65 + S213 , koff_SH2
+  S369 -> S39 + S327 , koff_SH2
+  S370 -> S65 + S214 , koff_SH2
+  S370 -> S39 + S328 , koff_SH2
+  S372 -> S101 + S221 , 2*koff_SH2
+  S373 -> S215 + S221 , koff_SH2
+  S373 -> S101 + S333 , koff_SH2
+  S374 -> S101 + S222 , koff_SH2
+  S374 -> S104 + S221 , koff_SH2
+  S375 -> S215 + S222 , koff_SH2
+  S375 -> S104 + S333 , koff_SH2
+  S376 -> S216 + S221 , koff_SH2
+  S376 -> S101 + S334 , koff_SH2
+  S377 -> S101 + S223 , koff_SH2
+  S377 -> S105 + S221 , koff_SH2
+  S378 -> S215 + S223 , koff_SH2
+  S378 -> S105 + S333 , koff_SH2
+  S379 -> S217 + S221 , koff_SH2
+  S379 -> S101 + S335 , koff_SH2
+  S281 -> S118 , koff_SH2
+  S281 -> S162 , koff_SH2
+  S282 -> S116 , koff_SH2
+  S282 -> S163 , koff_SH2
+  S371 -> S229 , koff_SH2
+  S371 -> S228 , koff_SH2
+  S2 + S230 -> S234 , kon_dimer
+  S2 + S230 -> S231 , kon_dimer
+  S2 + S231 -> S235 , kon_dimer
+  S2 + S232 -> S236 , kon_dimer
+  S2 + S233 -> S237 , kon_dimer
+  S2 + S234 -> S235 , kon_dimer
+  S2 + S238 -> S239 , kon_dimer
+  S2 + S243 -> S244 , kon_dimer
+  S2 + S247 -> S255 , kon_dimer
+  S2 + S247 -> S248 , kon_dimer
+  S2 + S248 -> S256 , kon_dimer
+  S2 + S249 -> S257 , kon_dimer
+  S2 + S250 -> S258 , kon_dimer
+  S2 + S251 -> S259 , kon_dimer
+  S2 + S251 -> S252 , kon_dimer
+  S2 + S252 -> S260 , kon_dimer
+  S2 + S253 -> S261 , kon_dimer
+  S2 + S254 -> S262 , kon_dimer
+  S2 + S255 -> S256 , kon_dimer
+  S2 + S259 -> S260 , kon_dimer
+  S2 + S263 -> S264 , kon_dimer
+  S2 + S267 -> S268 , kon_dimer
+  S2 + S271 -> S272 , kon_dimer
+  S2 + S275 -> S276 , kon_dimer
+  S2 + S291 -> S292 , kon_dimer
+  S2 + S293 -> S294 , kon_dimer
+  S64 + S230 -> S243 , kon_dimer
+  S64 + S230 -> S233 , kon_dimer
+  S64 + S231 -> S244 , kon_dimer
+  S64 + S232 -> S245 , kon_dimer
+  S64 + S233 -> S246 , kon_dimer
+  S64 + S234 -> S237 , kon_dimer
+  S64 + S238 -> S241 , kon_dimer
+  S64 + S243 -> S246 , kon_dimer
+  S64 + S247 -> S271 , kon_dimer
+  S64 + S247 -> S250 , kon_dimer
+  S64 + S248 -> S272 , kon_dimer
+  S64 + S249 -> S273 , kon_dimer
+  S64 + S250 -> S274 , kon_dimer
+  S64 + S251 -> S275 , kon_dimer
+  S64 + S251 -> S254 , kon_dimer
+  S64 + S252 -> S276 , kon_dimer
+  S64 + S253 -> S277 , kon_dimer
+  S64 + S254 -> S278 , kon_dimer
+  S64 + S255 -> S258 , kon_dimer
+  S64 + S259 -> S262 , kon_dimer
+  S64 + S263 -> S266 , kon_dimer
+  S64 + S267 -> S270 , kon_dimer
+  S64 + S271 -> S274 , kon_dimer
+  S64 + S275 -> S278 , kon_dimer
+  S64 + S291 -> S298 , kon_dimer
+  S64 + S293 -> S297 , kon_dimer
+  S130 + S230 -> S267 , kon_dimer
+  S130 + S230 -> S291 , kon_dimer
+  S130 + S231 -> S268 , kon_dimer
+  S130 + S232 -> S269 , kon_dimer
+  S130 + S233 -> S270 , kon_dimer
+  S130 + S234 -> S292 , kon_dimer
+  S130 + S238 -> S296 , kon_dimer
+  S130 + S243 -> S298 , kon_dimer
+  S130 + S247 -> S293 , kon_dimer
+  S130 + S247 -> S253 , kon_dimer
+  S130 + S248 -> S294 , kon_dimer
+  S130 + S249 -> S295 , kon_dimer
+  S130 + S250 -> S297 , kon_dimer
+  S130 + S251 -> S384 , kon_dimer
+  S130 + S251 -> S380 , kon_dimer
+  S130 + S252 -> S385 , kon_dimer
+  S130 + S253 -> S386 , kon_dimer
+  S130 + S254 -> S387 , kon_dimer
+  S130 + S255 -> S261 , kon_dimer
+  S130 + S259 -> S381 , kon_dimer
+  S130 + S263 -> S269 , kon_dimer
+  S130 + S267 -> S382 , kon_dimer
+  S130 + S271 -> S277 , kon_dimer
+  S130 + S275 -> S383 , kon_dimer
+  S130 + S291 -> S382 , kon_dimer
+  S130 + S293 -> S386 , kon_dimer
+  S230 -> S282 , rateLaw6
+  S247 -> S281 , rateLaw6
+  S251 -> S389 , rateLaw6
+  S231 -> S2 + S230 , koff_dimer
+  S232 -> S111 + S130 , koff_dimer
+  S233 -> S64 + S230 , koff_dimer
+  S234 -> S2 + S230 , koff_dimer
+  S235 -> S2 + S231 , koff_dimer
+  S235 -> S2 + S234 , koff_dimer
+  S236 -> S2 + S232 , koff_dimer
+  S236 -> S114 + S130 , koff_dimer
+  S237 -> S2 + S233 , koff_dimer
+  S237 -> S64 + S234 , koff_dimer
+  S239 -> S2 + S238 , koff_dimer
+  S240 -> S117 + S130 , koff_dimer
+  S241 -> S64 + S238 , koff_dimer
+  S242 -> S64 + S169 , koff_dimer
+  S242 -> S64 + S170 , koff_dimer
+  S243 -> S64 + S230 , koff_dimer
+  S244 -> S64 + S231 , koff_dimer
+  S244 -> S2 + S243 , koff_dimer
+  S245 -> S64 + S232 , koff_dimer
+  S245 -> S130 + S170 , koff_dimer
+  S246 -> S64 + S233 , koff_dimer
+  S246 -> S64 + S243 , koff_dimer
+  S248 -> S2 + S247 , koff_dimer
+  S250 -> S64 + S247 , koff_dimer
+  S252 -> S2 + S251 , koff_dimer
+  S253 -> S130 + S247 , koff_dimer
+  S254 -> S64 + S251 , koff_dimer
+  S255 -> S2 + S247 , koff_dimer
+  S256 -> S2 + S248 , koff_dimer
+  S256 -> S2 + S255 , koff_dimer
+  S257 -> S2 + S249 , koff_dimer
+  S258 -> S2 + S250 , koff_dimer
+  S258 -> S64 + S255 , koff_dimer
+  S259 -> S2 + S251 , koff_dimer
+  S260 -> S2 + S252 , koff_dimer
+  S260 -> S2 + S259 , koff_dimer
+  S261 -> S2 + S253 , koff_dimer
+  S261 -> S130 + S255 , koff_dimer
+  S262 -> S2 + S254 , koff_dimer
+  S262 -> S64 + S259 , koff_dimer
+  S263 -> S111 + S130 , koff_dimer
+  S264 -> S112 + S130 , koff_dimer
+  S264 -> S2 + S263 , koff_dimer
+  S265 -> S113 + S130 , koff_dimer
+  S266 -> S130 + S169 , koff_dimer
+  S266 -> S64 + S263 , koff_dimer
+  S267 -> S130 + S230 , koff_dimer
+  S268 -> S130 + S231 , koff_dimer
+  S268 -> S2 + S267 , koff_dimer
+  S269 -> S130 + S232 , koff_dimer
+  S269 -> S130 + S263 , koff_dimer
+  S270 -> S130 + S233 , koff_dimer
+  S270 -> S64 + S267 , koff_dimer
+  S271 -> S64 + S247 , koff_dimer
+  S272 -> S64 + S248 , koff_dimer
+  S272 -> S2 + S271 , koff_dimer
+  S273 -> S64 + S249 , koff_dimer
+  S274 -> S64 + S250 , koff_dimer
+  S274 -> S64 + S271 , koff_dimer
+  S275 -> S64 + S251 , koff_dimer
+  S276 -> S64 + S252 , koff_dimer
+  S276 -> S2 + S275 , koff_dimer
+  S277 -> S64 + S253 , koff_dimer
+  S277 -> S130 + S271 , koff_dimer
+  S278 -> S64 + S254 , koff_dimer
+  S278 -> S64 + S275 , koff_dimer
+  S279 -> S122 + S130 , koff_dimer
+  S280 -> S123 + S130 , koff_dimer
+  S283 -> S127 + S130 , koff_dimer
+  S284 -> 2*S130 , koff_dimer
+  S285 -> S130 + S154 , koff_dimer
+  S286 -> S130 + S155 , koff_dimer
+  S287 -> S130 + S156 , koff_dimer
+  S288 -> S130 + S157 , koff_dimer
+  S289 -> S130 + S158 , koff_dimer
+  S290 -> S130 + S159 , koff_dimer
+  S291 -> S130 + S230 , koff_dimer
+  S292 -> S2 + S291 , koff_dimer
+  S292 -> S130 + S234 , koff_dimer
+  S293 -> S130 + S247 , koff_dimer
+  S294 -> S2 + S293 , koff_dimer
+  S294 -> S130 + S248 , koff_dimer
+  S295 -> S130 + S249 , koff_dimer
+  S296 -> S130 + S238 , koff_dimer
+  S297 -> S64 + S293 , koff_dimer
+  S297 -> S130 + S250 , koff_dimer
+  S298 -> S64 + S291 , koff_dimer
+  S298 -> S130 + S243 , koff_dimer
+  S299 -> 2*S122 , koff_dimer
+  S300 -> S122 + S123 , koff_dimer
+  S301 -> S122 + S127 , koff_dimer
+  S302 -> 2*S123 , koff_dimer
+  S303 -> S123 + S127 , koff_dimer
+  S304 -> 2*S127 , koff_dimer
+  S307 -> S2 + S305 , koff_dimer
+  S308 -> S2 + S306 , koff_dimer
+  S309 -> S64 + S199 , koff_dimer
+  S310 -> S64 + S200 , koff_dimer
+  S311 -> S64 + S203 , koff_dimer
+  S312 -> S64 + S204 , koff_dimer
+  S313 -> S106 + S130 , koff_dimer
+  S314 -> S64 + S205 , koff_dimer
+  S315 -> S64 + S206 , koff_dimer
+  S316 -> S107 + S130 , koff_dimer
+  S321 -> S2 + S317 , koff_dimer
+  S322 -> S2 + S318 , koff_dimer
+  S323 -> S2 + S319 , koff_dimer
+  S324 -> S2 + S320 , koff_dimer
+  S327 -> S2 + S325 , koff_dimer
+  S328 -> S2 + S326 , koff_dimer
+  S333 -> S2 + S330 , koff_dimer
+  S334 -> S2 + S331 , koff_dimer
+  S335 -> S2 + S332 , koff_dimer
+  S336 -> S64 + S218 , koff_dimer
+  S337 -> S130 + S218 , koff_dimer
+  S338 -> S64 + S330 , koff_dimer
+  S339 -> S64 + S219 , koff_dimer
+  S340 -> S130 + S219 , koff_dimer
+  S341 -> S64 + S331 , koff_dimer
+  S342 -> S64 + S220 , koff_dimer
+  S343 -> S130 + S220 , koff_dimer
+  S344 -> S64 + S332 , koff_dimer
+  S346 -> S2 + S345 , koff_dimer
+  S347 -> S2 + S345 , koff_dimer
+  S348 -> S2 + S346 , koff_dimer
+  S348 -> S2 + S347 , koff_dimer
+  S349 -> S64 + S226 , koff_dimer
+  S350 -> S64 + S227 , koff_dimer
+  S351 -> S130 + S199 , koff_dimer
+  S352 -> S130 + S200 , koff_dimer
+  S353 -> S130 + S226 , koff_dimer
+  S354 -> S130 + S227 , koff_dimer
+  S355 -> S130 + S203 , koff_dimer
+  S356 -> S130 + S205 , koff_dimer
+  S357 -> S130 + S206 , koff_dimer
+  S358 -> S130 + S204 , koff_dimer
+  S359 -> S64 + S345 , koff_dimer
+  S360 -> S64 + S345 , koff_dimer
+  S361 -> S2 + S359 , koff_dimer
+  S361 -> S64 + S347 , koff_dimer
+  S362 -> S2 + S360 , koff_dimer
+  S362 -> S64 + S346 , koff_dimer
+  S363 -> S64 + S305 , koff_dimer
+  S364 -> S64 + S306 , koff_dimer
+  S365 -> S64 + S317 , koff_dimer
+  S366 -> S64 + S320 , koff_dimer
+  S367 -> S64 + S319 , koff_dimer
+  S368 -> S64 + S318 , koff_dimer
+  S369 -> S64 + S325 , koff_dimer
+  S370 -> S64 + S326 , koff_dimer
+  S372 -> 2*S218 , koff_dimer
+  S373 -> S218 + S330 , koff_dimer
+  S374 -> S218 + S219 , koff_dimer
+  S375 -> S219 + S330 , koff_dimer
+  S376 -> S218 + S331 , koff_dimer
+  S377 -> S218 + S220 , koff_dimer
+  S378 -> S220 + S330 , koff_dimer
+  S379 -> S218 + S332 , koff_dimer
+  S281 -> S247 , koff_dimer
+  S282 -> S230 , koff_dimer
+  S371 -> S345 , koff_dimer
+  S3 + S285 -> S150 , kon_j
+  S42 + S285 -> S289 , kon_j
+  S3 + S286 -> S151 , kon_j
+  S42 + S286 -> S290 , kon_j
+  S39 + S285 -> S287 , kon_j
+  S84 + S285 -> S295 , kon_j
+  S39 + S286 -> S288 , kon_j
+  S84 + S286 -> S296 , kon_j
+  S64 + S285 -> S293 , kon_j
+  S130 + S285 -> S384 , kon_j
+  S64 + S286 -> S291 , kon_j
+  S130 + S286 -> S380 , kon_j
+  S65 + S285 -> S294 , kon_j
+  S131 + S285 -> S385 , kon_j
+  S65 + S286 -> S292 , kon_j
+  S131 + S286 -> S381 , kon_j
+  S1 + S284 -> S279 , 2*kon_j
+  S5 + S284 -> S280 , 2*kon_j
+  S10 + S284 -> S285 , 2*kon_j
+  S10 + S284 -> S286 , 2*kon_j
+  S11 + S284 -> S151 , 2*kon_j
+  S14 + S284 -> S150 , 2*kon_j
+  S16 + S284 -> S283 , 2*kon_j
+  S40 + S284 -> S288 , 2*kon_j
+  S41 + S284 -> S287 , 2*kon_j
+  S43 + S284 -> S290 , 2*kon_j
+  S44 + S284 -> S289 , 2*kon_j
+  S68 + S284 -> S291 , 2*kon_j
+  S69 + S284 -> S293 , 2*kon_j
+  S76 + S284 -> S292 , 2*kon_j
+  S77 + S284 -> S294 , 2*kon_j
+  S85 + S284 -> S296 , 2*kon_j
+  S86 + S284 -> S295 , 2*kon_j
+  S133 + S284 -> S298 , 2*kon_j
+  S134 + S284 -> S297 , 2*kon_j
+  S146 + S284 -> S382 , 2*kon_j
+  S147 + S284 -> S386 , 2*kon_j
+  S154 + S284 -> S380 , 2*kon_j
+  S155 + S284 -> S384 , 2*kon_j
+  S160 + S284 -> S381 , 2*kon_j
+  S161 + S284 -> S385 , 2*kon_j
+  S173 + S284 -> S383 , 2*kon_j
+  S174 + S284 -> S387 , 2*kon_j
+  S129 + S285 -> S297 , 2*kon_j
+  S132 + S285 -> S387 , kon_j
+  S132 + S285 -> S386 , kon_j
+  S284 + S285 -> S388 , 2*kon_j
+  S129 + S286 -> S298 , 2*kon_j
+  S132 + S286 -> S383 , kon_j
+  S132 + S286 -> S382 , kon_j
+  S284 + S286 -> S388 , 2*kon_j
+  S1 + S279 -> S299 , rateLaw7
+  S1 + S280 -> S300 , rateLaw7
+  S1 + S283 -> S301 , rateLaw7
+  S5 + S279 -> S300 , rateLaw7
+  S5 + S280 -> S302 , rateLaw7
+  S5 + S283 -> S303 , rateLaw7
+  S16 + S279 -> S301 , rateLaw7
+  S16 + S280 -> S303 , rateLaw7
+  S16 + S283 -> S304 , rateLaw7
+  S285 -> S389 , rateLaw8
+  S286 -> S389 , rateLaw8
+  S230 -> S64 + S155 , koff_j
+  S230 -> S68 + S130 , koff_j
+  S231 -> S64 + S161 , koff_j
+  S231 -> S68 + S131 , koff_j
+  S232 -> S64 + S147 , koff_j
+  S232 -> S68 + S132 , koff_j
+  S233 -> S64 + S174 , koff_j
+  S233 -> S68 + S132 , koff_j
+  S234 -> S65 + S155 , koff_j
+  S234 -> S76 + S130 , koff_j
+  S235 -> S65 + S161 , koff_j
+  S235 -> S76 + S131 , koff_j
+  S236 -> S65 + S147 , koff_j
+  S236 -> S76 + S132 , koff_j
+  S237 -> S65 + S174 , koff_j
+  S237 -> S76 + S132 , koff_j
+  S238 -> S84 + S155 , koff_j
+  S238 -> S85 + S130 , koff_j
+  S239 -> S84 + S161 , koff_j
+  S239 -> S85 + S131 , koff_j
+  S240 -> S84 + S147 , koff_j
+  S240 -> S85 + S132 , koff_j
+  S241 -> S84 + S174 , koff_j
+  S241 -> S85 + S132 , koff_j
+  S242 -> S129 + S134 , koff_j
+  S242 -> S129 + S133 , koff_j
+  S243 -> S129 + S155 , koff_j
+  S243 -> S130 + S133 , koff_j
+  S244 -> S129 + S161 , koff_j
+  S244 -> S131 + S133 , koff_j
+  S245 -> S129 + S147 , koff_j
+  S245 -> S132 + S133 , koff_j
+  S246 -> S129 + S174 , koff_j
+  S246 -> S132 + S133 , koff_j
+  S247 -> S69 + S130 , koff_j
+  S247 -> S64 + S154 , koff_j
+  S248 -> S77 + S130 , koff_j
+  S248 -> S65 + S154 , koff_j
+  S249 -> S86 + S130 , koff_j
+  S249 -> S84 + S154 , koff_j
+  S250 -> S130 + S134 , koff_j
+  S250 -> S129 + S154 , koff_j
+  S251 -> S130 + S155 , koff_j
+  S251 -> S130 + S154 , koff_j
+  S252 -> S130 + S161 , koff_j
+  S252 -> S131 + S154 , koff_j
+  S253 -> S130 + S147 , koff_j
+  S253 -> S132 + S154 , koff_j
+  S254 -> S130 + S174 , koff_j
+  S254 -> S132 + S154 , koff_j
+  S255 -> S69 + S131 , koff_j
+  S255 -> S64 + S160 , koff_j
+  S256 -> S77 + S131 , koff_j
+  S256 -> S65 + S160 , koff_j
+  S257 -> S86 + S131 , koff_j
+  S257 -> S84 + S160 , koff_j
+  S258 -> S131 + S134 , koff_j
+  S258 -> S129 + S160 , koff_j
+  S259 -> S131 + S155 , koff_j
+  S259 -> S130 + S160 , koff_j
+  S260 -> S131 + S161 , koff_j
+  S260 -> S131 + S160 , koff_j
+  S261 -> S131 + S147 , koff_j
+  S261 -> S132 + S160 , koff_j
+  S262 -> S131 + S174 , koff_j
+  S262 -> S132 + S160 , koff_j
+  S263 -> S69 + S132 , koff_j
+  S263 -> S64 + S146 , koff_j
+  S264 -> S77 + S132 , koff_j
+  S264 -> S65 + S146 , koff_j
+  S265 -> S86 + S132 , koff_j
+  S265 -> S84 + S146 , koff_j
+  S266 -> S132 + S134 , koff_j
+  S266 -> S129 + S146 , koff_j
+  S267 -> S132 + S155 , koff_j
+  S267 -> S130 + S146 , koff_j
+  S268 -> S132 + S161 , koff_j
+  S268 -> S131 + S146 , koff_j
+  S269 -> S132 + S147 , koff_j
+  S269 -> S132 + S146 , koff_j
+  S270 -> S132 + S174 , koff_j
+  S270 -> S132 + S146 , koff_j
+  S271 -> S69 + S132 , koff_j
+  S271 -> S64 + S173 , koff_j
+  S272 -> S77 + S132 , koff_j
+  S272 -> S65 + S173 , koff_j
+  S273 -> S86 + S132 , koff_j
+  S273 -> S84 + S173 , koff_j
+  S274 -> S132 + S134 , koff_j
+  S274 -> S129 + S173 , koff_j
+  S275 -> S132 + S155 , koff_j
+  S275 -> S130 + S173 , koff_j
+  S276 -> S132 + S161 , koff_j
+  S276 -> S131 + S173 , koff_j
+  S277 -> S132 + S147 , koff_j
+  S277 -> S132 + S173 , koff_j
+  S278 -> S132 + S174 , koff_j
+  S278 -> S132 + S173 , koff_j
+  S279 -> S1 + S284 , koff_j
+  S280 -> S5 + S284 , koff_j
+  S283 -> S16 + S284 , koff_j
+  S285 -> S10 + S284 , koff_j
+  S286 -> S10 + S284 , koff_j
+  S287 -> S41 + S284 , koff_j
+  S287 -> S39 + S285 , koff_j
+  S288 -> S39 + S286 , koff_j
+  S288 -> S40 + S284 , koff_j
+  S289 -> S44 + S284 , koff_j
+  S289 -> S42 + S285 , koff_j
+  S290 -> S42 + S286 , koff_j
+  S290 -> S43 + S284 , koff_j
+  S291 -> S64 + S286 , koff_j
+  S291 -> S68 + S284 , koff_j
+  S292 -> S65 + S286 , koff_j
+  S292 -> S76 + S284 , koff_j
+  S293 -> S69 + S284 , koff_j
+  S293 -> S64 + S285 , koff_j
+  S294 -> S77 + S284 , koff_j
+  S294 -> S65 + S285 , koff_j
+  S295 -> S86 + S284 , koff_j
+  S295 -> S84 + S285 , koff_j
+  S296 -> S84 + S286 , koff_j
+  S296 -> S85 + S284 , koff_j
+  S297 -> S134 + S284 , koff_j
+  S297 -> S129 + S285 , koff_j
+  S298 -> S129 + S286 , koff_j
+  S298 -> S133 + S284 , koff_j
+  S299 -> S1 + S279 , 2*koff_j
+  S300 -> S5 + S279 , koff_j
+  S300 -> S1 + S280 , koff_j
+  S301 -> S16 + S279 , koff_j
+  S301 -> S1 + S283 , koff_j
+  S302 -> S5 + S280 , 2*koff_j
+  S303 -> S5 + S283 , koff_j
+  S303 -> S16 + S280 , koff_j
+  S304 -> S16 + S283 , 2*koff_j
+  S305 -> S19 + S130 , koff_j
+  S306 -> S19 + S130 , koff_j
+  S307 -> S19 + S131 , koff_j
+  S308 -> S19 + S131 , koff_j
+  S309 -> S19 + S129 , koff_j
+  S310 -> S19 + S129 , koff_j
+  S311 -> S27 + S132 , koff_j
+  S311 -> S3 + S363 , koff_j
+  S312 -> S88 + S129 , koff_j
+  S312 -> S42 + S309 , koff_j
+  S313 -> S27 + S132 , koff_j
+  S313 -> S3 + S351 , koff_j
+  S314 -> S3 + S364 , koff_j
+  S314 -> S20 + S132 , koff_j
+  S315 -> S42 + S310 , koff_j
+  S315 -> S87 + S129 , koff_j
+  S316 -> S3 + S352 , koff_j
+  S316 -> S20 + S132 , koff_j
+  S317 -> S90 + S130 , koff_j
+  S317 -> S39 + S305 , koff_j
+  S318 -> S64 + S198 , koff_j
+  S318 -> S84 + S199 , koff_j
+  S319 -> S39 + S306 , koff_j
+  S319 -> S89 + S130 , koff_j
+  S320 -> S84 + S200 , koff_j
+  S320 -> S64 + S197 , koff_j
+  S321 -> S90 + S131 , koff_j
+  S321 -> S39 + S307 , koff_j
+  S322 -> S65 + S198 , koff_j
+  S322 -> S84 + S201 , koff_j
+  S323 -> S39 + S308 , koff_j
+  S323 -> S89 + S131 , koff_j
+  S324 -> S84 + S202 , koff_j
+  S324 -> S65 + S197 , koff_j
+  S325 -> S88 + S130 , koff_j
+  S325 -> S42 + S305 , koff_j
+  S326 -> S42 + S306 , koff_j
+  S326 -> S87 + S130 , koff_j
+  S327 -> S88 + S131 , koff_j
+  S327 -> S42 + S307 , koff_j
+  S328 -> S42 + S308 , koff_j
+  S328 -> S87 + S131 , koff_j
+  S329 -> S84 + S198 , koff_j
+  S329 -> S84 + S197 , koff_j
+  S330 -> S8 + S130 , koff_j
+  S331 -> S12 + S130 , koff_j
+  S332 -> S25 + S130 , koff_j
+  S333 -> S8 + S131 , koff_j
+  S334 -> S12 + S131 , koff_j
+  S335 -> S25 + S131 , koff_j
+  S336 -> S8 + S129 , koff_j
+  S337 -> S8 + S132 , koff_j
+  S338 -> S8 + S132 , koff_j
+  S339 -> S12 + S129 , koff_j
+  S340 -> S12 + S132 , koff_j
+  S341 -> S12 + S132 , koff_j
+  S342 -> S25 + S129 , koff_j
+  S343 -> S25 + S132 , koff_j
+  S344 -> S25 + S132 , koff_j
+  S345 -> S64 + S200 , koff_j
+  S345 -> S64 + S199 , koff_j
+  S346 -> S64 + S202 , koff_j
+  S346 -> S65 + S199 , koff_j
+  S347 -> S65 + S200 , koff_j
+  S347 -> S64 + S201 , koff_j
+  S348 -> S65 + S202 , koff_j
+  S348 -> S65 + S201 , koff_j
+  S349 -> S90 + S129 , koff_j
+  S349 -> S39 + S309 , koff_j
+  S350 -> S39 + S310 , koff_j
+  S350 -> S89 + S129 , koff_j
+  S351 -> S19 + S132 , koff_j
+  S352 -> S19 + S132 , koff_j
+  S353 -> S90 + S132 , koff_j
+  S353 -> S39 + S351 , koff_j
+  S354 -> S39 + S352 , koff_j
+  S354 -> S89 + S132 , koff_j
+  S355 -> S27 + S284 , koff_j
+  S355 -> S3 + S390 , koff_j
+  S356 -> S3 + S391 , koff_j
+  S356 -> S20 + S284 , koff_j
+  S357 -> S42 + S352 , koff_j
+  S357 -> S87 + S132 , koff_j
+  S358 -> S88 + S132 , koff_j
+  S358 -> S42 + S351 , koff_j
+  S359 -> S64 + S310 , koff_j
+  S359 -> S129 + S199 , koff_j
+  S360 -> S129 + S200 , koff_j
+  S360 -> S64 + S309 , koff_j
+  S361 -> S65 + S310 , koff_j
+  S361 -> S129 + S201 , koff_j
+  S362 -> S129 + S202 , koff_j
+  S362 -> S65 + S309 , koff_j
+  S363 -> S19 + S132 , koff_j
+  S364 -> S19 + S132 , koff_j
+  S365 -> S90 + S132 , koff_j
+  S365 -> S39 + S363 , koff_j
+  S366 -> S84 + S310 , koff_j
+  S366 -> S129 + S197 , koff_j
+  S367 -> S39 + S364 , koff_j
+  S367 -> S89 + S132 , koff_j
+  S368 -> S129 + S198 , koff_j
+  S368 -> S84 + S309 , koff_j
+  S369 -> S88 + S132 , koff_j
+  S369 -> S42 + S363 , koff_j
+  S370 -> S42 + S364 , koff_j
+  S370 -> S87 + S132 , koff_j
+  S372 -> S8 + S336 , 2*koff_j
+  S373 -> S8 + S337 , koff_j
+  S373 -> S8 + S338 , koff_j
+  S374 -> S12 + S336 , koff_j
+  S374 -> S8 + S339 , koff_j
+  S375 -> S12 + S338 , koff_j
+  S375 -> S8 + S340 , koff_j
+  S376 -> S12 + S337 , koff_j
+  S376 -> S8 + S341 , koff_j
+  S377 -> S25 + S336 , koff_j
+  S377 -> S8 + S342 , koff_j
+  S378 -> S25 + S338 , koff_j
+  S378 -> S8 + S343 , koff_j
+  S379 -> S25 + S337 , koff_j
+  S379 -> S8 + S344 , koff_j
+  S281 -> S173 , koff_j
+  S281 -> S147 , koff_j
+  S282 -> S146 , koff_j
+  S282 -> S174 , koff_j
+  S371 -> S310 , koff_j
+  S371 -> S309 , koff_j
+  S289 -> S295 , kphos_fast
+  S290 -> S296 , kphos_fast
+  S232 -> S253 , kphos_slow
+  S232 -> S291 , kphos_slow
+  S233 -> S254 , kphos_slow
+  S233 -> S291 , kphos_slow
+  S236 -> S261 , kphos_slow
+  S236 -> S292 , kphos_slow
+  S237 -> S262 , kphos_slow
+  S237 -> S292 , kphos_slow
+  S242 -> S274 , kphos_slow
+  S242 -> S246 , kphos_slow
+  S242 -> S266 , kphos_slow
+  S242 -> S245 , kphos_slow
+  S243 -> S275 , kphos_slow
+  S243 -> S267 , kphos_slow
+  S244 -> S276 , kphos_slow
+  S244 -> S268 , kphos_slow
+  S245 -> S277 , kphos_slow
+  S245 -> S298 , kphos_slow
+  S245 -> S269 , kphos_slow
+  S246 -> S278 , kphos_slow
+  S246 -> S270 , kphos_slow
+  S246 -> S298 , kphos_slow
+  S250 -> S254 , kphos_slow
+  S250 -> S253 , kphos_slow
+  S258 -> S262 , kphos_slow
+  S258 -> S261 , kphos_slow
+  S263 -> S293 , kphos_slow
+  S263 -> S267 , kphos_slow
+  S264 -> S294 , kphos_slow
+  S264 -> S268 , kphos_slow
+  S266 -> S297 , kphos_slow
+  S266 -> S270 , kphos_slow
+  S266 -> S269 , kphos_slow
+  S269 -> S386 , kphos_slow
+  S269 -> S382 , kphos_slow
+  S270 -> S387 , kphos_slow
+  S270 -> S382 , kphos_slow
+  S271 -> S275 , kphos_slow
+  S271 -> S293 , kphos_slow
+  S272 -> S276 , kphos_slow
+  S272 -> S294 , kphos_slow
+  S274 -> S278 , kphos_slow
+  S274 -> S297 , kphos_slow
+  S274 -> S277 , kphos_slow
+  S277 -> S383 , kphos_slow
+  S277 -> S386 , kphos_slow
+  S278 -> S387 , kphos_slow
+  S278 -> S383 , kphos_slow
+  S297 -> S387 , kphos_slow
+  S297 -> S386 , kphos_slow
+  S298 -> S383 , kphos_slow
+  S298 -> S382 , kphos_slow
+  S309 -> S363 , kphos_slow
+  S309 -> S351 , kphos_slow
+  S310 -> S364 , kphos_slow
+  S310 -> S352 , kphos_slow
+  S311 -> S369 , kphos_slow
+  S311 -> S355 , kphos_slow
+  S312 -> S369 , kphos_slow
+  S312 -> S358 , kphos_slow
+  S313 -> S355 , kphos_slow
+  S313 -> S358 , kphos_slow
+  S314 -> S370 , kphos_slow
+  S314 -> S356 , kphos_slow
+  S315 -> S370 , kphos_slow
+  S315 -> S357 , kphos_slow
+  S316 -> S356 , kphos_slow
+  S316 -> S357 , kphos_slow
+  S336 -> S338 , kphos_slow
+  S336 -> S337 , kphos_slow
+  S339 -> S341 , kphos_slow
+  S339 -> S340 , kphos_slow
+  S342 -> S344 , kphos_slow
+  S342 -> S343 , kphos_slow
+  S345 -> S392 , kphos_slow
+  S345 -> S393 , kphos_slow
+  S346 -> S394 , kphos_slow
+  S346 -> S395 , kphos_slow
+  S347 -> S396 , kphos_slow
+  S347 -> S397 , kphos_slow
+  S348 -> S398 , kphos_slow
+  S348 -> S399 , kphos_slow
+  S349 -> S365 , kphos_slow
+  S349 -> S368 , kphos_slow
+  S349 -> S353 , kphos_slow
+  S350 -> S367 , kphos_slow
+  S350 -> S366 , kphos_slow
+  S350 -> S354 , kphos_slow
+  S353 -> S400 , kphos_slow
+  S353 -> S401 , kphos_slow
+  S354 -> S402 , kphos_slow
+  S354 -> S403 , kphos_slow
+  S359 -> S404 , kphos_slow
+  S359 -> S405 , kphos_slow
+  S359 -> S406 , kphos_slow
+  S360 -> S407 , kphos_slow
+  S360 -> S408 , kphos_slow
+  S360 -> S409 , kphos_slow
+  S361 -> S410 , kphos_slow
+  S361 -> S411 , kphos_slow
+  S361 -> S412 , kphos_slow
+  S362 -> S413 , kphos_slow
+  S362 -> S414 , kphos_slow
+  S362 -> S415 , kphos_slow
+  S365 -> S416 , kphos_slow
+  S365 -> S400 , kphos_slow
+  S366 -> S417 , kphos_slow
+  S366 -> S403 , kphos_slow
+  S367 -> S417 , kphos_slow
+  S367 -> S402 , kphos_slow
+  S368 -> S416 , kphos_slow
+  S368 -> S401 , kphos_slow
+  S371 -> S418 , kphos_slow
+  S371 -> S419 , kphos_slow
+  S372 -> S373 , 2*kphos_slow
+  S374 -> S375 , kphos_slow
+  S374 -> S376 , kphos_slow
+  S377 -> S378 , kphos_slow
+  S377 -> S379 , kphos_slow
+  S230 -> S251 , kphos_fast
+  S231 -> S252 , kphos_fast
+  S232 -> S253 , kphos_fast
+  S232 -> S291 , kphos_fast
+  S233 -> S254 , kphos_fast
+  S233 -> S291 , kphos_fast
+  S234 -> S259 , kphos_fast
+  S235 -> S260 , kphos_fast
+  S236 -> S261 , kphos_fast
+  S236 -> S292 , kphos_fast
+  S237 -> S262 , kphos_fast
+  S237 -> S292 , kphos_fast
+  S240 -> S296 , kphos_fast
+  S241 -> S296 , kphos_fast
+  S243 -> S275 , kphos_fast
+  S243 -> S267 , kphos_fast
+  S244 -> S276 , kphos_fast
+  S244 -> S268 , kphos_fast
+  S245 -> S277 , kphos_fast
+  S245 -> S298 , kphos_fast
+  S245 -> S269 , kphos_fast
+  S246 -> S278 , kphos_fast
+  S246 -> S270 , kphos_fast
+  S246 -> S298 , kphos_fast
+  S247 -> S251 , kphos_fast
+  S248 -> S252 , kphos_fast
+  S250 -> S254 , kphos_fast
+  S250 -> S253 , kphos_fast
+  S253 -> S380 , kphos_fast
+  S254 -> S380 , kphos_fast
+  S255 -> S259 , kphos_fast
+  S256 -> S260 , kphos_fast
+  S258 -> S262 , kphos_fast
+  S258 -> S261 , kphos_fast
+  S261 -> S381 , kphos_fast
+  S262 -> S381 , kphos_fast
+  S263 -> S293 , kphos_fast
+  S263 -> S267 , kphos_fast
+  S264 -> S294 , kphos_fast
+  S264 -> S268 , kphos_fast
+  S265 -> S295 , kphos_fast
+  S266 -> S297 , kphos_fast
+  S266 -> S270 , kphos_fast
+  S266 -> S269 , kphos_fast
+  S267 -> S384 , kphos_fast
+  S268 -> S385 , kphos_fast
+  S269 -> S386 , kphos_fast
+  S269 -> S382 , kphos_fast
+  S270 -> S387 , kphos_fast
+  S270 -> S382 , kphos_fast
+  S271 -> S275 , kphos_fast
+  S271 -> S293 , kphos_fast
+  S272 -> S276 , kphos_fast
+  S272 -> S294 , kphos_fast
+  S273 -> S295 , kphos_fast
+  S274 -> S278 , kphos_fast
+  S274 -> S297 , kphos_fast
+  S274 -> S277 , kphos_fast
+  S275 -> S384 , kphos_fast
+  S276 -> S385 , kphos_fast
+  S277 -> S383 , kphos_fast
+  S277 -> S386 , kphos_fast
+  S278 -> S387 , kphos_fast
+  S278 -> S383 , kphos_fast
+  S281 -> S389 , kphos_fast
+  S282 -> S389 , kphos_fast
+  S287 -> S295 , kphos_fast
+  S288 -> S296 , kphos_fast
+  S291 -> S380 , kphos_fast
+  S292 -> S381 , kphos_fast
+  S293 -> S384 , kphos_fast
+  S294 -> S385 , kphos_fast
+  S297 -> S387 , kphos_fast
+  S297 -> S386 , kphos_fast
+  S298 -> S383 , kphos_fast
+  S298 -> S382 , kphos_fast
+  S311 -> S369 , kphos_fast
+  S311 -> S355 , kphos_fast
+  S312 -> S369 , kphos_fast
+  S312 -> S358 , kphos_fast
+  S313 -> S355 , kphos_fast
+  S313 -> S358 , kphos_fast
+  S314 -> S370 , kphos_fast
+  S314 -> S356 , kphos_fast
+  S315 -> S370 , kphos_fast
+  S315 -> S357 , kphos_fast
+  S316 -> S356 , kphos_fast
+  S316 -> S357 , kphos_fast
+  S317 -> S420 , kphos_fast
+  S318 -> S420 , kphos_fast
+  S319 -> S421 , kphos_fast
+  S320 -> S421 , kphos_fast
+  S321 -> S422 , kphos_fast
+  S322 -> S422 , kphos_fast
+  S323 -> S423 , kphos_fast
+  S324 -> S423 , kphos_fast
+  S337 -> S424 , kphos_fast
+  S338 -> S424 , kphos_fast
+  S340 -> S425 , kphos_fast
+  S341 -> S425 , kphos_fast
+  S343 -> S426 , kphos_fast
+  S344 -> S426 , kphos_fast
+  S351 -> S390 , kphos_fast
+  S352 -> S391 , kphos_fast
+  S353 -> S400 , kphos_fast
+  S353 -> S401 , kphos_fast
+  S354 -> S402 , kphos_fast
+  S354 -> S403 , kphos_fast
+  S355 -> S427 , kphos_fast
+  S356 -> S428 , kphos_fast
+  S357 -> S428 , kphos_fast
+  S358 -> S427 , kphos_fast
+  S363 -> S390 , kphos_fast
+  S364 -> S391 , kphos_fast
+  S365 -> S416 , kphos_fast
+  S365 -> S400 , kphos_fast
+  S366 -> S417 , kphos_fast
+  S366 -> S403 , kphos_fast
+  S367 -> S417 , kphos_fast
+  S367 -> S402 , kphos_fast
+  S368 -> S416 , kphos_fast
+  S368 -> S401 , kphos_fast
+  S369 -> S427 , kphos_fast
+  S370 -> S428 , kphos_fast
+  S373 -> S429 , kphos_fast
+  S375 -> S430 , kphos_fast
+  S376 -> S430 , kphos_fast
+  S378 -> S431 , kphos_fast
+  S379 -> S431 , kphos_fast
+  S238 -> S159 , kcat_ptp
+  S239 -> S165 , kcat_ptp
+  S240 -> S152 , kcat_ptp
+  S241 -> S180 , kcat_ptp
+  S249 -> S158 , kcat_ptp
+  S257 -> S164 , kcat_ptp
+  S265 -> S153 , kcat_ptp
+  S273 -> S179 , kcat_ptp
+  S287 -> S150 , kcat_ptp
+  S288 -> S151 , kcat_ptp
+  S295 -> S289 , kcat_ptp
+  S296 -> S290 , kcat_ptp
+  S317 -> S203 , kcat_ptp
+  S318 -> S204 , kcat_ptp
+  S319 -> S205 , kcat_ptp
+  S320 -> S206 , kcat_ptp
+  S321 -> S207 , kcat_ptp
+  S322 -> S208 , kcat_ptp
+  S323 -> S209 , kcat_ptp
+  S324 -> S210 , kcat_ptp
+  S329 -> S214 , kcat_ptp
+  S329 -> S213 , kcat_ptp
+  S349 -> S224 , kcat_ptp
+  S350 -> S225 , kcat_ptp
+  S353 -> S313 , kcat_ptp
+  S354 -> S316 , kcat_ptp
+  S365 -> S311 , kcat_ptp
+  S366 -> S315 , kcat_ptp
+  S367 -> S314 , kcat_ptp
+  S368 -> S312 , kcat_ptp
+  S230 -> S111 , kcat_ptp
+  S231 -> S112 , kcat_ptp
+  S232 -> S169 , kcat_ptp
+  S233 -> S169 , kcat_ptp
+  S234 -> S114 , kcat_ptp
+  S235 -> S115 , kcat_ptp
+  S236 -> S171 , kcat_ptp
+  S237 -> S171 , kcat_ptp
+  S238 -> S117 , kcat_ptp
+  S238 -> S157 , kcat_ptp
+  S239 -> S118 , kcat_ptp
+  S239 -> S163 , kcat_ptp
+  S240 -> S149 , kcat_ptp
+  S240 -> S176 , kcat_ptp
+  S241 -> S176 , kcat_ptp
+  S241 -> S177 , kcat_ptp
+  S243 -> S170 , kcat_ptp
+  S244 -> S172 , kcat_ptp
+  S245 -> S242 , kcat_ptp
+  S246 -> S242 , kcat_ptp
+  S247 -> S111 , kcat_ptp
+  S248 -> S112 , kcat_ptp
+  S249 -> S113 , kcat_ptp
+  S249 -> S156 , kcat_ptp
+  S250 -> S169 , kcat_ptp
+  S251 -> S230 , kcat_ptp
+  S251 -> S247 , kcat_ptp
+  S252 -> S231 , kcat_ptp
+  S252 -> S248 , kcat_ptp
+  S253 -> S232 , kcat_ptp
+  S253 -> S250 , kcat_ptp
+  S254 -> S233 , kcat_ptp
+  S254 -> S250 , kcat_ptp
+  S255 -> S114 , kcat_ptp
+  S256 -> S115 , kcat_ptp
+  S257 -> S116 , kcat_ptp
+  S257 -> S162 , kcat_ptp
+  S258 -> S171 , kcat_ptp
+  S259 -> S234 , kcat_ptp
+  S259 -> S255 , kcat_ptp
+  S260 -> S235 , kcat_ptp
+  S260 -> S256 , kcat_ptp
+  S261 -> S236 , kcat_ptp
+  S261 -> S258 , kcat_ptp
+  S262 -> S237 , kcat_ptp
+  S262 -> S258 , kcat_ptp
+  S263 -> S170 , kcat_ptp
+  S264 -> S172 , kcat_ptp
+  S265 -> S148 , kcat_ptp
+  S265 -> S178 , kcat_ptp
+  S266 -> S242 , kcat_ptp
+  S267 -> S263 , kcat_ptp
+  S267 -> S243 , kcat_ptp
+  S268 -> S264 , kcat_ptp
+  S268 -> S244 , kcat_ptp
+  S269 -> S245 , kcat_ptp
+  S269 -> S266 , kcat_ptp
+  S270 -> S266 , kcat_ptp
+  S270 -> S246 , kcat_ptp
+  S271 -> S170 , kcat_ptp
+  S272 -> S172 , kcat_ptp
+  S273 -> S178 , kcat_ptp
+  S273 -> S175 , kcat_ptp
+  S274 -> S242 , kcat_ptp
+  S275 -> S243 , kcat_ptp
+  S275 -> S271 , kcat_ptp
+  S276 -> S244 , kcat_ptp
+  S276 -> S272 , kcat_ptp
+  S277 -> S245 , kcat_ptp
+  S277 -> S274 , kcat_ptp
+  S278 -> S246 , kcat_ptp
+  S278 -> S274 , kcat_ptp
+  S279 -> S143 , kcat_ptp
+  S279 -> S166 , kcat_ptp
+  S280 -> S144 , kcat_ptp
+  S280 -> S167 , kcat_ptp
+  S281 -> S196 , kcat_ptp
+  S282 -> S196 , kcat_ptp
+  S283 -> S145 , kcat_ptp
+  S283 -> S168 , kcat_ptp
+  S284 -> S132 , 2*kcat_ptp
+  S285 -> S146 , kcat_ptp
+  S285 -> S173 , kcat_ptp
+  S286 -> S147 , kcat_ptp
+  S286 -> S174 , kcat_ptp
+  S287 -> S148 , kcat_ptp
+  S287 -> S175 , kcat_ptp
+  S288 -> S149 , kcat_ptp
+  S288 -> S177 , kcat_ptp
+  S289 -> S153 , kcat_ptp
+  S289 -> S150 , kcat_ptp
+  S289 -> S179 , kcat_ptp
+  S290 -> S152 , kcat_ptp
+  S290 -> S151 , kcat_ptp
+  S290 -> S180 , kcat_ptp
+  S291 -> S232 , kcat_ptp
+  S291 -> S233 , kcat_ptp
+  S292 -> S236 , kcat_ptp
+  S292 -> S237 , kcat_ptp
+  S293 -> S263 , kcat_ptp
+  S293 -> S271 , kcat_ptp
+  S294 -> S264 , kcat_ptp
+  S294 -> S272 , kcat_ptp
+  S295 -> S265 , kcat_ptp
+  S295 -> S287 , kcat_ptp
+  S295 -> S273 , kcat_ptp
+  S296 -> S240 , kcat_ptp
+  S296 -> S288 , kcat_ptp
+  S296 -> S241 , kcat_ptp
+  S297 -> S266 , kcat_ptp
+  S297 -> S274 , kcat_ptp
+  S298 -> S245 , kcat_ptp
+  S298 -> S246 , kcat_ptp
+  S299 -> S187 , 2*kcat_ptp
+  S300 -> S190 , kcat_ptp
+  S300 -> S188 , kcat_ptp
+  S301 -> S193 , kcat_ptp
+  S301 -> S189 , kcat_ptp
+  S302 -> S191 , 2*kcat_ptp
+  S303 -> S194 , kcat_ptp
+  S303 -> S192 , kcat_ptp
+  S304 -> S195 , 2*kcat_ptp
+  S305 -> S199 , kcat_ptp
+  S306 -> S200 , kcat_ptp
+  S307 -> S201 , kcat_ptp
+  S308 -> S202 , kcat_ptp
+  S311 -> S224 , kcat_ptp
+  S312 -> S224 , kcat_ptp
+  S313 -> S224 , kcat_ptp
+  S314 -> S225 , kcat_ptp
+  S315 -> S225 , kcat_ptp
+  S316 -> S225 , kcat_ptp
+  S317 -> S226 , kcat_ptp
+  S318 -> S226 , kcat_ptp
+  S319 -> S227 , kcat_ptp
+  S320 -> S227 , kcat_ptp
+  S321 -> S228 , kcat_ptp
+  S322 -> S228 , kcat_ptp
+  S323 -> S229 , kcat_ptp
+  S324 -> S229 , kcat_ptp
+  S325 -> S204 , kcat_ptp
+  S325 -> S203 , kcat_ptp
+  S326 -> S206 , kcat_ptp
+  S326 -> S205 , kcat_ptp
+  S327 -> S208 , kcat_ptp
+  S327 -> S207 , kcat_ptp
+  S328 -> S210 , kcat_ptp
+  S328 -> S209 , kcat_ptp
+  S329 -> S212 , kcat_ptp
+  S329 -> S211 , kcat_ptp
+  S330 -> S218 , kcat_ptp
+  S331 -> S219 , kcat_ptp
+  S332 -> S220 , kcat_ptp
+  S333 -> S221 , kcat_ptp
+  S334 -> S222 , kcat_ptp
+  S335 -> S223 , kcat_ptp
+  S337 -> S336 , kcat_ptp
+  S338 -> S336 , kcat_ptp
+  S340 -> S339 , kcat_ptp
+  S341 -> S339 , kcat_ptp
+  S343 -> S342 , kcat_ptp
+  S344 -> S342 , kcat_ptp
+  S351 -> S309 , kcat_ptp
+  S352 -> S310 , kcat_ptp
+  S353 -> S349 , kcat_ptp
+  S354 -> S350 , kcat_ptp
+  S355 -> S313 , kcat_ptp
+  S355 -> S311 , kcat_ptp
+  S356 -> S316 , kcat_ptp
+  S356 -> S314 , kcat_ptp
+  S357 -> S316 , kcat_ptp
+  S357 -> S315 , kcat_ptp
+  S358 -> S313 , kcat_ptp
+  S358 -> S312 , kcat_ptp
+  S363 -> S309 , kcat_ptp
+  S364 -> S310 , kcat_ptp
+  S365 -> S349 , kcat_ptp
+  S366 -> S350 , kcat_ptp
+  S367 -> S350 , kcat_ptp
+  S368 -> S349 , kcat_ptp
+  S369 -> S312 , kcat_ptp
+  S369 -> S311 , kcat_ptp
+  S370 -> S315 , kcat_ptp
+  S370 -> S314 , kcat_ptp
+  S373 -> S372 , kcat_ptp
+  S375 -> S374 , kcat_ptp
+  S376 -> S374 , kcat_ptp
+  S378 -> S377 , kcat_ptp
+  S379 -> S377 , kcat_ptp
+  S279 -> S424 , kt
+  S280 -> S425 , kt
+  S283 -> S426 , kt
+  S230 -> S393 , ke
+  S231 -> S395 , ke
+  S232 -> S406 , ke
+  S233 -> S405 , ke
+  S234 -> S397 , ke
+  S235 -> S399 , ke
+  S236 -> S412 , ke
+  S237 -> S411 , ke
+  S238 -> S421 , ke
+  S239 -> S423 , ke
+  S240 -> S403 , ke
+  S241 -> S417 , ke
+  S242 -> S432 , ke
+  S243 -> S407 , ke
+  S244 -> S413 , ke
+  S245 -> S433 , ke
+  S246 -> S434 , ke
+  S247 -> S392 , ke
+  S248 -> S394 , ke
+  S249 -> S420 , ke
+  S250 -> S404 , ke
+  S251 -> S435 , ke
+  S252 -> S436 , ke
+  S253 -> S437 , ke
+  S254 -> S438 , ke
+  S255 -> S396 , ke
+  S256 -> S398 , ke
+  S257 -> S422 , ke
+  S258 -> S410 , ke
+  S259 -> S439 , ke
+  S260 -> S440 , ke
+  S261 -> S441 , ke
+  S262 -> S442 , ke
+  S263 -> S409 , ke
+  S264 -> S415 , ke
+  S265 -> S401 , ke
+  S266 -> S443 , ke
+  S267 -> S444 , ke
+  S268 -> S445 , ke
+  S269 -> S446 , ke
+  S270 -> S447 , ke
+  S271 -> S408 , ke
+  S272 -> S414 , ke
+  S273 -> S416 , ke
+  S274 -> S448 , ke
+  S275 -> S449 , ke
+  S276 -> S450 , ke
+  S277 -> S451 , ke
+  S278 -> S452 , ke
+  S281 -> S418 , ke
+  S282 -> S419 , ke
+  S285 -> S390 , ke
+  S286 -> S391 , ke
+  S287 -> S400 , ke
+  S288 -> S402 , ke
+  S289 -> S427 , ke
+  S290 -> S428 , ke
+  S291 -> S453 , ke
+  S292 -> S454 , ke
+  S293 -> S455 , ke
+  S294 -> S456 , ke
+  S295 -> S457 , ke
+  S296 -> S458 , ke
+  S297 -> S459 , ke
+  S298 -> S460 , ke
+  S299 -> S429 , ke
+  S300 -> S430 , ke
+  S301 -> S431 , ke
+  S380 -> S122 + S280 , kminusx2
+  S381 -> S124 + S280 , kminusx2
+  S382 -> S143 + S280 , kminusx2
+  S383 -> S166 + S280 , kminusx2
+  S384 -> S123 + S279 , kminusx2
+  S385 -> S125 + S279 , kminusx2
+  S386 -> S144 + S279 , kminusx2
+  S387 -> S167 + S279 , kminusx2
+  S388 -> S279 + S280 , kminusx2
+  S389 -> S300 , kminusx2
+  S380 -> S127 + S279 , kminusx1
+  S381 -> S128 + S279 , kminusx1
+  S382 -> S145 + S279 , kminusx1
+  S383 -> S168 + S279 , kminusx1
+  S384 -> S122 + S283 , kminusx1
+  S385 -> S124 + S283 , kminusx1
+  S386 -> S143 + S283 , kminusx1
+  S387 -> S166 + S283 , kminusx1
+  S388 -> S279 + S283 , kminusx1
+  S389 -> S301 , kminusx1
+  S39 + S381 -> S383 , kon_SH2
+  S39 + S385 -> S387 , kon_SH2
+  S84 + S381 -> S388 , kon_SH2
+  S84 + S385 -> S388 , kon_SH2
+  S380 -> S2 + S296 , koff_SH2
+  S380 -> S131 + S249 , koff_SH2
+  S380 -> S84 + S252 , koff_SH2
+  S381 -> S6 + S296 , koff_SH2
+  S381 -> S131 + S257 , koff_SH2
+  S381 -> S84 + S260 , koff_SH2
+  S382 -> S131 + S265 , koff_SH2
+  S382 -> S131 + S288 , koff_SH2
+  S382 -> S84 + S292 , koff_SH2
+  S382 -> S84 + S268 , koff_SH2
+  S383 -> S65 + S296 , koff_SH2
+  S383 -> S131 + S273 , koff_SH2
+  S383 -> S84 + S276 , koff_SH2
+  S383 -> S39 + S381 , koff_SH2
+  S384 -> S131 + S238 , koff_SH2
+  S384 -> S2 + S295 , koff_SH2
+  S384 -> S84 + S259 , koff_SH2
+  S385 -> S131 + S239 , koff_SH2
+  S385 -> S6 + S295 , koff_SH2
+  S385 -> S84 + S260 , koff_SH2
+  S386 -> S131 + S240 , koff_SH2
+  S386 -> S131 + S287 , koff_SH2
+  S386 -> S84 + S261 , koff_SH2
+  S386 -> S84 + S294 , koff_SH2
+  S387 -> S131 + S241 , koff_SH2
+  S387 -> S65 + S295 , koff_SH2
+  S387 -> S84 + S262 , koff_SH2
+  S387 -> S39 + S385 , koff_SH2
+  S388 -> S131 + S296 , koff_SH2
+  S388 -> S131 + S295 , koff_SH2
+  S388 -> S84 + S381 , koff_SH2
+  S388 -> S84 + S385 , koff_SH2
+  S390 -> S131 + S197 , koff_SH2
+  S390 -> S84 + S307 , koff_SH2
+  S391 -> S131 + S198 , koff_SH2
+  S391 -> S84 + S308 , koff_SH2
+  S392 -> S2 + S320 , koff_SH2
+  S392 -> S2 + S317 , koff_SH2
+  S393 -> S2 + S318 , koff_SH2
+  S393 -> S2 + S319 , koff_SH2
+  S394 -> S2 + S324 , koff_SH2
+  S394 -> S6 + S317 , koff_SH2
+  S395 -> S6 + S318 , koff_SH2
+  S395 -> S2 + S323 , koff_SH2
+  S396 -> S6 + S320 , koff_SH2
+  S396 -> S2 + S321 , koff_SH2
+  S397 -> S2 + S322 , koff_SH2
+  S397 -> S6 + S319 , koff_SH2
+  S398 -> S6 + S324 , koff_SH2
+  S398 -> S6 + S321 , koff_SH2
+  S399 -> S6 + S322 , koff_SH2
+  S399 -> S6 + S323 , koff_SH2
+  S400 -> S131 + S211 , koff_SH2
+  S400 -> S84 + S321 , koff_SH2
+  S401 -> S131 + S212 , koff_SH2
+  S401 -> S84 + S322 , koff_SH2
+  S402 -> S131 + S212 , koff_SH2
+  S402 -> S84 + S323 , koff_SH2
+  S403 -> S131 + S211 , koff_SH2
+  S403 -> S84 + S324 , koff_SH2
+  S404 -> S2 + S366 , koff_SH2
+  S404 -> S65 + S317 , koff_SH2
+  S404 -> S39 + S394 , koff_SH2
+  S405 -> S65 + S318 , koff_SH2
+  S405 -> S2 + S367 , koff_SH2
+  S405 -> S39 + S395 , koff_SH2
+  S406 -> S2 + S354 , koff_SH2
+  S406 -> S131 + S226 , koff_SH2
+  S406 -> S84 + S346 , koff_SH2
+  S407 -> S2 + S368 , koff_SH2
+  S407 -> S65 + S319 , koff_SH2
+  S407 -> S39 + S397 , koff_SH2
+  S408 -> S65 + S320 , koff_SH2
+  S408 -> S2 + S365 , koff_SH2
+  S408 -> S39 + S396 , koff_SH2
+  S409 -> S2 + S353 , koff_SH2
+  S409 -> S131 + S227 , koff_SH2
+  S409 -> S84 + S347 , koff_SH2
+  S410 -> S6 + S366 , koff_SH2
+  S410 -> S65 + S321 , koff_SH2
+  S410 -> S39 + S398 , koff_SH2
+  S411 -> S65 + S322 , koff_SH2
+  S411 -> S6 + S367 , koff_SH2
+  S411 -> S39 + S399 , koff_SH2
+  S412 -> S6 + S354 , koff_SH2
+  S412 -> S131 + S228 , koff_SH2
+  S412 -> S84 + S348 , koff_SH2
+  S413 -> S6 + S368 , koff_SH2
+  S413 -> S65 + S323 , koff_SH2
+  S413 -> S39 + S399 , koff_SH2
+  S414 -> S65 + S324 , koff_SH2
+  S414 -> S6 + S365 , koff_SH2
+  S414 -> S39 + S398 , koff_SH2
+  S415 -> S6 + S353 , koff_SH2
+  S415 -> S131 + S229 , koff_SH2
+  S415 -> S84 + S348 , koff_SH2
+  S416 -> S65 + S329 , koff_SH2
+  S416 -> S39 + S422 , koff_SH2
+  S417 -> S65 + S329 , koff_SH2
+  S417 -> S39 + S423 , koff_SH2
+  S420 -> S2 + S329 , koff_SH2
+  S421 -> S2 + S329 , koff_SH2
+  S422 -> S6 + S329 , koff_SH2
+  S423 -> S6 + S329 , koff_SH2
+  S424 -> S131 + S215 , koff_SH2
+  S424 -> S84 + S333 , koff_SH2
+  S425 -> S131 + S216 , koff_SH2
+  S425 -> S84 + S334 , koff_SH2
+  S426 -> S131 + S217 , koff_SH2
+  S426 -> S84 + S335 , koff_SH2
+  S427 -> S131 + S213 , koff_SH2
+  S427 -> S84 + S327 , koff_SH2
+  S428 -> S131 + S214 , koff_SH2
+  S428 -> S84 + S328 , koff_SH2
+  S429 -> S215 + S333 , 2*koff_SH2
+  S430 -> S215 + S334 , koff_SH2
+  S430 -> S216 + S333 , koff_SH2
+  S431 -> S215 + S335 , koff_SH2
+  S431 -> S217 + S333 , koff_SH2
+  S432 -> S65 + S350 , koff_SH2
+  S432 -> S65 + S349 , koff_SH2
+  S432 -> S39 + S361 , koff_SH2
+  S432 -> S39 + S362 , koff_SH2
+  S433 -> S65 + S354 , koff_SH2
+  S433 -> S131 + S349 , koff_SH2
+  S433 -> S84 + S362 , koff_SH2
+  S433 -> S39 + S412 , koff_SH2
+  S434 -> S65 + S368 , koff_SH2
+  S434 -> S65 + S367 , koff_SH2
+  S434 -> S39 + S411 , koff_SH2
+  S434 -> S39 + S413 , koff_SH2
+  S435 -> S2 + S421 , koff_SH2
+  S435 -> S2 + S420 , koff_SH2
+  S436 -> S2 + S423 , koff_SH2
+  S436 -> S6 + S420 , koff_SH2
+  S437 -> S2 + S403 , koff_SH2
+  S437 -> S131 + S317 , koff_SH2
+  S437 -> S84 + S394 , koff_SH2
+  S438 -> S2 + S417 , koff_SH2
+  S438 -> S65 + S420 , koff_SH2
+  S438 -> S39 + S436 , koff_SH2
+  S439 -> S6 + S421 , koff_SH2
+  S439 -> S2 + S422 , koff_SH2
+  S440 -> S6 + S423 , koff_SH2
+  S440 -> S6 + S422 , koff_SH2
+  S441 -> S6 + S403 , koff_SH2
+  S441 -> S131 + S321 , koff_SH2
+  S441 -> S84 + S398 , koff_SH2
+  S442 -> S6 + S417 , koff_SH2
+  S442 -> S65 + S422 , koff_SH2
+  S442 -> S39 + S440 , koff_SH2
+  S443 -> S131 + S350 , koff_SH2
+  S443 -> S65 + S353 , koff_SH2
+  S443 -> S84 + S361 , koff_SH2
+  S443 -> S39 + S415 , koff_SH2
+  S444 -> S2 + S401 , koff_SH2
+  S444 -> S131 + S319 , koff_SH2
+  S444 -> S84 + S397 , koff_SH2
+  S445 -> S6 + S401 , koff_SH2
+  S445 -> S131 + S323 , koff_SH2
+  S445 -> S84 + S399 , koff_SH2
+  S446 -> S131 + S354 , koff_SH2
+  S446 -> S131 + S353 , koff_SH2
+  S446 -> S84 + S412 , koff_SH2
+  S446 -> S84 + S415 , koff_SH2
+  S447 -> S65 + S401 , koff_SH2
+  S447 -> S131 + S367 , koff_SH2
+  S447 -> S84 + S411 , koff_SH2
+  S447 -> S39 + S445 , koff_SH2
+  S448 -> S65 + S366 , koff_SH2
+  S448 -> S65 + S365 , koff_SH2
+  S448 -> S39 + S410 , koff_SH2
+  S448 -> S39 + S414 , koff_SH2
+  S449 -> S65 + S421 , koff_SH2
+  S449 -> S2 + S416 , koff_SH2
+  S449 -> S39 + S439 , koff_SH2
+  S450 -> S65 + S423 , koff_SH2
+  S450 -> S6 + S416 , koff_SH2
+  S450 -> S39 + S440 , koff_SH2
+  S451 -> S65 + S403 , koff_SH2
+  S451 -> S131 + S365 , koff_SH2
+  S451 -> S84 + S414 , koff_SH2
+  S451 -> S39 + S441 , koff_SH2
+  S452 -> S65 + S417 , koff_SH2
+  S452 -> S65 + S416 , koff_SH2
+  S452 -> S39 + S442 , koff_SH2
+  S452 -> S39 + S450 , koff_SH2
+  S453 -> S131 + S318 , koff_SH2
+  S453 -> S2 + S402 , koff_SH2
+  S453 -> S84 + S395 , koff_SH2
+  S454 -> S131 + S322 , koff_SH2
+  S454 -> S6 + S402 , koff_SH2
+  S454 -> S84 + S399 , koff_SH2
+  S455 -> S131 + S320 , koff_SH2
+  S455 -> S2 + S400 , koff_SH2
+  S455 -> S84 + S396 , koff_SH2
+  S456 -> S131 + S324 , koff_SH2
+  S456 -> S6 + S400 , koff_SH2
+  S456 -> S84 + S398 , koff_SH2
+  S457 -> S131 + S329 , koff_SH2
+  S457 -> S84 + S422 , koff_SH2
+  S458 -> S131 + S329 , koff_SH2
+  S458 -> S84 + S423 , koff_SH2
+  S459 -> S131 + S366 , koff_SH2
+  S459 -> S65 + S400 , koff_SH2
+  S459 -> S84 + S410 , koff_SH2
+  S459 -> S39 + S456 , koff_SH2
+  S460 -> S131 + S368 , koff_SH2
+  S460 -> S65 + S402 , koff_SH2
+  S460 -> S84 + S413 , koff_SH2
+  S460 -> S39 + S454 , koff_SH2
+  S389 -> S239 , koff_SH2
+  S389 -> S257 , koff_SH2
+  S418 -> S324 , koff_SH2
+  S418 -> S321 , koff_SH2
+  S419 -> S322 , koff_SH2
+  S419 -> S323 , koff_SH2
+  S2 + S380 -> S381 , kon_dimer
+  S2 + S384 -> S385 , kon_dimer
+  S64 + S380 -> S383 , kon_dimer
+  S64 + S384 -> S387 , kon_dimer
+  S130 + S380 -> S388 , kon_dimer
+  S130 + S384 -> S388 , kon_dimer
+  S380 -> S130 + S251 , koff_dimer
+  S381 -> S2 + S380 , koff_dimer
+  S381 -> S130 + S259 , koff_dimer
+  S382 -> S130 + S291 , koff_dimer
+  S382 -> S130 + S267 , koff_dimer
+  S383 -> S64 + S380 , koff_dimer
+  S383 -> S130 + S275 , koff_dimer
+  S384 -> S130 + S251 , koff_dimer
+  S385 -> S130 + S252 , koff_dimer
+  S385 -> S2 + S384 , koff_dimer
+  S386 -> S130 + S253 , koff_dimer
+  S386 -> S130 + S293 , koff_dimer
+  S387 -> S130 + S254 , koff_dimer
+  S387 -> S64 + S384 , koff_dimer
+  S388 -> S130 + S380 , koff_dimer
+  S388 -> S130 + S384 , koff_dimer
+  S390 -> S130 + S305 , koff_dimer
+  S391 -> S130 + S306 , koff_dimer
+  S394 -> S2 + S392 , koff_dimer
+  S395 -> S2 + S393 , koff_dimer
+  S396 -> S2 + S392 , koff_dimer
+  S397 -> S2 + S393 , koff_dimer
+  S398 -> S2 + S394 , koff_dimer
+  S398 -> S2 + S396 , koff_dimer
+  S399 -> S2 + S395 , koff_dimer
+  S399 -> S2 + S397 , koff_dimer
+  S400 -> S130 + S317 , koff_dimer
+  S401 -> S130 + S318 , koff_dimer
+  S402 -> S130 + S319 , koff_dimer
+  S403 -> S130 + S320 , koff_dimer
+  S404 -> S64 + S392 , koff_dimer
+  S405 -> S64 + S393 , koff_dimer
+  S406 -> S130 + S345 , koff_dimer
+  S407 -> S64 + S393 , koff_dimer
+  S408 -> S64 + S392 , koff_dimer
+  S409 -> S130 + S345 , koff_dimer
+  S410 -> S2 + S404 , koff_dimer
+  S410 -> S64 + S396 , koff_dimer
+  S411 -> S2 + S405 , koff_dimer
+  S411 -> S64 + S397 , koff_dimer
+  S412 -> S2 + S406 , koff_dimer
+  S412 -> S130 + S347 , koff_dimer
+  S413 -> S2 + S407 , koff_dimer
+  S413 -> S64 + S395 , koff_dimer
+  S414 -> S2 + S408 , koff_dimer
+  S414 -> S64 + S394 , koff_dimer
+  S415 -> S2 + S409 , koff_dimer
+  S415 -> S130 + S346 , koff_dimer
+  S416 -> S64 + S420 , koff_dimer
+  S417 -> S64 + S421 , koff_dimer
+  S422 -> S2 + S420 , koff_dimer
+  S423 -> S2 + S421 , koff_dimer
+  S424 -> S130 + S330 , koff_dimer
+  S425 -> S130 + S331 , koff_dimer
+  S426 -> S130 + S332 , koff_dimer
+  S427 -> S130 + S325 , koff_dimer
+  S428 -> S130 + S326 , koff_dimer
+  S429 -> 2*S330 , koff_dimer
+  S430 -> S330 + S331 , koff_dimer
+  S431 -> S330 + S332 , koff_dimer
+  S432 -> S64 + S359 , koff_dimer
+  S432 -> S64 + S360 , koff_dimer
+  S433 -> S64 + S406 , koff_dimer
+  S433 -> S130 + S360 , koff_dimer
+  S434 -> S64 + S405 , koff_dimer
+  S434 -> S64 + S407 , koff_dimer
+  S436 -> S2 + S435 , koff_dimer
+  S437 -> S130 + S392 , koff_dimer
+  S438 -> S64 + S435 , koff_dimer
+  S439 -> S2 + S435 , koff_dimer
+  S440 -> S2 + S436 , koff_dimer
+  S440 -> S2 + S439 , koff_dimer
+  S441 -> S2 + S437 , koff_dimer
+  S441 -> S130 + S396 , koff_dimer
+  S442 -> S2 + S438 , koff_dimer
+  S442 -> S64 + S439 , koff_dimer
+  S443 -> S130 + S359 , koff_dimer
+  S443 -> S64 + S409 , koff_dimer
+  S444 -> S130 + S393 , koff_dimer
+  S445 -> S130 + S395 , koff_dimer
+  S445 -> S2 + S444 , koff_dimer
+  S446 -> S130 + S406 , koff_dimer
+  S446 -> S130 + S409 , koff_dimer
+  S447 -> S130 + S405 , koff_dimer
+  S447 -> S64 + S444 , koff_dimer
+  S448 -> S64 + S404 , koff_dimer
+  S448 -> S64 + S408 , koff_dimer
+  S449 -> S64 + S435 , koff_dimer
+  S450 -> S64 + S436 , koff_dimer
+  S450 -> S2 + S449 , koff_dimer
+  S451 -> S64 + S437 , koff_dimer
+  S451 -> S130 + S408 , koff_dimer
+  S452 -> S64 + S438 , koff_dimer
+  S452 -> S64 + S449 , koff_dimer
+  S453 -> S130 + S393 , koff_dimer
+  S454 -> S2 + S453 , koff_dimer
+  S454 -> S130 + S397 , koff_dimer
+  S455 -> S130 + S392 , koff_dimer
+  S456 -> S2 + S455 , koff_dimer
+  S456 -> S130 + S394 , koff_dimer
+  S457 -> S130 + S420 , koff_dimer
+  S458 -> S130 + S421 , koff_dimer
+  S459 -> S64 + S455 , koff_dimer
+  S459 -> S130 + S404 , koff_dimer
+  S460 -> S64 + S453 , koff_dimer
+  S460 -> S130 + S407 , koff_dimer
+  S389 -> S251 , koff_dimer
+  S418 -> S392 , koff_dimer
+  S419 -> S393 , koff_dimer
+  S380 -> S130 + S286 , koff_j
+  S380 -> S154 + S284 , koff_j
+  S381 -> S131 + S286 , koff_j
+  S381 -> S160 + S284 , koff_j
+  S382 -> S132 + S286 , koff_j
+  S382 -> S146 + S284 , koff_j
+  S383 -> S132 + S286 , koff_j
+  S383 -> S173 + S284 , koff_j
+  S384 -> S155 + S284 , koff_j
+  S384 -> S130 + S285 , koff_j
+  S385 -> S161 + S284 , koff_j
+  S385 -> S131 + S285 , koff_j
+  S386 -> S147 + S284 , koff_j
+  S386 -> S132 + S285 , koff_j
+  S387 -> S174 + S284 , koff_j
+  S387 -> S132 + S285 , koff_j
+  S388 -> S284 + S286 , koff_j
+  S388 -> S284 + S285 , koff_j
+  S390 -> S19 + S284 , koff_j
+  S391 -> S19 + S284 , koff_j
+  S392 -> S130 + S200 , koff_j
+  S392 -> S64 + S305 , koff_j
+  S393 -> S64 + S306 , koff_j
+  S393 -> S130 + S199 , koff_j
+  S394 -> S130 + S202 , koff_j
+  S394 -> S65 + S305 , koff_j
+  S395 -> S64 + S308 , koff_j
+  S395 -> S131 + S199 , koff_j
+  S396 -> S131 + S200 , koff_j
+  S396 -> S64 + S307 , koff_j
+  S397 -> S65 + S306 , koff_j
+  S397 -> S130 + S201 , koff_j
+  S398 -> S131 + S202 , koff_j
+  S398 -> S65 + S307 , koff_j
+  S399 -> S65 + S308 , koff_j
+  S399 -> S131 + S201 , koff_j
+  S400 -> S90 + S284 , koff_j
+  S400 -> S39 + S390 , koff_j
+  S401 -> S132 + S198 , koff_j
+  S401 -> S84 + S351 , koff_j
+  S402 -> S39 + S391 , koff_j
+  S402 -> S89 + S284 , koff_j
+  S403 -> S84 + S352 , koff_j
+  S403 -> S132 + S197 , koff_j
+  S404 -> S130 + S310 , koff_j
+  S404 -> S129 + S305 , koff_j
+  S405 -> S64 + S364 , koff_j
+  S405 -> S132 + S199 , koff_j
+  S406 -> S64 + S352 , koff_j
+  S406 -> S132 + S199 , koff_j
+  S407 -> S129 + S306 , koff_j
+  S407 -> S130 + S309 , koff_j
+  S408 -> S132 + S200 , koff_j
+  S408 -> S64 + S363 , koff_j
+  S409 -> S132 + S200 , koff_j
+  S409 -> S64 + S351 , koff_j
+  S410 -> S131 + S310 , koff_j
+  S410 -> S129 + S307 , koff_j
+  S411 -> S65 + S364 , koff_j
+  S411 -> S132 + S201 , koff_j
+  S412 -> S65 + S352 , koff_j
+  S412 -> S132 + S201 , koff_j
+  S413 -> S129 + S308 , koff_j
+  S413 -> S131 + S309 , koff_j
+  S414 -> S132 + S202 , koff_j
+  S414 -> S65 + S363 , koff_j
+  S415 -> S132 + S202 , koff_j
+  S415 -> S65 + S351 , koff_j
+  S416 -> S132 + S198 , koff_j
+  S416 -> S84 + S363 , koff_j
+  S417 -> S84 + S364 , koff_j
+  S417 -> S132 + S197 , koff_j
+  S420 -> S130 + S198 , koff_j
+  S420 -> S84 + S305 , koff_j
+  S421 -> S84 + S306 , koff_j
+  S421 -> S130 + S197 , koff_j
+  S422 -> S131 + S198 , koff_j
+  S422 -> S84 + S307 , koff_j
+  S423 -> S84 + S308 , koff_j
+  S423 -> S131 + S197 , koff_j
+  S424 -> S8 + S284 , koff_j
+  S425 -> S12 + S284 , koff_j
+  S426 -> S25 + S284 , koff_j
+  S427 -> S88 + S284 , koff_j
+  S427 -> S42 + S390 , koff_j
+  S428 -> S42 + S391 , koff_j
+  S428 -> S87 + S284 , koff_j
+  S429 -> S8 + S424 , 2*koff_j
+  S430 -> S12 + S424 , koff_j
+  S430 -> S8 + S425 , koff_j
+  S431 -> S25 + S424 , koff_j
+  S431 -> S8 + S426 , koff_j
+  S432 -> S129 + S310 , koff_j
+  S432 -> S129 + S309 , koff_j
+  S433 -> S129 + S352 , koff_j
+  S433 -> S132 + S309 , koff_j
+  S434 -> S129 + S364 , koff_j
+  S434 -> S132 + S309 , koff_j
+  S435 -> S130 + S306 , koff_j
+  S435 -> S130 + S305 , koff_j
+  S436 -> S130 + S308 , koff_j
+  S436 -> S131 + S305 , koff_j
+  S437 -> S130 + S352 , koff_j
+  S437 -> S132 + S305 , koff_j
+  S438 -> S130 + S364 , koff_j
+  S438 -> S132 + S305 , koff_j
+  S439 -> S131 + S306 , koff_j
+  S439 -> S130 + S307 , koff_j
+  S440 -> S131 + S308 , koff_j
+  S440 -> S131 + S307 , koff_j
+  S441 -> S131 + S352 , koff_j
+  S441 -> S132 + S307 , koff_j
+  S442 -> S131 + S364 , koff_j
+  S442 -> S132 + S307 , koff_j
+  S443 -> S132 + S310 , koff_j
+  S443 -> S129 + S351 , koff_j
+  S444 -> S132 + S306 , koff_j
+  S444 -> S130 + S351 , koff_j
+  S445 -> S132 + S308 , koff_j
+  S445 -> S131 + S351 , koff_j
+  S446 -> S132 + S352 , koff_j
+  S446 -> S132 + S351 , koff_j
+  S447 -> S132 + S364 , koff_j
+  S447 -> S132 + S351 , koff_j
+  S448 -> S132 + S310 , koff_j
+  S448 -> S129 + S363 , koff_j
+  S449 -> S132 + S306 , koff_j
+  S449 -> S130 + S363 , koff_j
+  S450 -> S132 + S308 , koff_j
+  S450 -> S131 + S363 , koff_j
+  S451 -> S132 + S352 , koff_j
+  S451 -> S132 + S363 , koff_j
+  S452 -> S132 + S364 , koff_j
+  S452 -> S132 + S363 , koff_j
+  S453 -> S64 + S391 , koff_j
+  S453 -> S199 + S284 , koff_j
+  S454 -> S65 + S391 , koff_j
+  S454 -> S201 + S284 , koff_j
+  S455 -> S200 + S284 , koff_j
+  S455 -> S64 + S390 , koff_j
+  S456 -> S202 + S284 , koff_j
+  S456 -> S65 + S390 , koff_j
+  S457 -> S198 + S284 , koff_j
+  S457 -> S84 + S390 , koff_j
+  S458 -> S84 + S391 , koff_j
+  S458 -> S197 + S284 , koff_j
+  S459 -> S284 + S310 , koff_j
+  S459 -> S129 + S390 , koff_j
+  S460 -> S129 + S391 , koff_j
+  S460 -> S284 + S309 , koff_j
+  S389 -> S285 , koff_j
+  S389 -> S286 , koff_j
+  S418 -> S352 , koff_j
+  S418 -> S363 , koff_j
+  S419 -> S364 , koff_j
+  S419 -> S351 , koff_j
+  S404 -> S438 , kphos_slow
+  S404 -> S437 , kphos_slow
+  S405 -> S438 , kphos_slow
+  S405 -> S453 , kphos_slow
+  S406 -> S437 , kphos_slow
+  S406 -> S453 , kphos_slow
+  S407 -> S449 , kphos_slow
+  S407 -> S444 , kphos_slow
+  S408 -> S449 , kphos_slow
+  S408 -> S455 , kphos_slow
+  S409 -> S444 , kphos_slow
+  S409 -> S455 , kphos_slow
+  S410 -> S442 , kphos_slow
+  S410 -> S441 , kphos_slow
+  S411 -> S442 , kphos_slow
+  S411 -> S454 , kphos_slow
+  S412 -> S441 , kphos_slow
+  S412 -> S454 , kphos_slow
+  S413 -> S450 , kphos_slow
+  S413 -> S445 , kphos_slow
+  S414 -> S450 , kphos_slow
+  S414 -> S456 , kphos_slow
+  S415 -> S445 , kphos_slow
+  S415 -> S456 , kphos_slow
+  S432 -> S448 , kphos_slow
+  S432 -> S434 , kphos_slow
+  S432 -> S443 , kphos_slow
+  S432 -> S433 , kphos_slow
+  S433 -> S451 , kphos_slow
+  S433 -> S460 , kphos_slow
+  S433 -> S446 , kphos_slow
+  S434 -> S452 , kphos_slow
+  S434 -> S447 , kphos_slow
+  S434 -> S460 , kphos_slow
+  S443 -> S459 , kphos_slow
+  S443 -> S447 , kphos_slow
+  S443 -> S446 , kphos_slow
+  S446 -> S461 , kphos_slow
+  S446 -> S462 , kphos_slow
+  S447 -> S463 , kphos_slow
+  S447 -> S462 , kphos_slow
+  S448 -> S452 , kphos_slow
+  S448 -> S459 , kphos_slow
+  S448 -> S451 , kphos_slow
+  S451 -> S464 , kphos_slow
+  S451 -> S461 , kphos_slow
+  S452 -> S463 , kphos_slow
+  S452 -> S464 , kphos_slow
+  S459 -> S463 , kphos_slow
+  S459 -> S461 , kphos_slow
+  S460 -> S464 , kphos_slow
+  S460 -> S462 , kphos_slow
+  S382 -> S388 , kphos_fast
+  S383 -> S388 , kphos_fast
+  S386 -> S388 , kphos_fast
+  S387 -> S388 , kphos_fast
+  S392 -> S435 , kphos_fast
+  S393 -> S435 , kphos_fast
+  S394 -> S436 , kphos_fast
+  S395 -> S436 , kphos_fast
+  S396 -> S439 , kphos_fast
+  S397 -> S439 , kphos_fast
+  S398 -> S440 , kphos_fast
+  S399 -> S440 , kphos_fast
+  S400 -> S457 , kphos_fast
+  S401 -> S457 , kphos_fast
+  S402 -> S458 , kphos_fast
+  S403 -> S458 , kphos_fast
+  S404 -> S438 , kphos_fast
+  S404 -> S437 , kphos_fast
+  S405 -> S438 , kphos_fast
+  S405 -> S453 , kphos_fast
+  S406 -> S437 , kphos_fast
+  S406 -> S453 , kphos_fast
+  S407 -> S449 , kphos_fast
+  S407 -> S444 , kphos_fast
+  S408 -> S449 , kphos_fast
+  S408 -> S455 , kphos_fast
+  S409 -> S444 , kphos_fast
+  S409 -> S455 , kphos_fast
+  S410 -> S442 , kphos_fast
+  S410 -> S441 , kphos_fast
+  S411 -> S442 , kphos_fast
+  S411 -> S454 , kphos_fast
+  S412 -> S441 , kphos_fast
+  S412 -> S454 , kphos_fast
+  S413 -> S450 , kphos_fast
+  S413 -> S445 , kphos_fast
+  S414 -> S450 , kphos_fast
+  S414 -> S456 , kphos_fast
+  S415 -> S445 , kphos_fast
+  S415 -> S456 , kphos_fast
+  S416 -> S457 , kphos_fast
+  S417 -> S458 , kphos_fast
+  S418 -> S465 , kphos_fast
+  S419 -> S465 , kphos_fast
+  S433 -> S451 , kphos_fast
+  S433 -> S460 , kphos_fast
+  S433 -> S446 , kphos_fast
+  S434 -> S452 , kphos_fast
+  S434 -> S447 , kphos_fast
+  S434 -> S460 , kphos_fast
+  S437 -> S466 , kphos_fast
+  S438 -> S466 , kphos_fast
+  S441 -> S467 , kphos_fast
+  S442 -> S467 , kphos_fast
+  S443 -> S459 , kphos_fast
+  S443 -> S447 , kphos_fast
+  S443 -> S446 , kphos_fast
+  S444 -> S468 , kphos_fast
+  S445 -> S469 , kphos_fast
+  S446 -> S461 , kphos_fast
+  S446 -> S462 , kphos_fast
+  S447 -> S463 , kphos_fast
+  S447 -> S462 , kphos_fast
+  S448 -> S452 , kphos_fast
+  S448 -> S459 , kphos_fast
+  S448 -> S451 , kphos_fast
+  S449 -> S468 , kphos_fast
+  S450 -> S469 , kphos_fast
+  S451 -> S464 , kphos_fast
+  S451 -> S461 , kphos_fast
+  S452 -> S463 , kphos_fast
+  S452 -> S464 , kphos_fast
+  S453 -> S466 , kphos_fast
+  S454 -> S467 , kphos_fast
+  S455 -> S468 , kphos_fast
+  S456 -> S469 , kphos_fast
+  S459 -> S463 , kphos_fast
+  S459 -> S461 , kphos_fast
+  S460 -> S464 , kphos_fast
+  S460 -> S462 , kphos_fast
+  S400 -> S355 , kcat_ptp
+  S401 -> S358 , kcat_ptp
+  S402 -> S356 , kcat_ptp
+  S403 -> S357 , kcat_ptp
+  S416 -> S369 , kcat_ptp
+  S417 -> S370 , kcat_ptp
+  S420 -> S325 , kcat_ptp
+  S421 -> S326 , kcat_ptp
+  S422 -> S327 , kcat_ptp
+  S423 -> S328 , kcat_ptp
+  S457 -> S427 , kcat_ptp
+  S458 -> S428 , kcat_ptp
+  S380 -> S291 , kcat_ptp
+  S380 -> S253 , kcat_ptp
+  S380 -> S254 , kcat_ptp
+  S381 -> S292 , kcat_ptp
+  S381 -> S261 , kcat_ptp
+  S381 -> S262 , kcat_ptp
+  S382 -> S269 , kcat_ptp
+  S382 -> S298 , kcat_ptp
+  S382 -> S270 , kcat_ptp
+  S383 -> S298 , kcat_ptp
+  S383 -> S277 , kcat_ptp
+  S383 -> S278 , kcat_ptp
+  S384 -> S267 , kcat_ptp
+  S384 -> S293 , kcat_ptp
+  S384 -> S275 , kcat_ptp
+  S385 -> S268 , kcat_ptp
+  S385 -> S294 , kcat_ptp
+  S385 -> S276 , kcat_ptp
+  S386 -> S269 , kcat_ptp
+  S386 -> S277 , kcat_ptp
+  S386 -> S297 , kcat_ptp
+  S387 -> S270 , kcat_ptp
+  S387 -> S297 , kcat_ptp
+  S387 -> S278 , kcat_ptp
+  S388 -> S382 , kcat_ptp
+  S388 -> S386 , kcat_ptp
+  S388 -> S383 , kcat_ptp
+  S388 -> S387 , kcat_ptp
+  S389 -> S282 , kcat_ptp
+  S389 -> S281 , kcat_ptp
+  S390 -> S351 , kcat_ptp
+  S390 -> S363 , kcat_ptp
+  S391 -> S352 , kcat_ptp
+  S391 -> S364 , kcat_ptp
+  S392 -> S345 , kcat_ptp
+  S393 -> S345 , kcat_ptp
+  S394 -> S346 , kcat_ptp
+  S395 -> S346 , kcat_ptp
+  S396 -> S347 , kcat_ptp
+  S397 -> S347 , kcat_ptp
+  S398 -> S348 , kcat_ptp
+  S399 -> S348 , kcat_ptp
+  S400 -> S353 , kcat_ptp
+  S400 -> S365 , kcat_ptp
+  S401 -> S353 , kcat_ptp
+  S401 -> S368 , kcat_ptp
+  S402 -> S354 , kcat_ptp
+  S402 -> S367 , kcat_ptp
+  S403 -> S354 , kcat_ptp
+  S403 -> S366 , kcat_ptp
+  S404 -> S359 , kcat_ptp
+  S405 -> S359 , kcat_ptp
+  S406 -> S359 , kcat_ptp
+  S407 -> S360 , kcat_ptp
+  S408 -> S360 , kcat_ptp
+  S409 -> S360 , kcat_ptp
+  S410 -> S361 , kcat_ptp
+  S411 -> S361 , kcat_ptp
+  S412 -> S361 , kcat_ptp
+  S413 -> S362 , kcat_ptp
+  S414 -> S362 , kcat_ptp
+  S415 -> S362 , kcat_ptp
+  S416 -> S368 , kcat_ptp
+  S416 -> S365 , kcat_ptp
+  S417 -> S366 , kcat_ptp
+  S417 -> S367 , kcat_ptp
+  S418 -> S371 , kcat_ptp
+  S419 -> S371 , kcat_ptp
+  S420 -> S318 , kcat_ptp
+  S420 -> S317 , kcat_ptp
+  S421 -> S320 , kcat_ptp
+  S421 -> S319 , kcat_ptp
+  S422 -> S322 , kcat_ptp
+  S422 -> S321 , kcat_ptp
+  S423 -> S324 , kcat_ptp
+  S423 -> S323 , kcat_ptp
+  S424 -> S337 , kcat_ptp
+  S424 -> S338 , kcat_ptp
+  S425 -> S340 , kcat_ptp
+  S425 -> S341 , kcat_ptp
+  S426 -> S343 , kcat_ptp
+  S426 -> S344 , kcat_ptp
+  S427 -> S358 , kcat_ptp
+  S427 -> S355 , kcat_ptp
+  S427 -> S369 , kcat_ptp
+  S428 -> S357 , kcat_ptp
+  S428 -> S356 , kcat_ptp
+  S428 -> S370 , kcat_ptp
+  S429 -> S373 , 2*kcat_ptp
+  S430 -> S376 , kcat_ptp
+  S430 -> S375 , kcat_ptp
+  S431 -> S379 , kcat_ptp
+  S431 -> S378 , kcat_ptp
+  S433 -> S432 , kcat_ptp
+  S434 -> S432 , kcat_ptp
+  S435 -> S393 , kcat_ptp
+  S435 -> S392 , kcat_ptp
+  S436 -> S395 , kcat_ptp
+  S436 -> S394 , kcat_ptp
+  S437 -> S406 , kcat_ptp
+  S437 -> S404 , kcat_ptp
+  S438 -> S405 , kcat_ptp
+  S438 -> S404 , kcat_ptp
+  S439 -> S397 , kcat_ptp
+  S439 -> S396 , kcat_ptp
+  S440 -> S399 , kcat_ptp
+  S440 -> S398 , kcat_ptp
+  S441 -> S412 , kcat_ptp
+  S441 -> S410 , kcat_ptp
+  S442 -> S411 , kcat_ptp
+  S442 -> S410 , kcat_ptp
+  S443 -> S432 , kcat_ptp
+  S444 -> S409 , kcat_ptp
+  S444 -> S407 , kcat_ptp
+  S445 -> S415 , kcat_ptp
+  S445 -> S413 , kcat_ptp
+  S446 -> S433 , kcat_ptp
+  S446 -> S443 , kcat_ptp
+  S447 -> S443 , kcat_ptp
+  S447 -> S434 , kcat_ptp
+  S448 -> S432 , kcat_ptp
+  S449 -> S407 , kcat_ptp
+  S449 -> S408 , kcat_ptp
+  S450 -> S413 , kcat_ptp
+  S450 -> S414 , kcat_ptp
+  S451 -> S433 , kcat_ptp
+  S451 -> S448 , kcat_ptp
+  S452 -> S434 , kcat_ptp
+  S452 -> S448 , kcat_ptp
+  S453 -> S406 , kcat_ptp
+  S453 -> S405 , kcat_ptp
+  S454 -> S412 , kcat_ptp
+  S454 -> S411 , kcat_ptp
+  S455 -> S409 , kcat_ptp
+  S455 -> S408 , kcat_ptp
+  S456 -> S415 , kcat_ptp
+  S456 -> S414 , kcat_ptp
+  S457 -> S401 , kcat_ptp
+  S457 -> S400 , kcat_ptp
+  S457 -> S416 , kcat_ptp
+  S458 -> S403 , kcat_ptp
+  S458 -> S402 , kcat_ptp
+  S458 -> S417 , kcat_ptp
+  S459 -> S443 , kcat_ptp
+  S459 -> S448 , kcat_ptp
+  S460 -> S433 , kcat_ptp
+  S460 -> S434 , kcat_ptp
+  S380 -> S466 , ke
+  S381 -> S467 , ke
+  S382 -> S462 , ke
+  S383 -> S464 , ke
+  S384 -> S468 , ke
+  S385 -> S469 , ke
+  S386 -> S461 , ke
+  S387 -> S463 , ke
+  S388 -> S470 , ke
+  S389 -> S465 , ke
+  S461 -> S131 + S403 , koff_SH2
+  S461 -> S131 + S400 , koff_SH2
+  S461 -> S84 + S441 , koff_SH2
+  S461 -> S84 + S456 , koff_SH2
+  S462 -> S131 + S401 , koff_SH2
+  S462 -> S131 + S402 , koff_SH2
+  S462 -> S84 + S454 , koff_SH2
+  S462 -> S84 + S445 , koff_SH2
+  S463 -> S65 + S457 , koff_SH2
+  S463 -> S131 + S417 , koff_SH2
+  S463 -> S84 + S442 , koff_SH2
+  S463 -> S39 + S469 , koff_SH2
+  S464 -> S65 + S458 , koff_SH2
+  S464 -> S131 + S416 , koff_SH2
+  S464 -> S84 + S450 , koff_SH2
+  S464 -> S39 + S467 , koff_SH2
+  S466 -> S2 + S458 , koff_SH2
+  S466 -> S131 + S420 , koff_SH2
+  S466 -> S84 + S436 , koff_SH2
+  S467 -> S6 + S458 , koff_SH2
+  S467 -> S131 + S422 , koff_SH2
+  S467 -> S84 + S440 , koff_SH2
+  S468 -> S2 + S457 , koff_SH2
+  S468 -> S131 + S421 , koff_SH2
+  S468 -> S84 + S439 , koff_SH2
+  S469 -> S6 + S457 , koff_SH2
+  S469 -> S131 + S423 , koff_SH2
+  S469 -> S84 + S440 , koff_SH2
+  S470 -> S131 + S458 , koff_SH2
+  S470 -> S131 + S457 , koff_SH2
+  S470 -> S84 + S467 , koff_SH2
+  S470 -> S84 + S469 , koff_SH2
+  S465 -> S423 , koff_SH2
+  S465 -> S422 , koff_SH2
+  S461 -> S130 + S437 , koff_dimer
+  S461 -> S130 + S455 , koff_dimer
+  S462 -> S130 + S453 , koff_dimer
+  S462 -> S130 + S444 , koff_dimer
+  S463 -> S130 + S438 , koff_dimer
+  S463 -> S64 + S468 , koff_dimer
+  S464 -> S64 + S466 , koff_dimer
+  S464 -> S130 + S449 , koff_dimer
+  S466 -> S130 + S435 , koff_dimer
+  S467 -> S2 + S466 , koff_dimer
+  S467 -> S130 + S439 , koff_dimer
+  S468 -> S130 + S435 , koff_dimer
+  S469 -> S130 + S436 , koff_dimer
+  S469 -> S2 + S468 , koff_dimer
+  S470 -> S130 + S466 , koff_dimer
+  S470 -> S130 + S468 , koff_dimer
+  S465 -> S435 , koff_dimer
+  S461 -> S284 + S352 , koff_j
+  S461 -> S132 + S390 , koff_j
+  S462 -> S132 + S391 , koff_j
+  S462 -> S284 + S351 , koff_j
+  S463 -> S284 + S364 , koff_j
+  S463 -> S132 + S390 , koff_j
+  S464 -> S132 + S391 , koff_j
+  S464 -> S284 + S363 , koff_j
+  S466 -> S130 + S391 , koff_j
+  S466 -> S284 + S305 , koff_j
+  S467 -> S131 + S391 , koff_j
+  S467 -> S284 + S307 , koff_j
+  S468 -> S284 + S306 , koff_j
+  S468 -> S130 + S390 , koff_j
+  S469 -> S284 + S308 , koff_j
+  S469 -> S131 + S390 , koff_j
+  S470 -> S284 + S391 , koff_j
+  S470 -> S284 + S390 , koff_j
+  S465 -> S391 , koff_j
+  S465 -> S390 , koff_j
+  S461 -> S470 , kphos_fast
+  S462 -> S470 , kphos_fast
+  S463 -> S470 , kphos_fast
+  S464 -> S470 , kphos_fast
+  S461 -> S446 , kcat_ptp
+  S461 -> S451 , kcat_ptp
+  S461 -> S459 , kcat_ptp
+  S462 -> S446 , kcat_ptp
+  S462 -> S460 , kcat_ptp
+  S462 -> S447 , kcat_ptp
+  S463 -> S459 , kcat_ptp
+  S463 -> S447 , kcat_ptp
+  S463 -> S452 , kcat_ptp
+  S464 -> S460 , kcat_ptp
+  S464 -> S451 , kcat_ptp
+  S464 -> S452 , kcat_ptp
+  S465 -> S419 , kcat_ptp
+  S465 -> S418 , kcat_ptp
+  S466 -> S453 , kcat_ptp
+  S466 -> S437 , kcat_ptp
+  S466 -> S438 , kcat_ptp
+  S467 -> S454 , kcat_ptp
+  S467 -> S441 , kcat_ptp
+  S467 -> S442 , kcat_ptp
+  S468 -> S455 , kcat_ptp
+  S468 -> S444 , kcat_ptp
+  S468 -> S449 , kcat_ptp
+  S469 -> S456 , kcat_ptp
+  S469 -> S445 , kcat_ptp
+  S469 -> S450 , kcat_ptp
+  S470 -> S462 , kcat_ptp
+  S470 -> S461 , kcat_ptp
+  S470 -> S464 , kcat_ptp
+  S470 -> S463 , kcat_ptp
+ end reactions
+
+end model
+
