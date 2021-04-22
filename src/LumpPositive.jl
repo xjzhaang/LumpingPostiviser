@@ -211,7 +211,7 @@ end
 
 function run_Jak()
     get_new_matrix("../examples/Jak-family/CLUE_files/CLUE_matrix.txt", "../examples/Jak-family/Output/")
-    get_new_poly("../examples/Jak-family/CLUE_files/CLUE_matrix.txt", "../examples/Jak-family/CLUE_files/", "../examples/Jak-family/Output/")
+    get_new_poly("../examples/Jak-family/CLUE_files/CLUE_matrix.txt", "../examples/Jak-family/CLUE_files/CLUE_ode.txt", "../examples/Jak-family/Output/")
 end
 
 #To run the script in terminal with commandline >julia intersect.jl arg1
