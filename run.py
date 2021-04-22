@@ -148,27 +148,27 @@ else:
                 for lines in polynomial:
                     print(lines,file = afile)
     
-        os.chdir("src/")
-        os.system("julia LumpPositive.jl " + str(model) + " obs" + str(obs))  
-        print("Computed new matrix and ODE \n")
+            os.chdir("src/")
+            os.system("julia LumpPositive.jl " + str(model) + " obs" + str(obs))  
+            print("Computed new matrix and ODE \n")
 
 
-        os.chdir("../")
-        f = open('examples/' + model + '/obs' + str(obs) +'/Output/macrovariables.txt')
-        lines = f.readlines()
-        f.close()
-        with open('examples/' + model + '/obs' + str(obs) +'/Output/macrovariables.txt', 'w') as afile:
-            for index in range(len(lines)):
-                string = 'y' + str(index) + ' = '
-                line = lines[index].split(" ")[: -1]
-                for l in range(len(line)):
-                    if line[l] == '1':
-                        string += system["variables"][l] + ' + '
-                    elif line[l] != '0':
-                        string += line[l]
-                        string += system["variables"][l] + ' + '
-                string = string[: -3]
-                print(string,file = afile)
-        print("Printed new macrovariables \n")
+            os.chdir("../")
+            f = open('examples/' + model + '/obs' + str(obs) +'/Output/macrovariables.txt')
+            lines = f.readlines()
+            f.close()
+            with open('examples/' + model + '/obs' + str(obs) +'/Output/macrovariables.txt', 'w') as afile:
+                for index in range(len(lines)):
+                    string = 'y' + str(index) + ' = '
+                    line = lines[index].split(" ")[: -1]
+                    for l in range(len(line)):
+                        if line[l] == '1':
+                            string += system["variables"][l] + ' + '
+                        elif line[l] != '0':
+                            string += line[l]
+                            string += system["variables"][l] + ' + '
+                    string = string[: -3]
+                    print(string,file = afile)
+            print("Printed new macrovariables \n")
 
         
