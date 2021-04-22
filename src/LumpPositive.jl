@@ -204,26 +204,25 @@ function run_PP(i)
     get_new_poly("../examples/ProteinPhosphorylation/m$i/CLUE_files/CLUE_matrix.txt", "../examples/ProteinPhosphorylation/m$i/CLUE_files/CLUE_ode.txt", "../examples/ProteinPhosphorylation/m$i/Output/")
 end
 
-function run_fceri()
-    get_new_matrix("../examples/fceri_ji/CLUE_files/CLUE_matrix.txt", "../examples/fceri_ji/Output/")
-    get_new_poly("../examples/fceri_ji/CLUE_files/CLUE_matrix.txt", "../examples/fceri_ji/CLUE_files/CLUE_ode.txt", "../examples/fceri_ji/Output/")
+function run_model(model)
+    get_new_matrix("../examples/$model/CLUE_files/CLUE_matrix.txt", "../examples/$model/Output/")
+    get_new_poly("../examples/$model/CLUE_files/CLUE_matrix.txt", "../examples/$model/CLUE_files/CLUE_ode.txt", "../examples/$model/Output/")
 end
 
-function run_Jak()
-    get_new_matrix("../examples/Jak-family/CLUE_files/CLUE_matrix.txt", "../examples/Jak-family/Output/")
-    get_new_poly("../examples/Jak-family/CLUE_files/CLUE_matrix.txt", "../examples/Jak-family/CLUE_files/CLUE_ode.txt", "../examples/Jak-family/Output/")
+function run_model_multiple(model, obs)
+    get_new_matrix("../examples/$model/$obs/CLUE_files/CLUE_matrix.txt", "../examples/$model/$obs/Output/")
+    get_new_poly("../examples/$model/$obs/CLUE_files/CLUE_matrix.txt", "../examples/$model/$obs/CLUE_files/CLUE_ode.txt", "../examples/$model/$obs/Output/")
 end
+
 
 #To run the script in terminal with commandline >julia intersect.jl arg1
 function main()
-    if ARGS[1] == "fceri_ji"
-        run_fceri()
-    elseif ARGS[1] == "Jak"
-        run_Jak()
-    elseif ARGS[1] == "PP"
+    if ARGS[1] == "PP"
         run_PP(ARGS[2])
-    else
-        println("Wrong parameter")
+    elseif size(ARGS)[1] == 1
+        run_model(ARGS[1])
+    elseif size(ARGS)[1] == 2
+        run_model_multiple(ARGS[1], ARGS[2])
     end
 end
 
