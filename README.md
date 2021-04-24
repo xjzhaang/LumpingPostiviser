@@ -36,7 +36,7 @@ end model
 
 ### The format of \*.obs files
 
-An \*.obs file contains the observables (linear combinations of the variables of the system) one by line.
+An \*.obs file contains the observables (linear combinations of the variables of the system) one per line.
 
 ### How to run
 
