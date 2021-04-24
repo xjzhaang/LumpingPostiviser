@@ -16,4 +16,4 @@
 ```sh 
 python3 run.py ../model.ode ../model.obs
 ``` 
-will output three files in the directory: model_CLUE_result.txt, model_final_macrovariables.txt, model_final_ode.txt
+will output three files: model_CLUE_result.txt, model_final_macrovariables.txt, model_final_ode.txt for one observable.
