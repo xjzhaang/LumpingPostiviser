@@ -177,6 +177,7 @@ end
 function new_poly_printer(new_poly, txt, dir)
     open(dir * "_final_ode.txt", "w") do io
         for row_index in 1:size(new_poly)[1]
+            print(io, "y$(row_index - 1)' = ")
             print(io, new_poly[row_index])
             print(io, "\n")
         end
@@ -200,24 +201,13 @@ function get_new_poly(matrix_txt, poly_txt, dir)
 end
 
 
-function run_model(model)
-    get_new_matrix("../$model" * "_CLUE_result.txt", "../$model")
-    get_new_poly("../$model" * "_CLUE_result.txt", "../$model" * "_CLUE_ode.txt", "../$model")
+function run_model(matrix_file, ode_file, model)
+    get_new_matrix(matrix_file, model)
+    get_new_poly(matrix_file, ode_file, model)
 end
 
-function run_model_multiple(model, obs)
-    get_new_matrix("../$model" * "_" * "$obs/$model" * "_CLUE_result.txt", "../$model" * "_" * "$obs/$model")
-    get_new_poly("../$model" * "_" * "$obs/$model" * "_CLUE_result.txt", "../$model" * "_" * "$obs/$model" * "_CLUE_ode.txt", "../$model" * "_" * "$obs/$model")
-end
-
-
-#To run the script in terminal with commandline >julia intersect.jl arg1
 function main()
-    if size(ARGS)[1] == 1
-        run_model(ARGS[1])
-    elseif size(ARGS)[1] == 2
-        run_model_multiple(ARGS[1], ARGS[2])
-    end
+    run_model(ARGS[1], ARGS[2], ARGS[3])
 end
 
 
