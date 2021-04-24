@@ -1,4 +1,4 @@
-begin model e4
+begin model Mphos4.ode
  begin init
   S0 = 300.0
   S1 = 300.0

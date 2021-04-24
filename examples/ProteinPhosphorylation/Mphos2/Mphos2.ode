@@ -1,4 +1,4 @@
-begin model e2
+begin model MPhos2
  begin init
   S0 = 300.0
   S1 = 300.0

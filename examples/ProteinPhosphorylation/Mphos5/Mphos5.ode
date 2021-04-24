@@ -1,4 +1,4 @@
-begin model e5
+begin model Mphos5
  begin init
   S0 = 300.0
   S1 = 300.0

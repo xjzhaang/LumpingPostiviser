@@ -1,4 +1,4 @@
-begin model e3
+begin model MPhos3
  begin init
   S0 = 300.0
   S1 = 300.0
