@@ -19,8 +19,8 @@ if len(sys.argv) == 4:
     julia_call = sys.argv[3]
 
 # Reading the system
-model = sys.argv[1].split("/")[-1].strip(".ode")
 system = parser.read_system(sys.argv[1])
+model = system['name']
 
 # Reading the observables
 with open(sys.argv[2]) as f:
