@@ -163,7 +163,7 @@ end
 #Utility functions#
 #################################################################################################################################################
 function new_matrix_printer(intersect_matrix, txt, dir)
-    open(dir * "macrovariables.txt", "w") do io
+    open(dir * "_final_macrovariables.txt", "w") do io
         for row_index in 1:size(intersect_matrix)[1]
             for col_index in 1:size(intersect_matrix)[2]
                 print(io, intersect_matrix[row_index, col_index])
@@ -175,7 +175,7 @@ function new_matrix_printer(intersect_matrix, txt, dir)
 end
 
 function new_poly_printer(new_poly, txt, dir)
-    open(dir * "new_ode.txt", "w") do io
+    open(dir * "_final_ode.txt", "w") do io
         for row_index in 1:size(new_poly)[1]
             print(io, new_poly[row_index])
             print(io, "\n")
@@ -199,27 +199,21 @@ function get_new_poly(matrix_txt, poly_txt, dir)
     new_poly_printer(new_poly, poly_txt, dir)
 end
 
-function run_PP(i)
-    get_new_matrix("../examples/ProteinPhosphorylation/m$i/CLUE_files/CLUE_matrix.txt", "../examples/ProteinPhosphorylation/m$i/Output/")
-    get_new_poly("../examples/ProteinPhosphorylation/m$i/CLUE_files/CLUE_matrix.txt", "../examples/ProteinPhosphorylation/m$i/CLUE_files/CLUE_ode.txt", "../examples/ProteinPhosphorylation/m$i/Output/")
-end
 
 function run_model(model)
-    get_new_matrix("../examples/$model/CLUE_files/CLUE_matrix.txt", "../examples/$model/Output/")
-    get_new_poly("../examples/$model/CLUE_files/CLUE_matrix.txt", "../examples/$model/CLUE_files/CLUE_ode.txt", "../examples/$model/Output/")
+    get_new_matrix("../$model" * "_CLUE_result.txt", "../$model")
+    get_new_poly("../$model" * "_CLUE_result.txt", "../$model" * "_CLUE_ode.txt", "../$model")
 end
 
 function run_model_multiple(model, obs)
-    get_new_matrix("../examples/$model/$obs/CLUE_files/CLUE_matrix.txt", "../examples/$model/$obs/Output/")
-    get_new_poly("../examples/$model/$obs/CLUE_files/CLUE_matrix.txt", "../examples/$model/$obs/CLUE_files/CLUE_ode.txt", "../examples/$model/$obs/Output/")
+    get_new_matrix("../$model" * "_" * "$obs/$model" * "_CLUE_result.txt", "../$model" * "_" * "$obs/$model")
+    get_new_poly("../$model" * "_" * "$obs/$model" * "_CLUE_result.txt", "../$model" * "_" * "$obs/$model" * "_CLUE_ode.txt", "../$model" * "_" * "$obs/$model")
 end
 
 
 #To run the script in terminal with commandline >julia intersect.jl arg1
 function main()
-    if ARGS[1] == "PP"
-        run_PP(ARGS[2])
-    elseif size(ARGS)[1] == 1
+    if size(ARGS)[1] == 1
         run_model(ARGS[1])
     elseif size(ARGS)[1] == 2
         run_model_multiple(ARGS[1], ARGS[2])
