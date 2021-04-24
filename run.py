@@ -11,28 +11,12 @@ import parser
 import clue
 from sparse_polynomial import SparsePolynomial
 
-
-model = sys.argv[1].strip(".ode")
-if os.path.exists('examples/' + model + '/' + sys.argv[1]):
-    system = parser.read_system('examples/' + model + '/' + sys.argv[1])
-elif os.path.exists('examples/' + sys.argv[1]):
-    system = parser.read_system('examples/' + sys.argv[1])
-    os.makedirs('examples/' + model + '/')
-    os.rename('examples/' + sys.argv[1], 'examples/' + model + '/' + sys.argv[1])
-
-
-if os.path.exists('examples/' + model + '/' + sys.argv[2]):
-    f = open('examples/' + model + '/' + sys.argv[2])
-    lines = f.readlines()
-    obs_sets = [eval(line) for line in lines]
-    f.close()
-
-elif os.path.exists('examples/' + sys.argv[2]):
-    f = open('examples/' + sys.argv[2])
-    lines = f.readlines()
-    obs_sets = [eval(line) for line in lines]
-    f.close()
-    os.rename('examples/' + sys.argv[2], 'examples/' + model + '/' + sys.argv[2])
+model = sys.argv[1].split("/")[-1].strip(".ode")
+system = parser.read_system(sys.argv[1])
+f = open(sys.argv[2])
+lines = f.readlines()
+obs_sets = [eval(line) for line in lines]
+f.close()
 
 
 if len(obs_sets) == 1:
