@@ -7,7 +7,9 @@
 *.obs file is a file containing lists of observables with one observable per line. For example a file:
 
    ["S0"]
+   
    ["S0 + S1"]
+   
    ["S0", "S1"]
    
 **Input**:
